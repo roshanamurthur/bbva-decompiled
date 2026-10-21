@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-videoselfie-mx/bbva-feature-videoselfie-mx.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-app-info-and-structure/bbva-analyticmanager-videoselfie.js";import"../../../node_modules/@glomo-web-components/bbva-manager-widgets-error-handler/bbva-manager-widgets-error-interceptor.js";

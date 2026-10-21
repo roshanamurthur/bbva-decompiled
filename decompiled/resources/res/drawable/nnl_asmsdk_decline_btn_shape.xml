@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <stroke
+        android:width="3dp"
+        android:color="?attr/nnl_button_color"/>
+    <solid android:color="@color/nnl_button_decline_bg"/>
+    <corners android:radius="7dp"/>
+</shape>

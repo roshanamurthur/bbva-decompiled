@@ -1,0 +1,13 @@
+package com.google.android.gms.auth.api.accounttransfer;
+
+import androidx.annotation.NonNull;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.Status;
+
+/* JADX INFO: compiled from: com.google.android.gms:play-services-auth-base@@18.0.10 */
+/* JADX INFO: loaded from: classes9.dex */
+public class AccountTransferException extends ApiException {
+    public AccountTransferException(@NonNull Status status) {
+        super(status);
+    }
+}

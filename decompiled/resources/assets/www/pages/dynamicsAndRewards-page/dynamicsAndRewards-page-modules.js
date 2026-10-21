@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/rewards-member-get-member/rewards-member-get-member.js";import"../../../node_modules/@glomo-web-components/bbva-controller-member-get-member/bbva-controller-member-get-member.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-user-onboarding/bbva-analyticmanager-dynamics-and-rewards.js";

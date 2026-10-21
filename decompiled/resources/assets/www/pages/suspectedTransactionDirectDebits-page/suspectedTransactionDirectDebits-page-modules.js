@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-suspected-transactions-management-mx/bbva-feature-suspected-transactions-management-mx.js";import"../../../node_modules/@glomo-web-components/bbva-manager-widgets-error-handler/bbva-manager-widgets-error-interceptor.js";

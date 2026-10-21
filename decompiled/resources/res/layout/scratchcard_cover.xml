@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@color/scratchcard_cover_color"
+        android:padding="@dimen/scratchcard_margin"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/scratchcard_cover_size">
+        <ImageView
+            android:id="@+id/screenImage"
+            android:layout_width="@dimen/scratchcard_image_size"
+            android:layout_height="@dimen/scratchcard_image_size"
+            android:layout_marginTop="@dimen/scratchcard_screen_image_margin_top"
+            android:contentDescription=""
+            app:srcCompat="@color/scratchcard_cover_color"/>
+        <TextView
+            android:textSize="@dimen/scratchcard_title_screen_label_text_size"
+            android:textColor="@color/scratchcard_title_screen_label_color"
+            android:id="@+id/titleScreenLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/scratchcard_title_screen_label_margin_top"
+            android:fontFamily="@font/benton_sans_bbva_book"/>
+    </LinearLayout>
+</merge>

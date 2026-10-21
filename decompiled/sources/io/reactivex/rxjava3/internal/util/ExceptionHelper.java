@@ -1,0 +1,97 @@
+package io.reactivex.rxjava3.internal.util;
+
+import androidx.camera.camera2.internal.compat.u;
+import io.reactivex.rxjava3.exceptions.CompositeException;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+
+/* JADX INFO: loaded from: classes12.dex */
+public final class ExceptionHelper {
+    public static final Throwable TERMINATED = new a("No further exceptions");
+
+    public ExceptionHelper() {
+        throw new IllegalStateException("No instances!");
+    }
+
+    public static boolean addThrowable(AtomicReference<Throwable> atomicReference, Throwable th2) {
+        while (true) {
+            Throwable th3 = atomicReference.get();
+            if (th3 == TERMINATED) {
+                return false;
+            }
+            Throwable compositeException = th3 == null ? th2 : new CompositeException(th3, th2);
+            while (!atomicReference.compareAndSet(th3, compositeException)) {
+                if (atomicReference.get() != th3) {
+                }
+            }
+            return true;
+        }
+    }
+
+    public static NullPointerException createNullPointerException(String str) {
+        return new NullPointerException(nullWarning(str));
+    }
+
+    public static List<Throwable> flatten(Throwable th2) {
+        ArrayList arrayList = new ArrayList();
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.offer(th2);
+        while (!arrayDeque.isEmpty()) {
+            Throwable th3 = (Throwable) arrayDeque.removeFirst();
+            if (th3 instanceof CompositeException) {
+                List<Throwable> exceptions = ((CompositeException) th3).getExceptions();
+                for (int size = exceptions.size() - 1; size >= 0; size--) {
+                    arrayDeque.offerFirst(exceptions.get(size));
+                }
+            } else {
+                arrayList.add(th3);
+            }
+        }
+        return arrayList;
+    }
+
+    public static <T> T nullCheck(T t10, String str) {
+        if (t10 != null) {
+            return t10;
+        }
+        throw createNullPointerException(str);
+    }
+
+    public static String nullWarning(String str) {
+        return u.f(str, " Null values are generally not allowed in 3.x operators and sources.");
+    }
+
+    public static Throwable terminate(AtomicReference<Throwable> atomicReference) {
+        Throwable th2 = atomicReference.get();
+        Throwable th3 = TERMINATED;
+        return th2 != th3 ? atomicReference.getAndSet(th3) : th2;
+    }
+
+    public static <E extends Throwable> Exception throwIfThrowable(Throwable th2) throws Throwable {
+        if (th2 instanceof Exception) {
+            return (Exception) th2;
+        }
+        throw th2;
+    }
+
+    public static String timeoutMessage(long j10, TimeUnit timeUnit) {
+        return "The source did not signal an event for " + j10 + " " + timeUnit.toString().toLowerCase() + " and has been terminated.";
+    }
+
+    public static RuntimeException wrapOrThrow(Throwable th2) {
+        if (th2 instanceof Error) {
+            throw ((Error) th2);
+        }
+        return th2 instanceof RuntimeException ? (RuntimeException) th2 : new RuntimeException(th2);
+    }
+
+    public static final class a extends Throwable {
+        @Override // java.lang.Throwable
+        public final Throwable fillInStackTrace() {
+            return this;
+        }
+    }
+}

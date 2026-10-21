@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="48dp"
+    android:width="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path
+        android:fillColor="@color/BBVA_MEDIUM_AQUA"
+        android:pathData="M24,0C10.7,0 0,10.7 0,24c0,6.6 2.7,12.6 7,17L41,7C36.6,2.7 30.6,0 24,0z"/>
+    <path
+        android:fillColor="@color/BBVA_MEDIUM_AQUA"
+        android:pathData="M7,41c4.3,4.3 10.3,7 17,7c13.3,0 24,-10.7 24,-24c0,-6.6 -2.7,-12.6 -7,-17L7,41z"/>
+    <path
+        android:fillColor="@color/BBVA_MEDIUM_AQUA"
+        android:pathData="M7,41c4.3,4.3 10.3,7 17,7c13.3,0 24,-10.7 24,-24c0,-6.6 -2.7,-12.6 -7,-17L7,41z"
+        android:strokeAlpha="0.3"
+        android:fillAlpha="0.3"/>
+    <path
+        android:fillColor="@color/BBVA_WHITE"
+        android:pathData="M28,13c0.6,0 1,0.4 1,1v3h5c0.6,0 1,0.4 1,1v14c0,0.6 -0.4,1 -1,1L14,33c-0.6,0 -1,-0.4 -1,-1L13,18c0,-0.6 0.4,-1 1,-1h5L19,14c0,-0.6 0.4,-1 1,-1L28,13zM24,20L16,20v2h6L24,20zM27,15L21,15v2h6L27,15z"
+        android:fillType="evenOdd"/>
+</vector>

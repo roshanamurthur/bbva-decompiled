@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.SplashScreen.DayNight" parent="@style/Base.Theme.SplashScreen">
+    </style>
+    <style name="GloMo.HalfModal" parent="@style/HalfModalParent">
+        <item name="android:windowBackground">@color/neutral_blue_100_t90</item>
+    </style>
+    <style name="GloMo.HalfModal.Container" parent="@style/HalfModal.Container.Style">
+        <item name="android:background">@color/neutral_blue_60</item>
+    </style>
+    <style name="GloMo.HalfModal.Message" parent="@style/HalfModal.Message.Style">
+        <item name="android:textColor">@color/neutral_blue_20</item>
+    </style>
+    <style name="GloMo.HalfModal.Title" parent="@style/HalfModal.Title.Style">
+        <item name="android:textColor">@color/BBVA_WHITE</item>
+    </style>
+    <style name="Glomo.FullModal" parent="@style/Glomo.FullModalParent">
+        <item name="android:windowBackground">@color/neutral_blue_70</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@color/neutral_blue_70</item>
+        <item name="cellsButtonLinkStyle">@style/GloMo.Widget.Link.MediumBlueDark.NoMarginBottom</item>
+        <item name="cellsButtonPrimaryStyle">@style/GloMo.Widget.Button.MediumBlue</item>
+    </style>
+    <style name="Glomo.FullModal.Infobox" parent="@style/Glomo.FullModal">
+        <item name="android:background">@color/neutral_blue_60</item>
+    </style>
+    <style name="Glomo.FullModal.Infobox.ActionText" parent="@style/GloMo.Widget.Link.MediumBlue">
+        <item name="android:textColor">@color/catalog_selector_blue_link_dark</item>
+    </style>
+    <style name="Glomo.FullModal.Infobox.Icon" parent="@style/Glomo.FullModal.Infobox">
+        <item name="android:tint">@color/sky_10</item>
+    </style>
+    <style name="Glomo.FullModal.ItemListText" parent="@style/Glomo.FullModal">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_book</item>
+    </style>
+    <style name="Glomo.FullModal.Message" parent="@style/Glomo.FullModal">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/neutral_blue_20</item>
+        <item name="android:gravity">0x11</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_book</item>
+    </style>
+    <style name="Glomo.FullModal.Title" parent="@style/Glomo.FullModal">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">0x1</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_medium</item>
+    </style>
+    <style name="Glomo.HalfModal.NegativeButton" parent="@style/HalfModal.NegativeButton.Style">
+        <item name="android:textColor">@color/catalog_selector_blue_link_dark</item>
+    </style>
+    <style name="ListOption.Delimiter" parent="@style/ListOption">
+        <item name="android:background">@color/neutral_blue_40</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+    <style name="ListOption.Footer" parent="@style/ListOption.FooterBase">
+        <item name="android:textColor">@color/catalog_selector_blue_link_dark</item>
+        <item name="android:background">@color/neutral_blue_60</item>
+    </style>
+    <style name="ListOption.Item.Current.Italic" parent="@style/ListOption.Item.Current.ItalicBase">
+        <item name="android:textColor">@color/catalog_selector_blue_link_dark</item>
+    </style>
+    <style name="ListOption.Item.Current.Selected" parent="@style/ListOption.Item.Current">
+        <item name="android:background">@color/neutral_blue_80</item>
+        <item name="android:padding">16dp</item>
+    </style>
+    <style name="ListOption.Item.Selected" parent="@style/ListOption.Item">
+        <item name="android:background">@color/neutral_blue_80</item>
+        <item name="android:padding">16dp</item>
+    </style>
+    <style name="ListOption.Item.Subtitle" parent="@style/ListOption.Item.SubtitleBase">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="ListOption.Item.Title.Selected" parent="@style/ListOption.Item.Title">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="ListOption.Item.Title.Unselected" parent="@style/ListOption.Item.Title">
+        <item name="android:textColor">@color/catalog_selector_blue_link_dark</item>
+    </style>
+    <style name="ListOption.Item.Unselected" parent="@style/ListOption.Item">
+        <item name="android:background">@color/neutral_blue_60</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+    <style name="ListOption.Title" parent="@style/ListOption.TitleBase">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/neutral_blue_80</item>
+    </style>
+    <style name="LoginStyle.DayNight" parent="@style/LoginStyle.Dark">
+    </style>
+    <style name="MessageCardStyle.DayNight" parent="@style/MessageCardStyle.Dark">
+    </style>
+    <style name="MessageCard_LinkButton.DayNight" parent="@style/MessageCard_LinkButton.Dark">
+    </style>
+    <style name="MessageCard_PositiveButton.DayNight" parent="@style/MessageCard_PositiveButton.Dark">
+    </style>
+    <style name="MessageCard_SecondaryButton.DayNight" parent="@style/MessageCard_SecondaryButton.Dark">
+    </style>
+    <style name="MessageCard_Skeleton.DayNight" parent="@style/MessageCard_Skeleton.Dark">
+    </style>
+    <style name="Modal.Error" parent="@style/Theme.BBVA.Primary.Alternative">
+        <item name="android:windowBackground">?attr/surface.ambient.default</item>
+        <item name="android:statusBarColor">@color/neutral_blue_70</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="toolbarStyle">@style/Modal.Error.Toolbar</item>
+    </style>
+    <style name="Modal.Error.Description" parent="@style/Modal.Error">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">?attr/text.01.default</item>
+        <item name="android:gravity">0x800003</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_book</item>
+    </style>
+    <style name="Modal.Error.Option.Description" parent="@style/Modal.Error.Option">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">?attr/text.01.default</item>
+        <item name="android:gravity">0x800003</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_book</item>
+    </style>
+    <style name="Modal.Error.Option.Title" parent="@style/Modal.Error.Option">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">?attr/link.main.default</item>
+        <item name="android:gravity">0x800003</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_medium</item>
+    </style>
+    <style name="Modal.Error.Title" parent="@style/Modal.Error">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">0x1</item>
+        <item name="android:textColor">?attr/text.01.default</item>
+        <item name="android:gravity">0x800003</item>
+        <item name="android:lineSpacingExtra">32dp</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_bold</item>
+        <item name="fontWeight">700</item>
+    </style>
+    <style name="Modal.Error.Toolbar" parent="@style/Widget.AppCompat.Toolbar">
+        <item name="android:background">?attr/surface.ambient.default</item>
+        <item name="titleTextAppearance">@style/Modal.Error.Toolbar.Title</item>
+    </style>
+    <style name="Modal.Error.Toolbar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">0x1</item>
+        <item name="android:textColor">?attr/text.01.default</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_bold</item>
+    </style>
+    <style name="TapAndPayTheme" parent="">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/tapandpay_sdk_default_color_background</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="backgroundColor">@color/tapandpay_sdk_default_color_background</item>
+        <item name="colorPrimaryVariantGoogle">@color/tapandpay_sdk_default_color_primary_variant</item>
+        <item name="colorSecondary">@color/tapandpay_sdk_default_color_secondary</item>
+    </style>
+    <style name="Theme.AppCompat.DayNight" parent="@style/Theme.AppCompat">
+    </style>
+    <style name="Theme.AppCompat.DayNight.DarkActionBar" parent="@style/Theme.AppCompat">
+    </style>
+    <style name="Theme.AppCompat.DayNight.Dialog" parent="@style/Theme.AppCompat.Dialog">
+    </style>
+    <style name="Theme.AppCompat.DayNight.Dialog.Alert" parent="@style/Theme.AppCompat.Dialog.Alert">
+    </style>
+    <style name="Theme.AppCompat.DayNight.Dialog.MinWidth" parent="@style/Theme.AppCompat.Dialog.MinWidth">
+    </style>
+    <style name="Theme.AppCompat.DayNight.DialogWhenLarge" parent="@style/Theme.AppCompat.DialogWhenLarge">
+    </style>
+    <style name="Theme.AppCompat.DayNight.NoActionBar" parent="@style/Theme.AppCompat.NoActionBar">
+    </style>
+    <style name="Theme.BBVA" parent="@style/Base.Theme.BBVA.DarkBackground">
+        <item name="android:colorBackground">@color/neutral_blue_100</item>
+        <item name="android:windowBackground">@color/neutral_blue_100</item>
+        <item name="android:statusBarColor">@color/black</item>
+        <item name="badge.error.background">@color/red_10</item>
+        <item name="badge.error.text">@color/red_70</item>
+        <item name="badge.info.background">@color/sky_10</item>
+        <item name="badge.info.text">@color/core_blue_60</item>
+        <item name="badge.off.background">@color/neutral_grey_10</item>
+        <item name="badge.off.text">@color/neutral_grey_70</item>
+        <item name="badge.success.background">@color/green_10</item>
+        <item name="badge.success.text">@color/green_70</item>
+        <item name="badge.sustainability.background">@color/aqua_10</item>
+        <item name="badge.sustainability.text">@color/aqua_70</item>
+        <item name="badge.warning.background">@color/yellow_10</item>
+        <item name="badge.warning.text">@color/yellow_70</item>
+        <item name="categories.cash_financial_services">@color/aqua_40</item>
+        <item name="categories.cash_transfers_checks">@color/aqua_40</item>
+        <item name="categories.collection_invoices_remittances">@color/green_20</item>
+        <item name="categories.combined_promotions">@color/purple_20</item>
+        <item name="categories.education">@color/red_40</item>
+        <item name="categories.expected_expenses">@color/sky_40</item>
+        <item name="categories.expected_income">@color/sand_10</item>
+        <item name="categories.financing">@color/orange_40</item>
+        <item name="categories.financing_skip_payments">@color/sand_40</item>
+        <item name="categories.health_beauty">@color/red_60</item>
+        <item name="categories.home">@color/orange_20</item>
+        <item name="categories.investment">@color/purple_60</item>
+        <item name="categories.leisure">@color/yellow_40</item>
+        <item name="categories.ngo_associations">@color/purple_20</item>
+        <item name="categories.offer_discount_refound">@color/pink_20</item>
+        <item name="categories.other_incomes">@color/sand_40</item>
+        <item name="categories.others">@color/neutral_grey_10</item>
+        <item name="categories.points">@color/aqua_40</item>
+        <item name="categories.public_administration">@color/red_20</item>
+        <item name="categories.salaries_rents_subsidies">@color/pink_20</item>
+        <item name="categories.saving">@color/pink_40</item>
+        <item name="categories.shopping">@color/purple_40</item>
+        <item name="categories.sustainability">@color/aqua_20</item>
+        <item name="categories.transportation">@color/sand_40</item>
+        <item name="categories.travel">@color/pink_60</item>
+        <item name="colorControlHighlight">@color/neutral_grey_70_20</item>
+        <item name="colorEmphasis">@color/sky_40</item>
+        <item name="colorEmphasisVariant">@color/white</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorSurface">@color/neutral_blue_70</item>
+        <item name="colorSurfaceComponent">@color/neutral_blue_70</item>
+        <item name="cta.complementary.background.pressed">@color/white</item>
+        <item name="cta.complementary.border.default">@color/white</item>
+        <item name="cta.complementary.text.default">@color/white</item>
+        <item name="cta.complementary.text.pressed">@color/core_blue_40</item>
+        <item name="cta.disabled.background">@color/neutral_blue_60</item>
+        <item name="cta.disabled.text">@color/neutral_blue_50</item>
+        <item name="cta.main.background.default">@color/core_blue_40</item>
+        <item name="cta.main.background.pressed">@color/core_blue_60</item>
+        <item name="cta.main.text.default">@color/white</item>
+        <item name="cta.main.text.preloading">@color/core_blue_60</item>
+        <item name="cta.main.text.pressed">@color/white</item>
+        <item name="cta.multistep.background.default">@color/core_blue_40</item>
+        <item name="cta.multistep.background.pressed">@color/core_blue_60</item>
+        <item name="cta.multistep.text.default">@color/white</item>
+        <item name="cta.multistep.text.pressed">@color/white</item>
+        <item name="cta.negative.background.default">@color/red_70</item>
+        <item name="cta.negative.background.pressed">@color/red_70</item>
+        <item name="cta.negative.text.default">@color/white</item>
+        <item name="cta.negative.text.preloading">@color/red_70</item>
+        <item name="cta.negative.text.pressed">@color/white</item>
+        <item name="cta.positive.background.default">@color/aqua_60</item>
+        <item name="cta.positive.background.pressed">@color/aqua_70</item>
+        <item name="cta.positive.text.default">@color/white</item>
+        <item name="cta.positive.text.pressed">@color/white</item>
+        <item name="data.axis_01">@color/neutral_grey_40</item>
+        <item name="data.axis_02">@color/neutral_grey_10</item>
+        <item name="emergent.main.background.default">@color/core_blue_40</item>
+        <item name="emergent.main.background.pressed">@color/core_blue_60</item>
+        <item name="emergent.main.link.default">@color/white</item>
+        <item name="emergent.main.link.pressed">@color/sky_10</item>
+        <item name="emergent.main.text">@color/white</item>
+        <item name="form.input.add_icon.default">@color/sky_40</item>
+        <item name="form.input.add_icon.error">@color/core_blue_40</item>
+        <item name="form.input.background.default">@color/neutral_blue_70</item>
+        <item name="form.input.background.error">@color/red_10</item>
+        <item name="form.input.border.active">@color/white</item>
+        <item name="form.input.border.error">@color/red_60</item>
+        <item name="form.input.border.inactive">@color/neutral_grey_70</item>
+        <item name="form.input.field_text.default">@color/white</item>
+        <item name="form.input.field_text.error">@color/neutral_grey_100</item>
+        <item name="form.input.hint_text.default">@color/neutral_grey_10</item>
+        <item name="form.input.hint_text.error">@color/neutral_grey_70</item>
+        <item name="form.input.icon.default">@color/sky_40</item>
+        <item name="form.input.icon.error">@color/red_70</item>
+        <item name="form.input.icon.read_only">@color/neutral_grey_10</item>
+        <item name="form.input.placeholder.default">@color/neutral_grey_10</item>
+        <item name="form.input.placeholder.error">@color/red_70</item>
+        <item name="form.selector.background.alternative">@color/neutral_blue_100</item>
+        <item name="form.selector.background.contrast">@color/core_blue_70</item>
+        <item name="form.selector.background.default">@color/neutral_blue_70</item>
+        <item name="form.selector.background.error">@color/red_10</item>
+        <item name="form.selector.border.contrast">@color/white</item>
+        <item name="form.selector.border.default">@color/neutral_grey_10</item>
+        <item name="form.selector.border.error">@color/red_60</item>
+        <item name="form.selector.check.contrast">@color/white</item>
+        <item name="form.selector.check.default">@color/white</item>
+        <item name="form.selector.check.read_only">@color/neutral_grey_70</item>
+        <item name="form.switch.background.contrast">@color/white</item>
+        <item name="form.switch.background.off">@color/neutral_grey_70</item>
+        <item name="form.switch.background.on">@color/core_blue_40</item>
+        <item name="form.switch.handle.contrast">@color/core_blue_40</item>
+        <item name="form.switch.handle.off">@color/white</item>
+        <item name="form.switch.handle.on">@color/white</item>
+        <item name="format.bullet">@color/aqua_40</item>
+        <item name="format.divider">@color/neutral_grey_40</item>
+        <item name="link.complementary.default">@color/white</item>
+        <item name="link.complementary.pressed">@color/sky_10</item>
+        <item name="link.highlight.default">@color/yellow_40</item>
+        <item name="link.highlight.pressed">@color/white</item>
+        <item name="link.image.default">@color/white</item>
+        <item name="link.image.pressed">@color/sky_10</item>
+        <item name="link.inverse.default">@color/sky_40</item>
+        <item name="link.inverse.pressed">@color/blue_40</item>
+        <item name="link.main.default">@color/sky_40</item>
+        <item name="link.main.pressed">@color/blue_40</item>
+        <item name="link.negative.default">@color/red_20</item>
+        <item name="link.negative.pressed">@color/red_40</item>
+        <item name="locations.pins.background.default">@color/white</item>
+        <item name="locations.pins.background.pressed">@color/neutral_grey_10</item>
+        <item name="locations.pins.background.selected">@color/sky_40</item>
+        <item name="locations.pins.background.selected_pressed">@color/blue_40</item>
+        <item name="locations.pins.icon">@color/white</item>
+        <item name="locations.pins.text.default">@color/neutral_grey_100</item>
+        <item name="locations.pins.text.pressed">@color/neutral_grey_70</item>
+        <item name="locations.pins.text.selected">@color/black</item>
+        <item name="locations.pins.text.selected_pressed">@color/neutral_grey_100</item>
+        <item name="locations.user">@color/red_40</item>
+        <item name="loginProgressIndicatorBackground">@color/neutral_blue_90</item>
+        <item name="loginProgressIndicatorOverlap">@color/neutral_blue_80</item>
+        <item name="notification.alert.background">@color/red_20</item>
+        <item name="notification.alert.text">@color/neutral_grey_100</item>
+        <item name="notification.info.background">@color/sky_10</item>
+        <item name="notification.info.text">@color/core_blue_70</item>
+        <item name="process.alert">@color/red_20</item>
+        <item name="process.completed">@color/green_40</item>
+        <item name="process.in_progress">@color/aqua_40</item>
+        <item name="process.pending">@color/neutral_grey_10</item>
+        <item name="process.warning">@color/yellow_40</item>
+        <item name="rating.stars">@color/sky_40</item>
+        <item name="risk.level_five">@color/green_40</item>
+        <item name="risk.level_four">@color/green_20</item>
+        <item name="risk.level_one">@color/red_40</item>
+        <item name="risk.level_three">@color/yellow_40</item>
+        <item name="risk.level_two">@color/orange_40</item>
+        <item name="selection.interaction_01.background.selected">@color/sky_40</item>
+        <item name="selection.interaction_01.background.selected_pressed">@color/blue_40</item>
+        <item name="selection.interaction_01.text.selected">@color/neutral_grey_100</item>
+        <item name="selection.interaction_01.text.selected_pressed">@color/neutral_grey_100</item>
+        <item name="selection.interaction_02.selected">@color/sky_40</item>
+        <item name="selection.interaction_02.selected_pressed">@color/blue_40</item>
+        <item name="support.error.default">@color/red_20</item>
+        <item name="support.info.default">@color/sky_10</item>
+        <item name="support.pending.default">@color/neutral_grey_10</item>
+        <item name="support.success.default">@color/green_40</item>
+        <item name="support.sustainability.default">@color/aqua_40</item>
+        <item name="support.warning.default">@color/yellow_40</item>
+        <item name="surface.alternative.default">@color/neutral_blue_70</item>
+        <item name="surface.alternative.preloading">@color/neutral_blue_40</item>
+        <item name="surface.alternative.pressed">@color/neutral_blue_100</item>
+        <item name="surface.ambient.default">@color/neutral_blue_100</item>
+        <item name="surface.ambient.overlay">@color/neutral_blue_100</item>
+        <item name="surface.ambient.preloading">@color/neutral_blue_40</item>
+        <item name="surface.ambient.pressed">@color/neutral_blue_70</item>
+        <item name="surface.contrast.default">@color/core_blue_60</item>
+        <item name="surface.contrast.pressed">@color/core_blue_70</item>
+        <item name="surface.error.default">@color/neutral_blue_60</item>
+        <item name="surface.error.preloading">@color/neutral_blue_50</item>
+        <item name="surface.info.default">@color/neutral_blue_60</item>
+        <item name="surface.info.preloading">@color/neutral_blue_50</item>
+        <item name="surface.success.default">@color/neutral_blue_60</item>
+        <item name="surface.success.preloading">@color/neutral_blue_50</item>
+        <item name="surface.sustainability.default">@color/neutral_blue_60</item>
+        <item name="surface.sustainability.preloading">@color/neutral_blue_50</item>
+        <item name="surface.warning.default">@color/neutral_blue_60</item>
+        <item name="surface.warning.preloading">@color/neutral_blue_50</item>
+        <item name="text.01.default">@color/white</item>
+        <item name="text.01.inverse">@color/white</item>
+        <item name="text.02.default">@color/neutral_grey_50</item>
+        <item name="text.02.inverse">@color/neutral_grey_50</item>
+        <item name="text.income">@color/sky_10</item>
+        <item name="text.uncovered">@color/red_20</item>
+        <item name="toolBarColor">@color/neutral_blue_100</item>
+    </style>
+    <style name="Theme.BBVA.Primary.Alternative" parent="@style/Theme.BBVA.Primary">
+        <item name="android:colorBackground">@color/neutral_blue_70</item>
+        <item name="android:windowBackground">@color/neutral_blue_70</item>
+        <item name="android:statusBarColor">@color/neutral_blue_80</item>
+        <item name="badge.error.background">@color/red_10</item>
+        <item name="badge.error.text">@color/red_70</item>
+        <item name="badge.info.background">@color/sky_10</item>
+        <item name="badge.info.text">@color/core_blue_60</item>
+        <item name="badge.off.background">@color/neutral_grey_10</item>
+        <item name="badge.off.text">@color/neutral_grey_70</item>
+        <item name="badge.success.background">@color/green_10</item>
+        <item name="badge.success.text">@color/green_70</item>
+        <item name="badge.sustainability.background">@color/aqua_10</item>
+        <item name="badge.sustainability.text">@color/aqua_70</item>
+        <item name="badge.warning.background">@color/yellow_10</item>
+        <item name="badge.warning.text">@color/yellow_70</item>
+        <item name="categories.cash_financial_services">@color/aqua_40</item>
+        <item name="categories.cash_transfers_checks">@color/aqua_40</item>
+        <item name="categories.collection_invoices_remittances">@color/green_20</item>
+        <item name="categories.combined_promotions">@color/purple_20</item>
+        <item name="categories.education">@color/red_40</item>
+        <item name="categories.expected_expenses">@color/sky_40</item>
+        <item name="categories.expected_income">@color/sand_10</item>
+        <item name="categories.financing">@color/orange_40</item>
+        <item name="categories.financing_skip_payments">@color/sand_40</item>
+        <item name="categories.health_beauty">@color/red_60</item>
+        <item name="categories.home">@color/orange_20</item>
+        <item name="categories.investment">@color/purple_60</item>
+        <item name="categories.leisure">@color/yellow_40</item>
+        <item name="categories.ngo_associations">@color/purple_20</item>
+        <item name="categories.offer_discount_refound">@color/pink_20</item>
+        <item name="categories.other_incomes">@color/sand_40</item>
+        <item name="categories.others">@color/neutral_grey_10</item>
+        <item name="categories.points">@color/aqua_40</item>
+        <item name="categories.public_administration">@color/red_20</item>
+        <item name="categories.salaries_rents_subsidies">@color/pink_20</item>
+        <item name="categories.saving">@color/pink_40</item>
+        <item name="categories.shopping">@color/purple_40</item>
+        <item name="categories.sustainability">@color/aqua_20</item>
+        <item name="categories.transportation">@color/sand_40</item>
+        <item name="categories.travel">@color/pink_60</item>
+        <item name="colorSurface">@color/neutral_blue_60</item>
+        <item name="colorSurfaceComponent">@color/neutral_blue_100</item>
+        <item name="cta.complementary.background.pressed">@color/neutral_grey_10</item>
+        <item name="cta.complementary.border.default">@color/white</item>
+        <item name="cta.complementary.text.default">@color/white</item>
+        <item name="cta.complementary.text.pressed">@color/core_blue_40</item>
+        <item name="cta.disabled.background">@color/neutral_blue_60</item>
+        <item name="cta.disabled.text">@color/neutral_blue_50</item>
+        <item name="cta.main.background.default">@color/core_blue_40</item>
+        <item name="cta.main.background.pressed">@color/core_blue_60</item>
+        <item name="cta.main.text.default">@color/white</item>
+        <item name="cta.main.text.preloading">@color/core_blue_60</item>
+        <item name="cta.main.text.pressed">@color/white</item>
+        <item name="cta.multistep.background.default">@color/core_blue_40</item>
+        <item name="cta.multistep.background.pressed">@color/core_blue_60</item>
+        <item name="cta.multistep.text.default">@color/white</item>
+        <item name="cta.multistep.text.pressed">@color/white</item>
+        <item name="cta.negative.background.default">@color/red_70</item>
+        <item name="cta.negative.background.pressed">@color/red_70</item>
+        <item name="cta.negative.text.default">@color/white</item>
+        <item name="cta.negative.text.preloading">@color/red_70</item>
+        <item name="cta.negative.text.pressed">@color/white</item>
+        <item name="cta.positive.background.default">@color/aqua_60</item>
+        <item name="cta.positive.background.pressed">@color/aqua_70</item>
+        <item name="cta.positive.text.default">@color/white</item>
+        <item name="cta.positive.text.pressed">@color/white</item>
+        <item name="data.axis_01">@color/neutral_grey_40</item>
+        <item name="data.axis_02">@color/neutral_grey_10</item>
+        <item name="emergent.main.background.default">@color/core_blue_40</item>
+        <item name="emergent.main.background.pressed">@color/core_blue_60</item>
+        <item name="emergent.main.link.default">@color/white</item>
+        <item name="emergent.main.link.pressed">@color/sky_10</item>
+        <item name="emergent.main.text">@color/white</item>
+        <item name="form.input.add_icon.default">@color/sky_40</item>
+        <item name="form.input.add_icon.error">@color/core_blue_40</item>
+        <item name="form.input.background.default">@color/neutral_blue_100</item>
+        <item name="form.input.background.error">@color/red_10</item>
+        <item name="form.input.border.active">@color/white</item>
+        <item name="form.input.border.error">@color/red_60</item>
+        <item name="form.input.border.inactive">@color/neutral_grey_70</item>
+        <item name="form.input.field_text.default">@color/white</item>
+        <item name="form.input.field_text.error">@color/neutral_grey_100</item>
+        <item name="form.input.hint_text.default">@color/neutral_grey_10</item>
+        <item name="form.input.hint_text.error">@color/neutral_grey_70</item>
+        <item name="form.input.icon.default">@color/sky_40</item>
+        <item name="form.input.icon.error">@color/red_70</item>
+        <item name="form.input.icon.read_only">@color/neutral_grey_10</item>
+        <item name="form.input.placeholder.default">@color/neutral_grey_10</item>
+        <item name="form.input.placeholder.error">@color/red_70</item>
+        <item name="form.selector.background.alternative">@color/neutral_blue_70</item>
+        <item name="form.selector.background.contrast">@color/core_blue_70</item>
+        <item name="form.selector.background.default">@color/neutral_blue_100</item>
+        <item name="form.selector.background.error">@color/red_10</item>
+        <item name="form.selector.border.contrast">@color/white</item>
+        <item name="form.selector.border.default">@color/neutral_grey_10</item>
+        <item name="form.selector.border.error">@color/red_60</item>
+        <item name="form.selector.check.contrast">@color/white</item>
+        <item name="form.selector.check.default">@color/white</item>
+        <item name="form.selector.check.read_only">@color/neutral_grey_70</item>
+        <item name="form.switch.background.contrast">@color/white</item>
+        <item name="form.switch.background.off">@color/neutral_grey_70</item>
+        <item name="form.switch.background.on">@color/core_blue_40</item>
+        <item name="form.switch.handle.contrast">@color/core_blue_40</item>
+        <item name="form.switch.handle.off">@color/white</item>
+        <item name="form.switch.handle.on">@color/white</item>
+        <item name="format.bullet">@color/aqua_40</item>
+        <item name="format.divider">@color/neutral_grey_40</item>
+        <item name="link.complementary.default">@color/white</item>
+        <item name="link.complementary.pressed">@color/sky_10</item>
+        <item name="link.highlight.default">@color/yellow_40</item>
+        <item name="link.highlight.pressed">@color/white</item>
+        <item name="link.image.default">@color/white</item>
+        <item name="link.image.pressed">@color/sky_10</item>
+        <item name="link.inverse.default">@color/sky_40</item>
+        <item name="link.inverse.pressed">@color/blue_40</item>
+        <item name="link.main.default">@color/sky_40</item>
+        <item name="link.main.pressed">@color/blue_40</item>
+        <item name="link.negative.default">@color/red_20</item>
+        <item name="link.negative.pressed">@color/red_40</item>
+        <item name="locations.pins.background.default">@color/white</item>
+        <item name="locations.pins.background.pressed">@color/neutral_grey_10</item>
+        <item name="locations.pins.background.selected">@color/sky_40</item>
+        <item name="locations.pins.background.selected_pressed">@color/blue_40</item>
+        <item name="locations.pins.icon">@color/white</item>
+        <item name="locations.pins.text.default">@color/neutral_grey_100</item>
+        <item name="locations.pins.text.pressed">@color/neutral_grey_70</item>
+        <item name="locations.pins.text.selected">@color/black</item>
+        <item name="locations.pins.text.selected_pressed">@color/neutral_grey_100</item>
+        <item name="locations.user">@color/red_40</item>
+        <item name="notification.alert.background">@color/red_20</item>
+        <item name="notification.alert.text">@color/neutral_grey_100</item>
+        <item name="notification.info.background">@color/sky_10</item>
+        <item name="notification.info.text">@color/core_blue_70</item>
+        <item name="process.alert">@color/red_20</item>
+        <item name="process.completed">@color/green_40</item>
+        <item name="process.in_progress">@color/aqua_40</item>
+        <item name="process.pending">@color/neutral_grey_10</item>
+        <item name="process.warning">@color/yellow_40</item>
+        <item name="rating.stars">@color/sky_40</item>
+        <item name="risk.level_five">@color/green_40</item>
+        <item name="risk.level_four">@color/green_20</item>
+        <item name="risk.level_one">@color/red_40</item>
+        <item name="risk.level_three">@color/yellow_40</item>
+        <item name="risk.level_two">@color/orange_40</item>
+        <item name="selection.interaction_01.background.selected">@color/sky_40</item>
+        <item name="selection.interaction_01.background.selected_pressed">@color/blue_40</item>
+        <item name="selection.interaction_01.text.selected">@color/neutral_grey_100</item>
+        <item name="selection.interaction_01.text.selected_pressed">@color/neutral_grey_100</item>
+        <item name="selection.interaction_02.selected">@color/sky_40</item>
+        <item name="selection.interaction_02.selected_pressed">@color/blue_40</item>
+        <item name="support.error.default">@color/red_20</item>
+        <item name="support.info.default">@color/sky_10</item>
+        <item name="support.pending.default">@color/neutral_grey_10</item>
+        <item name="support.success.default">@color/green_40</item>
+        <item name="support.sustainability.default">@color/aqua_40</item>
+        <item name="support.warning.default">@color/yellow_40</item>
+        <item name="surface.alternative.default">@color/neutral_blue_100</item>
+        <item name="surface.alternative.preloading">@color/neutral_blue_40</item>
+        <item name="surface.alternative.pressed">@color/neutral_blue_70</item>
+        <item name="surface.ambient.default">@color/neutral_blue_70</item>
+        <item name="surface.ambient.overlay">@color/neutral_blue_100</item>
+        <item name="surface.ambient.preloading">@color/neutral_blue_40</item>
+        <item name="surface.ambient.pressed">@color/neutral_blue_100</item>
+        <item name="surface.contrast.default">@color/core_blue_60</item>
+        <item name="surface.contrast.pressed">@color/core_blue_70</item>
+        <item name="surface.error.default">@color/neutral_blue_60</item>
+        <item name="surface.error.preloading">@color/neutral_blue_50</item>
+        <item name="surface.info.default">@color/neutral_blue_60</item>
+        <item name="surface.info.preloading">@color/neutral_blue_50</item>
+        <item name="surface.success.default">@color/neutral_blue_60</item>
+        <item name="surface.success.preloading">@color/neutral_blue_50</item>
+        <item name="surface.sustainability.default">@color/neutral_blue_60</item>
+        <item name="surface.sustainability.preloading">@color/neutral_blue_50</item>
+        <item name="surface.warning.default">@color/neutral_blue_60</item>
+        <item name="surface.warning.preloading">@color/neutral_blue_50</item>
+        <item name="text.01.default">@color/white</item>
+        <item name="text.01.inverse">@color/white</item>
+        <item name="text.02.default">@color/neutral_grey_50</item>
+        <item name="text.02.inverse">@color/neutral_grey_50</item>
+        <item name="text.income">@color/sky_10</item>
+        <item name="text.uncovered">@color/red_20</item>
+        <item name="toolBarColor">@color/neutral_blue_70</item>
+    </style>
+    <style name="Theme.BBVA.Secondary" parent="@style/Theme.BBVA.Primary">
+    </style>
+    <style name="Theme.BBVA.Secondary.Alternative" parent="@style/Theme.BBVA.Primary.Alternative">
+    </style>
+    <style name="Theme.Material3.DayNight" parent="@style/Theme.Material3.Dark">
+    </style>
+    <style name="Theme.Material3.DayNight.BottomSheetDialog" parent="@style/Theme.Material3.Dark.BottomSheetDialog">
+    </style>
+    <style name="Theme.Material3.DayNight.Dialog" parent="@style/Theme.Material3.Dark.Dialog">
+    </style>
+    <style name="Theme.Material3.DayNight.Dialog.Alert" parent="@style/Theme.Material3.Dark.Dialog.Alert">
+    </style>
+    <style name="Theme.Material3.DayNight.Dialog.MinWidth" parent="@style/Theme.Material3.Dark.Dialog.MinWidth">
+    </style>
+    <style name="Theme.Material3.DayNight.DialogWhenLarge" parent="@style/Theme.Material3.Dark.DialogWhenLarge">
+    </style>
+    <style name="Theme.Material3.DayNight.NoActionBar" parent="@style/Theme.Material3.Dark.NoActionBar">
+    </style>
+    <style name="Theme.Material3.DayNight.SideSheetDialog" parent="@style/Theme.Material3.Dark.SideSheetDialog">
+    </style>
+    <style name="Theme.Material3.DynamicColors.DayNight" parent="@style/Theme.Material3.DynamicColors.Dark">
+    </style>
+    <style name="Theme.Material3.DynamicColors.DayNight.NoActionBar" parent="@style/Theme.Material3.DynamicColors.Dark.NoActionBar">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight" parent="@style/Theme.MaterialComponents">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.BottomSheetDialog" parent="@style/Theme.MaterialComponents.BottomSheetDialog">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.Bridge" parent="@style/Theme.MaterialComponents.Bridge">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.DarkActionBar" parent="@style/Theme.MaterialComponents">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge" parent="@style/Theme.MaterialComponents.Bridge">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.Dialog" parent="@style/Theme.MaterialComponents.Dialog">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.Alert" parent="@style/Theme.MaterialComponents.Dialog.Alert">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.Alert.Bridge" parent="@style/Theme.MaterialComponents.Dialog.Alert.Bridge">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.Bridge" parent="@style/Theme.MaterialComponents.Dialog.Bridge">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.FixedSize" parent="@style/Theme.MaterialComponents.Dialog.FixedSize">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.FixedSize.Bridge" parent="@style/Theme.MaterialComponents.Dialog.FixedSize.Bridge">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.MinWidth" parent="@style/Theme.MaterialComponents.Dialog.MinWidth">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.Dialog.MinWidth.Bridge" parent="@style/Theme.MaterialComponents.Dialog.MinWidth.Bridge">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.DialogWhenLarge" parent="@style/Theme.MaterialComponents.DialogWhenLarge">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.NoActionBar" parent="@style/Theme.MaterialComponents.NoActionBar">
+    </style>
+    <style name="Theme.MaterialComponents.DayNight.NoActionBar.Bridge" parent="@style/Theme.MaterialComponents.NoActionBar.Bridge">
+    </style>
+    <style name="ThemeOverlay.AppCompat.DayNight" parent="@style/ThemeOverlay.AppCompat.Dark">
+    </style>
+    <style name="ThemeOverlay.BBVA.AutoCompleteTextInputLayout.EditText" parent="">
+        <item name="colorControlActivated">@color/white</item>
+    </style>
+    <style name="ThemeOverlay.BBVA.DatePicker" parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/neutral_blue_20</item>
+        <item name="colorPrimary">?attr/colorEmphasis</item>
+    </style>
+    <style name="ThemeOverlay.BBVA.Rating.Small" parent="">
+        <item name="android:disabledAlpha">0.5</item>
+        <item name="colorControlActivated">@color/sand_60</item>
+        <item name="colorControlNormal">@color/neutral_blue_20</item>
+    </style>
+    <style name="ThemeOverlay.Material3.DynamicColors.DayNight" parent="@style/ThemeOverlay.Material3.DynamicColors.Dark">
+    </style>
+    <style name="Widget.BBVA.AutoCompleteTextView" parent="@style/Widget.BBVA">
+        <item name="android:popupBackground">@color/neutral_blue_60</item>
+    </style>
+    <style name="Widget.BBVA.BlueFilter" parent="@style/Widget.BBVA">
+        <item name="android:foreground">@color/neutral_blue_90_85</item>
+    </style>
+    <style name="Widget.MaterialComponents.ActionBar.PrimarySurface" parent="@style/Widget.MaterialComponents.ActionBar.Surface">
+    </style>
+    <style name="Widget.MaterialComponents.AppBarLayout.PrimarySurface" parent="@style/Widget.MaterialComponents.AppBarLayout.Surface">
+    </style>
+    <style name="Widget.MaterialComponents.BottomAppBar.PrimarySurface" parent="@style/Widget.MaterialComponents.BottomAppBar">
+    </style>
+    <style name="Widget.MaterialComponents.BottomNavigationView.PrimarySurface" parent="@style/Widget.MaterialComponents.BottomNavigationView">
+    </style>
+    <style name="Widget.MaterialComponents.NavigationRailView.PrimarySurface" parent="@style/Widget.MaterialComponents.NavigationRailView">
+    </style>
+    <style name="Widget.MaterialComponents.TabLayout.PrimarySurface" parent="@style/Widget.MaterialComponents.TabLayout">
+    </style>
+    <style name="Widget.MaterialComponents.Toolbar.PrimarySurface" parent="@style/Widget.MaterialComponents.Toolbar.Surface">
+    </style>
+</resources>

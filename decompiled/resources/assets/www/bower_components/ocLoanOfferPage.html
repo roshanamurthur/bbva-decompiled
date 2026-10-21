@@ -1,0 +1,518 @@
+<html><head></head><body><div hidden="" by-polymer-bundler=""><dom-module id="glomo-opx-loan-offer-manager" assetpath="glomo-opx-loan-offer-manager/"><script>function _callSuper(t,o,e){return o=babelHelpers.getPrototypeOf(o),babelHelpers.possibleConstructorReturn(t,_isNativeReflectConstruct()?Reflect.construct(o,e||[],babelHelpers.getPrototypeOf(t).constructor):o.apply(t,e))}function _isNativeReflectConstruct(){try{var t=!Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){}))}catch(t){}return(_isNativeReflectConstruct=function _isNativeReflectConstruct(){return!!t})()}function _superPropGet(t,o,e,r){var p=babelHelpers.get(babelHelpers.getPrototypeOf(1&r?t.prototype:t),o,e);return 2&r&&"function"==typeof p?function(t){return p.apply(e,t)}:p}{var _Polymer=Polymer,html=_Polymer.html,GlomoOpxLoanOfferManager=function(_Polymer$mixinBehavio){function GlomoOpxLoanOfferManager(){babelHelpers.classCallCheck(this,GlomoOpxLoanOfferManager);return _callSuper(this,GlomoOpxLoanOfferManager,arguments)}babelHelpers.inherits(GlomoOpxLoanOfferManager,_Polymer$mixinBehavio);return babelHelpers.createClass(GlomoOpxLoanOfferManager,[{key:"ready",value:function ready(){_superPropGet(GlomoOpxLoanOfferManager,"ready",this,3)([])}},{key:"goToNext",value:function goToNext(){this._steps[this.currentStep].collapsed=!0;this._nextStep()}},{key:"goToStep",value:function goToStep(step){var stepToNavigate=this._steps[step.currentStep];if(stepToNavigate){stepToNavigate.collapsed=!1;this.toggleCollapsedView(stepToNavigate);this._activateSteps(stepToNavigate)}}},{key:"reset",value:function reset(){this.canExecute=!1;this.resetWithDefaultSettings();this._dispatch("on-reset")}},{key:"_dispatch",value:function _dispatch(eventName,detail){var bubbles=2<arguments.length&&arguments[2]!==void 0?arguments[2]:!0,composed=3<arguments.length&&arguments[3]!==void 0?arguments[3]:!0;this.dispatchEvent(new CustomEvent(eventName,{detail:detail,bubbles:bubbles,composed:composed}))}}],[{key:"is",get:function get(){return"glomo-opx-loan-offer-manager"}},{key:"properties",get:function get(){return{operativeName:{type:String,value:""}}}}])}(Polymer.mixinBehaviors([CellsBehaviors.i18nBehavior,CellsBehaviors.StepManagerBehavior],Polymer.Element));customElements.define(GlomoOpxLoanOfferManager.is,GlomoOpxLoanOfferManager)}</script></dom-module><dom-module id="glomo-loan-offer-dm" assetpath="glomo-loan-offer-dm/"><template><cells-dm-global-apis-business-documents id="apisBusinessDocuments" tsec="[[tsec.token]]" device-id="[[deviceId.value]]" host="[[host]]" native="[[native]]" business-documents-api-version="[[businessDocumentsApiVersion]]" on-success-on-get-business-documents="onGetBusinessDocumentsSuccess" on-error-on-get-business-documents="askForRetryWrapper" on-post-business-documents-success="onPostBusinessDocumentsSuccess" on-error-on-post-business-documents="askForRetryWrapper"></cells-dm-global-apis-business-documents></template><script src="glomo-loan-offer-dm/glomo-loan-offer-dm.js"></script></dom-module><dom-module id="glomo-analytics-flexible-line-manager" assetpath="glomo-loan-offer-dm/"><template></template><script>
+    // eslint-disable-next-line new-cap
+    class GlomoAnalyticsLoanOfferManager extends Polymer.mixinBehaviors([CellsBehaviors.i18nBehavior, CellsBehaviors.CellsCheckNestedKeysBehavior], CellsBehaviors.GlomoAnalyticsManagerMixin(CellsBehaviors.GlomoAnalyticsManagerMixinStep(Polymer.Element))) {
+
+      static get is() {
+        return 'glomo-analytics-loan-offer-manager';
+      }
+
+      static get properties() {
+        return {
+          /**
+           * @desc Object that have every literal used on adobe launch analytics
+           * @type {Object}
+           */
+          bindedLiterals: {
+            type: Object,
+            value: () => ({})
+          },
+          /**
+           * @desc Object that have every literal used on apps flyer analytics
+           * @type {Object}
+           */
+          appsFlyerLiterals: {
+            type: Object,
+            value: () => ({})
+          },
+          /**
+           * @desc Object that have persisted data for apps flyer analytics
+           * @type {Object}
+           */
+          appsFlyerData: {
+            type: Object,
+            value: () => ({})
+          },
+          /**
+           * @desc True if an app started was fire
+           * @type {Object}
+           */
+          appStartedFired: {
+            type: Boolean,
+            value: false
+          },
+          appVisitFired: {
+            type: Boolean,
+            value: false
+          },
+          analyticsFiringEnd: {
+            type: Boolean,
+            value: false
+          },
+          requestedAmount: Number,
+          requestedTerm: Number,
+          monthlyPayment: Number,
+          localCurrency: String,
+          productNameKey: String,
+          termFrecuencyToDaysFactor: {
+            type: Object,
+            value: () => ({})
+          },
+          termFrecuencyToAnalyticLiteral: {
+            type: Object,
+            value: () => ({})
+          },
+          productNameKeyToAnalyticLiteral: {
+            type: Object,
+            value: () => ({})
+          },
+          productNameKeyToAppsFlyerLiteral: {
+            type: Object,
+            value: () => ({})
+          },
+          modalEventNames: {
+            type: Object,
+            value: () => ({})
+          },
+          stepsToAppsFlyerLiteral: {
+            type: Object,
+            value: () => ({})
+          },
+          modalEventNamesToAnalyticLiteral: {
+            type: Object,
+            value: () => ({})
+          },
+          /**
+           * @desc True if promotional code exist
+           * @type {Object}
+           */
+          promotionalCode: {
+            type: Boolean,
+            value: false
+          },
+          /**
+           * @desc Valid if the offer is improved with this flag
+           * @type {Boolean}
+           */
+          improvedOffer: {
+            type: Boolean,
+            value: false
+          }
+        };
+      }
+
+      /**
+       * @description Reset component props and persisted data
+       */
+      reset() {
+        this.resetData();
+        this.appsFlyerData = {};
+        this.appStartedFired = false;
+        this.appVisitFired = false;
+        this.analyticsFiringEnd = false;
+        this.requestedAmount = undefined;
+        this.requestedTerm = undefined;
+        this.monthlyPayment = undefined;
+      }
+
+      handleUiUpdates(payload) {
+        if (!this.appVisitFired && !this.analyticsFiringEnd) {
+          this.performAppPageVisit();
+        }
+      }
+
+      performAppPageVisit() {
+        this.appsFlyerData = {};
+        this.appStartedFired = false;
+        this.persistData({
+          productAmount: this.requestedAmount,
+          productCurrency: this.localCurrency,
+          productNumberOfPayments: this.requestedTerm,
+          applicationTypology: this.bindedLiterals.TYPOLOGY_PREAPPROVED,
+          process: this.promotionalCode ? this.bindedLiterals.WITH_PROMOTIONAL_CODE : ''
+        });
+        this.fireAppPageVisit();
+        this.sendAppsFlyerEvent(this.stepsToAppsFlyerLiteral[1]);
+        this.appVisitFired = true;
+      }
+
+      onCurrentStepChanged(currentStep) {
+        if (currentStep && currentStep === 1 && this.appVisitFired && !this.analyticsFiringEnd) {
+          this.performAppPageVisit();
+        } else if (currentStep && currentStep >= 2) {
+          this.persistProductDetail();
+          this.sendAppsFlyerEvent(this.stepsToAppsFlyerLiteral[currentStep]);
+          this.onStep({ currentStep });
+        }
+      }
+
+      persistAppsFlyerData(dataToPersist) {
+        Object.assign(this.appsFlyerData, dataToPersist);
+      }
+
+      persistProductDetail() {
+        this.persistAppsFlyerData({
+          af_price: this.requestedAmount,
+          af_class: this.appsFlyerLiterals.AF_CLASS_PREAPPROVED
+        });
+        this.persistData({
+          productAmount: this.requestedAmount,
+          productPaymentAmount: this.monthlyPayment,
+          productNumberOfPayments: this.requestedTerm,
+          productCurrency: this.localCurrency,
+          productPaymentType: this.termFrecuencyToAnalyticLiteral[this.termFrecuency],
+          productInterestRate: this.mensualRate,
+          improvedOffer: this.improvedOffer ? this.bindedLiterals.IMPROVEDCOMISSION : this.bindedLiterals.IMPROVEDOFFER
+        });
+        this.persistTermInDays();
+      }
+
+      persistTermInDays() {
+        const { productNumberOfPayments } = this.data;
+        this.persistData({
+          productTerm: productNumberOfPayments * this.termFrecuencyToDaysFactor[this.termFrecuency]
+        });
+      }
+
+      onLastStepWrapper(showConfirmFlag) {
+        if (showConfirmFlag === true) {
+          this.persistProductDetail();
+          this.sendAppsFlyerEvent(this.stepsToAppsFlyerLiteral.last);
+          this.onLastStep(true);
+        }
+      }
+
+      onAmountInputFocus() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_REQUEST_AMOUNT);
+      }
+
+      onSliderDragStatusChanged(dragStatus) {
+        if (dragStatus) {
+          this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_SLIDER);
+        }
+      }
+
+      /**
+       * @description Fire an app started analytic as long as another app started NOT be fired before
+       * @param {String} applicationStep Depends which "app started action" is fire
+       * @event analytics-app-started
+       */
+      onHelpIconClicked(eventModalName) {
+        this.fireAppStarted(this.modalEventNamesToAnalyticLiteral[eventModalName]);
+        const { INSURANCE, INSURANCE_AND_UNEMPLOYMENT, COMMISSION, ANNUAL_RATE, CAT } = this.modalEventNames;
+        switch (eventModalName) {
+          case COMMISSION:
+            this.fireMarkCommission();
+            break;
+          case ANNUAL_RATE:
+            this.fireMarkAnnualRate();
+            break;
+          case CAT:
+            this.fireMarkCat();
+            break;
+          default:
+            break;
+        }
+      }
+
+      onCallmeBackLinkTapped() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_ADVISOR_CALL);
+      }
+
+      onContinueHiringButtonTapped() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_I_WANT);
+      }
+
+      /**
+       * @description Fire an app started analytic when the button coupon is clicked
+       * @param {Object} applicationStep Depends which "app started action" is fire
+       * @event analytics-app-started
+       */
+      onCouponOfferButtonTapped() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_COUPON);
+      }
+
+      /**
+       * @description Persists analytic data when the coupon modal option is "Use code"
+       */
+      onUseCouponButtonTapped() {
+        this.persistData({
+          offer: this.bindedLiterals.APPLICATION_OFFER,
+          process: this.bindedLiterals.APPLICATION_PROCESS_COUPON
+        });
+      }
+
+      /**
+       * @description Persists analytic data when the coupon modal option is "Continue without use a coupon"
+       */
+      onNoUseCouponButtonTapped() {
+        this.persistData({
+          process: this.bindedLiterals.APPLICATION_PROCESS_NO_COUPON
+        });
+      }
+
+      onLoanHiringNotification(eventDetail) {
+        const { caseName, payload } = eventDetail;
+        this.persistData({
+          operationNumber: this.c(payload, 'operationNumber', '')
+        });
+        if (caseName === 'SUCCESS') {
+          this.sendAppsFlyerEvent(this.appsFlyerLiterals.LOAN_OFFER_SUCCESS);
+          this.fireCustomAppCompleted('hired');
+        }
+        if (caseName === 'PENDING') {
+          this.persistData({
+            userSegmentProfile: this.bindedLiterals.USER_SEGMENT_PROFILE_MISSING_INFO
+          });
+          this.fireCustomAppCompleted('in-review');
+        }
+        if (caseName === 'INCOMPLETE') {
+          this.persistData({
+            userSegmentProfile: this.bindedLiterals.USER_SEGMENT_PROFILE_MISSING_INFO
+          });
+          this.fireCustomAppCompleted('rejected');
+        }
+      }
+
+      fireCustomAppCompleted(customName) {
+        this._dispatch(`analytics-app-completed-${customName}`, this.data);
+        this.analyticsFiringEnd = true;
+        this.resetData();
+      }
+
+      onPdfModalOpenedPropChanged(opened) {
+        if (opened) {
+          this.fireAdvancedMarkTermsAndConditions();
+        }
+      }
+
+      callMeBackAssistanceManagerLink(advisor) {
+        if (advisor.phoneNumberAdvisor) {
+          if (advisor.callActionHeader) {
+            this.fireInternalLink('call-header');
+          } else {
+            this.fireInternalLink('secondary-button');
+          }
+        }
+      }
+
+      fireAdvancedMarkOtpError() {
+        this._dispatch('analytics-advanced-mark-otp-error');
+      }
+
+      fireAdvancedMarkTermsAndConditions() {
+        this._dispatch('analytics-advanced-mark-terms-and-conditions');
+      }
+
+      /**
+       * @description Fire an app started analytic regarding annual interest rate
+       * @param {String} applicationStep Depends which "app started action" is fire
+       * @event analytics-mark-annual-rate
+       */
+      fireMarkAnnualRate() {
+        this._dispatch('analytics-mark-annual-rate');
+      }
+
+      /**
+       * @description Fire an app started analytic regarding CAT
+       * @param {String} applicationStep Depends which "app started action" is fire
+       * @event analytics-mark-cat
+       */
+      fireMarkCat() {
+        this._dispatch('analytics-mark-cat');
+      }
+
+      /**
+       * @description Fire an app started analytic regarding commision
+       * @param {String} applicationStep Depends which "app started action" is fire
+       * @event analytics-mark-commission
+       */
+      fireMarkCommission() {
+        this._dispatch('analytics-mark-commission');
+      }
+
+      /**
+       * @description Fire an huella Revire Promotion Modal
+       * @param {String} applicationStep Depends which "page view" is fire
+       * @event analytics-mark-revire-promotion
+       */
+      fireMarkRevirePromotion() {
+        this.revirePromotionPressed();
+        this._dispatch('analytics-mark-revire-promotion');
+      }
+
+      /**
+       * @description Fire App Started even when user taps on Revire promotion
+       */
+      revirePromotionPressed() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_REVIRE_PROMOTION);
+      }
+
+      /**
+       * @description Fire an app started analytic
+       * @param {String} applicationStep Depends which "app started action" is fire
+       * @event analytics-mark-coupon-found
+       */
+      fireMarkCouponFoundModal() {
+        this._dispatch('analytics-mark-coupon-found');
+      }
+
+      /**
+       * @description Fire an app started analytic when opening the coupon modal
+       * @param {String} applicationStep Depends which "app started action" is fire
+       * @event analytics-mark-search-coupon
+       */
+      fireMarkSearchCouponModal() {
+        this._dispatch('analytics-mark-search-coupon');
+      }
+
+      /**
+       * @description Fire app page visit analytic
+       * @event analytics-app-page-visit
+       */
+      fireAppPageVisit() {
+        this._dispatch('analytics-app-page-visit', this.data);
+      }
+
+      /**
+       * @description Fire an app started analytic as long as another app started NOT be fired before
+       * @param {String} applicationStep Depends which "app started action" is fire
+       * @event analytics-app-started
+       */
+      fireAppStarted(applicationStep) {
+        if (!this.appStartedFired) {
+          this.persistData({ applicationStep });
+          this._dispatch('analytics-app-started', this.data);
+          this.appStartedFired = true;
+        }
+      }
+
+      /**
+       * @description Fire internal link analytics
+       * @event analytics-internal-link
+       */
+      fireInternalLink(internalLink) {
+        this._dispatch(`analytics-internal-link-${internalLink}`);
+      }
+
+      persistLoanOfferProcessorProps(processor) {
+        if (processor && Object.keys(processor).length > 0) {
+          const { mensualRateValueAsTruncated, suggestedTerm, productNameKey } = processor;
+          this.productNameKey = productNameKey;
+          this.termFrecuency = suggestedTerm.frequency;
+          this.mensualRate = parseFloat(mensualRateValueAsTruncated);
+          this.persistData({
+            productName: this.productNameKeyToAnalyticLiteral[this.productNameKey]
+          });
+          this.persistAppsFlyerData({
+            af_content_type: this.productNameKeyToAppsFlyerLiteral[this.productNameKey]
+          });
+        }
+      }
+
+      /**
+       * @description Send an event that has apps flyer event name to be communicated as event detail
+       * @param {String} eventName Apps flyer event name
+       * @param {Object} eventValue Apps flyer event value
+       * @event send-apps-flyer-event
+       */
+      sendAppsFlyerEvent(eventName, eventValue = null) {
+        const appsFlyerPayload = { eventName };
+        if (eventValue || (this.appsFlyerData && Object.keys(this.appsFlyerData).length > 0)) {
+          appsFlyerPayload.eventValue = eventValue || this.appsFlyerData;
+        }
+        this._dispatch('send-apps-flyer-event', appsFlyerPayload);
+      }
+
+      /**
+       * @description method to clean any string (remove accent, special characters)
+       * @param {String} str string to be cleaned
+       */
+      normalizeString(str) {
+        return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+      }
+
+      /**
+       * @description Fire App Started even when user taps on Amortization Schedule Sample Pressed
+       */
+      onAmortizationScheduleSamplePressed() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_EXAMPLE_AMORTIZATION_TABLES);
+      }
+
+      /**
+       * @description method that loads Amortization Schedule Sample PDF
+       * @event amortization-schedule-sample
+       */
+      amortizationScheduleSampleManagerLink() {
+        this.fireInternalLink('amortization-schedule-sample');
+      }
+
+      /**
+       * @description set customField of loan usage after trigger usage tabs
+       */
+      persistLoanUse(loanUse) {
+        if (loanUse === 0) {
+          this._onConventionalLoanUse();
+        } else {
+          this._onSustainableLoanUse();
+        }
+        this.persistData({
+          customFields: loanUse === 0
+            ? this.bindedLiterals.CUSTOM_FIELDS_CONVENTIONAL_LOAN_USE
+            : this.bindedLiterals.CUSTOM_FIELDS_SUSTAINABLE_LOAN_USE
+        });
+      }
+
+      /**
+       * @description set the default loan use if doesn't trigger
+       * usage tabs
+       */
+      loanUse(data) {
+        this.persistData({
+          customFields: data
+            ? this.bindedLiterals.CUSTOM_FIELDS_SUSTAINABLE_LOAN_USE
+            : this.bindedLiterals.CUSTOM_FIELDS_CONVENTIONAL_LOAN_USE
+        });
+      }
+
+      /**
+       * @description nests the signature type in the customFields
+       */
+      setSignatureType(signatureType) {
+        const customFields = this.data?.customFields ? `${this.data.customFields},` : '';
+        this.persistData({
+          customFields: `${customFields}firma:token`
+        });
+        this.manageAnalyticsSign(signatureType);
+      }
+
+      /**
+       * @description Fire App Started when user taps on conventional use tab
+       */
+      _onConventionalLoanUse() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_CONVENTIONAL_LOAN_USE);
+      }
+
+      /**
+       * @description Fire App Started when user taps on sustainable use tab
+       */
+      _onSustainableLoanUse() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_SUSTAINABLE_LOAN_USE);
+      }
+
+      /**
+       * @description Fire App Started when user taps on conventional catalog
+       */
+      sustainableCatalog() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_SUSTAINABLE_CATALOG);
+      }
+
+      /**
+       * @description Fire App Started when user taps on sustainable simulator
+       */
+      sustainableSimulator() {
+        this.fireAppStarted(this.bindedLiterals.APPLICATION_STEP_SUSTAINABLE_LOAN_SIMULATOR);
+      }
+    }
+
+    customElements.define(GlomoAnalyticsLoanOfferManager.is, GlomoAnalyticsLoanOfferManager);
+  </script></dom-module></div></body></html>

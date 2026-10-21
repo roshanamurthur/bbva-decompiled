@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.BBVA.Primary"
+    android:orientation="vertical"
+    android:background="?attr/surface.ambient.default"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <FrameLayout
+        android:id="@+id/circularFrameLayout"
+        android:background="@drawable/shortcut_bg_button_selector"
+        android:focusable="false"
+        android:layout_width="@dimen/shortcuts_item_circular_size"
+        android:layout_height="@dimen/shortcuts_item_circular_size"
+        android:layout_marginTop="@dimen/shortcuts_margin_m">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_gravity="center"
+            android:id="@+id/shortcut_image"
+            android:layout_width="@dimen/shortcuts_item_icon_size"
+            android:layout_height="@dimen/shortcuts_item_icon_size"
+            android:tint="@color/shortcut_content_color_selector"
+            android:importantForAccessibility="no"/>
+    </FrameLayout>
+    <com.bbva.ui.widget.BbvaTextView
+        android:textSize="@dimen/shortcuts_item_label_size"
+        android:textColor="@color/shortcut_content_color_selector"
+        android:gravity="center"
+        android:id="@+id/shortcut_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/shortcuts_margin_s"
+        android:layout_marginBottom="@dimen/shortcuts_margin_m"
+        android:maxLines="3"
+        android:fontFamily="@font/benton_sans_bbva_medium"/>
+</merge>

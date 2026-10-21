@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-device-activation-facial-biometrics-validation/bbva-manager-device-activation-facial-biometrics-validation.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-sensitive-flows/bbva-analyticmanager-sensitive-flows.js";

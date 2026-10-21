@@ -1,0 +1,12 @@
+.local/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+*.apk
+*.apkm
+*.xapk
+*.har
+

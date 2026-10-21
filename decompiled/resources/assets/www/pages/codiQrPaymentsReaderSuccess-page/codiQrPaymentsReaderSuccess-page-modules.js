@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-codi/bbva-manager-codi-qr-payments-success.js";

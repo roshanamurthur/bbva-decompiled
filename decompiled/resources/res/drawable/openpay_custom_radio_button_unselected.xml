@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/pay_plans_background_radio"/>
+            <size
+                android:height="@dimen/pay_plans_radio_button_size"
+                android:width="@dimen/pay_plans_radio_button_size"/>
+            <stroke
+                android:width="0.1dp"
+                android:color="@color/pay_plans_border_radio"/>
+        </shape>
+    </item>
+</layer-list>

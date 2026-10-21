@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-international-refunds/bbva-manager-international-refunds-mx.js";import"../../../node_modules/@glomo-web-components/bbva-manager-international-refunds/bbva-analytics-manager-international-refunds-mx.js";

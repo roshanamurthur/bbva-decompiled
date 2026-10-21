@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/card-information-minimum-payment-clarifications/card-information-minimum-payment-clarifications.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-card-transaction-servicing/bbva-analyticmanager-card-information-minimum-payment-clarifications.js";

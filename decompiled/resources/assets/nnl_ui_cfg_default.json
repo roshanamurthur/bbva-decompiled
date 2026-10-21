@@ -1,0 +1,34 @@
+{
+    "authenticatorMap": {
+        "0011#0701": {
+            "title": "Fujitsu IRIS Authenticator",
+            "description": "Fujitsu Authenticator with Iris Verification"
+        },
+        "0011#6701": {
+            "title": "Fujitsu IRIS Authenticator",
+            "description": "Fujitsu Authenticator with Iris Verification"
+        },
+        "0011#6201": {
+            "title": "Fujitsu Fingerprint Authenticator",
+            "description": "Fujitsu Authenticator with Fingerprint Verification"
+        },
+        "0011#0201": {
+            "title": "Fujitsu Fingerprint Authenticator",
+            "description": "Fujitsu Authenticator with Fingerprint Verification"
+        },
+        "0010#0001": {
+            "title": "Fingerprint",
+            "description": "Sharp Fingerprint Authenticator",
+            "icon": "nnl_asm_native_fps_launcher_icon"
+        },
+        "0018#0001": {
+            "title": "Fingerprint",
+            "description": "Sony Fingerprint Authenticator",
+            "icon": "nnl_asm_native_fps_launcher_icon"
+        }
+    },
+    "reasonCodeMap": {
+        "passkey_on_new_device": "New device detected!",
+        "key_protection_software": "Additional verification is required."
+    }
+}

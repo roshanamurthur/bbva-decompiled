@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-payment-plan/bbva-manager-oc-card-support-fixed-payments.js";import"../../../node_modules/@bbva-web-components/bbva-panel-info/bbva-panel-info.js";

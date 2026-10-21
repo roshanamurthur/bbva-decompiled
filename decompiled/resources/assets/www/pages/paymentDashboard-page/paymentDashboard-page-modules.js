@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/card-transaction-servicing-finance-payment-dashboard/card-transaction-servicing-finance-payment-dashboard.js";import"../../../node_modules/@glomo-web-components/bbva-manager-finance-transaction-multipurchase/bbva-manager-finance-transaction-multipurchase.js";

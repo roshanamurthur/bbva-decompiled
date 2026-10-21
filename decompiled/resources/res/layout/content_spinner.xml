@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/spinner_container"
+    android:layout_width="match_parent">
+    <com.bbva.cellswidgets.CellsTextView
+        android:id="@+id/titleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="?attr/cellsSpinner_verticalPadding"
+        android:layout_marginStart="?attr/cellsSpinner_horizontalPadding"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/chevron"
+        app:layout_constraintTop_toTopOf="parent"
+        style="?attr/cellsSpinner_titleTextAppearance"/>
+    <com.bbva.cellswidgets.CellsTextView
+        android:id="@+id/selectedOption"
+        android:paddingBottom="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?attr/cellsSpinner_horizontalPadding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/chevron"
+        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
+        style="?attr/cellsSpinner_textAppearance"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_gravity="center_vertical"
+        android:id="@+id/chevron"
+        android:background="@android:color/transparent"
+        android:layout_width="?attr/cellsSpinner_rightActionSize"
+        android:layout_height="0dp"
+        android:src="?attr/cellsSpinner_rightActionIcon"
+        android:tint="?attr/cellsSpinner_rightActionIconTint"
+        android:importantForAccessibility="no"
+        android:layout_marginEnd="?attr/cellsSpinner_horizontalPadding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</merge>

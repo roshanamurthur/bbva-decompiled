@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bbva.ui.component.menu.SlideMenuView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/slideMenuViewDashboard"
+    android:background="@color/bg_sidebar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.bbva.cellscore.web.component.CellsWebView
+            android:id="@+id/webView"
+            android:background="@color/BBVA_WHITE"
+            android:fitsSystemWindows="false"
+            android:clipToPadding="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <com.bbva.component.ui.loader.LoaderSpinnerComponent
+            android:id="@+id/menuLoaderWeb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <com.bbva.component.ui.loader.LoaderView
+            android:theme="@style/Theme.BBVA.Secondary"
+            android:id="@+id/changeProfileSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:loaderView_type="spinner"
+            style="@style/GloMo.LoaderView.Spinner.ChangeProfile"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</com.bbva.ui.component.menu.SlideMenuView>

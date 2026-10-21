@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <stroke
+        android:width="@dimen/message_card_component_button_corners"
+        android:color="@color/neutral_grey_40"/>
+    <solid android:color="@android:color/transparent"/>
+</shape>

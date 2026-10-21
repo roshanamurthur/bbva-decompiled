@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingLeft="12dp"
+    android:paddingRight="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.bbva.cellswidgets.CellsTextView
+        android:id="@+id/welcomeHeaderUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        style="?attr/welcomePager_userNameStyle"/>
+    <com.bbva.cellswidgets.CellsTextView
+        android:id="@+id/welcomeHeaderTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeHeaderUserName"
+        style="?attr/welcomePager_titleStyle"/>
+    <com.bbva.cellswidgets.CellsTextView
+        android:id="@+id/welcomeHeaderDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:lineSpacingExtra="6dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeHeaderTitle"
+        style="?attr/welcomePager_descriptionStyle"/>
+</merge>

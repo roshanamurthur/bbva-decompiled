@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="181dp"
+    android:width="566dp"
+    android:viewportWidth="566"
+    android:viewportHeight="181">
+    <path
+        android:name="v_left_mask"
+        android:pathData="M -11.125 -4.035 C 33.755 -0.075 65.435 13.785 74.015 42.165 C 78.457 56.859 106.355 187.365 106.355 187.365"
+        android:strokeColor="#fff"
+        android:strokeWidth="70"/>
+</vector>

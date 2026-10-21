@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="assume_strong_biometrics_models">
+        <item>Pixel 4</item>
+        <item>Pixel 4 XL</item>
+    </array>
+    <array name="crypto_fingerprint_fallback_prefixes">
+    </array>
+    <array name="crypto_fingerprint_fallback_vendors">
+        <item>samsung</item>
+    </array>
+    <array name="delay_showing_prompt_models">
+        <item>Pixel 4</item>
+        <item>Pixel 4 XL</item>
+    </array>
+    <array name="hide_fingerprint_instantly_prefixes">
+        <item>SM-A50</item>
+        <item>SM-G973</item>
+        <item>SM-G975</item>
+        <item>SM-G977</item>
+        <item>SM-G770</item>
+        <item>SM-N970</item>
+        <item>SM-N971</item>
+        <item>SM-N975</item>
+        <item>SM-N976</item>
+        <item>SM-N770</item>
+        <item>SC-03L</item>
+        <item>SC-04L</item>
+        <item>SC-05L</item>
+        <item>SC-01M</item>
+        <item>SCV41</item>
+        <item>SCV42</item>
+        <item>SCV45</item>
+    </array>
+    <array name="hosts_array">
+        <item>ProsaDUKPT</item>
+        <item>ProsaTLS</item>
+        <item>TestingDUKPTHost</item>
+        <item>TestingTLSHost</item>
+    </array>
+    <array name="mdcolor_random">
+        <item>#e91e63</item>
+        <item>#9c27b0</item>
+        <item>#673ab7</item>
+        <item>#e53935</item>
+        <item>#5677fc</item>
+        <item>#689f38</item>
+        <item>#03a9f4</item>
+        <item>#00bcd4</item>
+        <item>#009688</item>
+        <item>#259b24</item>
+        <item>#ff5722</item>
+        <item>#795548</item>
+        <item>#607d8b</item>
+        <item>#ff9800</item>
+    </array>
+    <array name="merchants_array">
+        <item>Retail</item>
+        <item>Restaurant</item>
+    </array>
+    <array name="transaction_types_array">
+        <item>Sale</item>
+        <item>Cancellation</item>
+        <item>Refund</item>
+        <item>SalePosTip</item>
+        <item>ClosePosTip</item>
+        <item>KeyLoad</item>
+    </array>
+    <array name="welcome_pager_texts">
+        <item>¡Bienvenido! Entra o abre una cuenta desde esta app</item>
+        <item>Ahorra tiempo y evita ir a la sucursal</item>
+        <item>Realiza pagos, transfiere dinero o recarga saldo a tu celular</item>
+        <item>Toda la información a tu alcance para que decidas mejor</item>
+    </array>
+</resources>

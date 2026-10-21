@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-mortgage-tracking/bbva-feature-mortgage-tracking.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-loan-and-mortgage-information/bbva-analyticmanager-loan-and-mortgage-information.js";

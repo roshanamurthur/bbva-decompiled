@@ -1,0 +1,12 @@
+{
+  "use": "mexico",
+  "environments": [
+    {
+      "id": "mexico",
+      "web": {
+        "gema": "https://cdn-gema.bbva.com.mx/singleapp/statics-gema/index.html",
+        "glomo": "https://appassets.androidplatform.net/assets/www/index.html"
+      }
+    }
+  ]
+}

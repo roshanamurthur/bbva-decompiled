@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="bottom|center_horizontal"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.bbva.cellswidgets.CellsButton
+        android:id="@+id/welcomeFooterTopButton"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?attr/welcomeFooter_topButtonStyle"/>
+    <com.bbva.cellswidgets.CellsButton
+        android:id="@+id/welcomeFooterBottomButton"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="?attr/welcomeFooter_BottomButtonStyle"/>
+    <TextView
+        android:ellipsize="marquee"
+        android:gravity="center"
+        android:id="@+id/welcomeFooterTerms"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginRight="22dp"
+        android:lineSpacingExtra="6dp"
+        android:textAlignment="center"
+        style="?attr/welcomeFooter_TermsButtonStyle"/>
+</merge>

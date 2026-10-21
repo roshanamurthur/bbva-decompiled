@@ -1,0 +1,11 @@
+package org.bouncycastle.crypto.engines;
+
+import org.bouncycastle.util.Memoable;
+
+/* JADX INFO: loaded from: classes3.dex */
+public final class Zuc128Engine extends Zuc128CoreEngine {
+    @Override // org.bouncycastle.crypto.engines.Zuc128CoreEngine, org.bouncycastle.util.Memoable
+    public Memoable copy() {
+        return new Zuc128Engine(this);
+    }
+}

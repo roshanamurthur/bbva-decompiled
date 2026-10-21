@@ -1,0 +1,1400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="374943640"
+    android:versionName="25.50.19"
+    android:compileSdkVersion="34"
+    android:compileSdkVersionCodename="14"
+    android:requiredSplitTypes="base__abi,base__density"
+    android:splitTypes=""
+    package="com.bancomer.mbanking"
+    platformBuildVersionCode="34"
+    platformBuildVersionName="14">
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="34"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission
+        android:name="android.permission.BLUETOOTH"
+        android:maxSdkVersion="30"/>
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_ADMIN"
+        android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"/>
+    <uses-permission
+        android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-feature
+        android:name="android.hardware.bluetooth"
+        android:required="true"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="and android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false"/>
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="true"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="android.media.action.OPEN_DOCUMENT"/>
+            <data android:mimeType="image/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.GET_CONTENT"/>
+            <data android:mimeType="image/*"/>
+        </intent>
+        <intent>
+            <action android:name="android.media.action.VIDEO_CAPTURE"/>
+        </intent>
+        <intent>
+            <action android:name="android.provider.MediaStore.RECORD_SOUND"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE"/>
+        </intent>
+        <intent>
+            <action android:name="com.appsflyer.referrer.INSTALL_PROVIDER"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN"/>
+        </intent>
+    </queries>
+    <meta-data
+        android:name="com.google.mlkit.vision.DEPENDENCIES"
+        android:value="face"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.NFC"/>
+    <uses-permission android:name="android.permission.BIND_JOB_SERVICE"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission
+        android:name="android.permission.USE_FINGERPRINT"
+        android:maxSdkVersion="27"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE"/>
+    <permission
+        android:name="com.bancomer.mbanking.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.bancomer.mbanking.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"/>
+    <uses-permission android:name="com.huawei.appmarket.permission.dynamic_install"/>
+    <uses-permission android:name="com.huawei.hwouc.permission.DYNAMIC_FEATURE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS"/>
+    <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS"/>
+    <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS"/>
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <application
+        android:theme="@style/AppTheme"
+        android:label="@string/glomo_app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:name="com.bbva.glomohybrid.App"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        android:extractNativeLibs="false"
+        android:fullBackupContent="false"
+        android:usesCleartextTraffic="false"
+        android:resizeableActivity="false"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:dataExtractionRules="@xml/data_extraction_rules">
+        <activity
+            android:theme="@style/GloMo.Dark.Theme.Transparent"
+            android:name="com.bbva.notifications.activity.NotificationActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <meta-data
+                android:name="cells-tag"
+                android:value="notifications"/>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="https"
+                    android:host="devglomocontinuity.bbva.mx"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/deeplink_scheme"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="https"
+                    android:host="bbva.mx"
+                    android:pathPrefix="/qr-cards"/>
+            </intent-filter>
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data
+                    android:scheme="bbva"
+                    android:host="bbva-actions.bbva.mx"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.bancomer.mbanking.a2a"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:authorities="com.bancomer.mbanking.fileprovider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+        <activity
+            android:theme="@style/Splash"
+            android:label="@string/app_shortcut_name"
+            android:name="com.bbva.glomohybrid.splash.presentation.view.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts"/>
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/splash"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="splash"/>
+        </activity>
+        <provider
+            android:name="com.bbva.glomohybrid.files.LegacyFileProvider"
+            android:exported="false"
+            android:authorities="com.bancomer.mbanking.fileprovider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+        <provider
+            android:name="com.bbva.sl.ar.android.storage.pss.provider.SharedProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:multiprocess="true"
+            android:authorities="com.bancomer.mbanking.provider">
+            <meta-data
+                android:name="com.bbva.sl.ar.android.storage.pss.provider.security"
+                android:value="fingerprint"/>
+            <meta-data
+                android:name="com.bbva.sl.ar.android.storage.pss.provider.config.filename"
+                android:value="pss.json"/>
+        </provider>
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:exported="false"
+            android:authorities="com.bancomer.mbanking.androidx-startup">
+            <meta-data
+                android:name="com.bbva.tohu.android.product.valkyria.sdk.initializers.MobilePaymentInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+                android:value="androidx.startup"/>
+            <meta-data
+                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+                android:value="androidx.startup"/>
+        </provider>
+        <meta-data
+            android:name="push_kit_auto_init_enabled"
+            android:value="true"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/icon_notification"/>
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/BBVA_CORE_BLUE"/>
+        <activity
+            android:theme="@style/Landing"
+            android:label=" "
+            android:name="com.bbva.glomohybrid.landing.presentation.LandingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/landing"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="landing"/>
+        </activity>
+        <activity android:name="com.bbva.sdkcatalog.openpay.plugin.permissions.PermissionBluetoothActivity"/>
+        <activity android:name="com.bbva.sdkcatalog.openpay.plugin.permissions.PermissionLocationActivity"/>
+        <activity android:name="com.bbva.sdkcatalog.openpay.plugin.permissions.PermissionStorageActivity"/>
+        <activity
+            android:theme="@style/Theme.Transparent"
+            android:name="com.bbva.google.pay.GooglePayActivity"
+            android:exported="false"/>
+        <receiver
+            android:name="com.bbva.glomohybrid.mobilepayment.lib.broadcast.PaymentBroadcast"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="TOHU_CARD_STATUS_UPDATED"/>
+                <action android:name="TOHU_PAYMENT"/>
+                <action android:name="TOHU_SYSTEM_NOTIFICATIONS"/>
+            </intent-filter>
+        </receiver>
+        <activity
+            android:label=" "
+            android:name="com.bbva.notifications.activity.NotificationNoCommercialActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name=".activity.nocommercial.NotificationNoCommercialActivity"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/notification-detail"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="notification-detail"/>
+        </activity>
+        <service
+            android:name="com.google.firebase.components.ComponentDiscoveryService"
+            android:exported="false"
+            android:directBootAware="true">
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.crashlytics.FirebaseCrashlyticsKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.storage.FirebaseStorageKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.storage.StorageRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.ktx.FirebaseDynamicLinksKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.messaging.ktx.FirebaseMessagingKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.appcheck.FirebaseAppCheckRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.dynamiclinks.internal.FirebaseDynamicLinkRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity
+            android:theme="@style/VDDocumentCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vddocumentcapture.activities.LandscapeDocumentCaptureTutorialActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:theme="@style/VDDocumentCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vddocumentcapture.activities.LandscapeDocumentClassificationActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:theme="@style/VDDocumentCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vddocumentcapture.activities.LandscapeHelpActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/VDDocumentCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vddocumentcapture.activities.PortraitDocumentCaptureTutorialActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/VDDocumentCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vddocumentcapture.activities.PortraitDocumentClassificationActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:theme="@style/VDDocumentCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vddocumentcapture.activities.PortraitHelpActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="face"/>
+        <activity
+            android:theme="@style/VDPhotoSelfieCaptureTheme.NoTitle"
+            android:name="com.dasnano.vdphotoselfiecapture.activities.SelfieTutorialActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation"/>
+        <activity
+            android:theme="@style/VDPhotoSelfieCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vdphotoselfiecapture.activities.LandscapeSelfieActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:theme="@style/VDPhotoSelfieCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vdphotoselfiecapture.activities.PortraitSelfieActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/VDVideoSelfieCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vdvideoselfiecapture.activities.LandscapeVideoSelfieActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="screenSize|orientation"/>
+        <activity
+            android:theme="@style/VDVideoSelfieCaptureTheme.NoTitleNavBar"
+            android:name="com.dasnano.vdvideoselfiecapture.activities.PortraitVideoSelfieActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation"/>
+        <activity
+            android:theme="@style/VDVideoSelfieCaptureTheme.NoTitle"
+            android:name="com.dasnano.vdvideoselfiecapture.activities.LandscapeVideoTutorialActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:configChanges="screenSize|orientation"/>
+        <activity
+            android:theme="@style/VDVideoSelfieCaptureTheme.NoTitle"
+            android:name="com.dasnano.vdvideoselfiecapture.activities.PortraitVideoTutorialActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation"/>
+        <service
+            android:name="com.google.mlkit.common.internal.MlKitComponentDiscoveryService"
+            android:exported="false"
+            android:directBootAware="true">
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.vision.barcode.internal.BarcodeRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.vision.face.internal.FaceRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.vision.common.internal.VisionCommonRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+            <meta-data
+                android:name="com.google.firebase.components:com.google.mlkit.common.internal.CommonComponentRegistrar"
+                android:value="com.google.firebase.components.ComponentRegistrar"/>
+        </service>
+        <activity
+            android:theme="@style/Welcome"
+            android:name="com.bbva.glomohybrid.welcome.presentation.view.WelcomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/welcome"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="welcome"/>
+        </activity>
+        <activity
+            android:theme="@style/Welcome"
+            android:name="com.bbva.glomohybrid.welcome.presentation.view.WelcomeActivityPager"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/welcome-pager"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="welcome"/>
+        </activity>
+        <activity
+            android:name="com.bbva.glomohybrid.welcome.presentation.view.WelcomeDistributionActivity"
+            android:exported="false"
+            android:screenOrientation="portrait">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/welcome-video"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="welcome-video"/>
+        </activity>
+        <activity
+            android:theme="@style/Login"
+            android:name="com.bbva.glomohybrid.login.presentation.view.LoginActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/login"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="login"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.maintenanceflowmeter.MaintenanceFlowmeterActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:noHistory="true">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/maintenance-flowmeter"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="maintenance-flowmeter"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorFullModalScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.blockeduser.BlockedUserActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:noHistory="true">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/blocked-user"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="blocked-user"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorFullModalScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.biometric.BiometryAuthErrorActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:noHistory="true">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/biometry-error-face"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/biometry-error-fingerprint"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="biometry-error"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorFullModalScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.biometric.RetryBiometricAuthActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/biometry-error-retry-face"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/biometry-error-retry-fingerprint"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="biometry-error-retry"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorFullModalScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.biometric.FriendlyFraudErrorActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/biometry-friendly-fraud-fingerprint"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/biometry-friendly-fraud-face"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="biometry-friendly-fraud"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorFullModalScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.crashError.CrashErrorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:noHistory="false">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/crash-error"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="crash-error"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorFullModalScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.webView.error.WebViewErrorActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:noHistory="true">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/webview-error"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="webview-error"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorFullModalScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.webView.force.WebViewForceUpdateActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:noHistory="true">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/webview-force-update"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="webview-force-update"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorFullModalScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.mobilepayment.PaymentsInfoNotificationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:noHistory="false">
+            <meta-data
+                android:name="cells-tag"
+                android:value="payments-info"/>
+        </activity>
+        <activity
+            android:theme="@style/ErrorFullModalScreen"
+            android:name="com.bbva.glomohybrid.infoscreen.scratchCard.activity.ScratchcardActivity"
+            android:exported="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/scratch-card"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="scratch-card"/>
+        </activity>
+        <activity
+            android:theme="@style/CellsWeb"
+            android:name="com.bbva.glomohybrid.cellsweb.presentation.view.CellsWebActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="uiMode"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter android:order="1">
+                <action android:name="action.glomo.open"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/deep_linking_scheme"
+                    android:host="@string/deep_linking_host"
+                    android:path="/cellsweb"/>
+            </intent-filter>
+            <meta-data
+                android:name="cells-tag"
+                android:value="cellsweb"/>
+        </activity>
+        <activity
+            android:name="com.bbva.glomohybrid.qrscanner.QRScannerActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="uiMode"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:theme="@android:style/Theme.Translucent"
+            android:label="@string/mcsdk_notification_activity_label"
+            android:name="com.salesforce.marketingcloud.notifications.NotificationOpenActivity"
+            android:taskAffinity="com.bancomer.mbanking.NotificationOpenActivity"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:theme="@style/McSdk.Modal"
+            android:label="@string/mcsdk_iam_activity_label"
+            android:name="com.salesforce.marketingcloud.messages.iam.IamModalActivity"/>
+        <activity
+            android:theme="@style/McSdk.Banner"
+            android:label="@string/mcsdk_iam_activity_label"
+            android:name="com.salesforce.marketingcloud.messages.iam.IamBannerActivity"/>
+        <activity
+            android:theme="@style/McSdk.Fullscreen"
+            android:label="@string/mcsdk_iam_activity_label"
+            android:name="com.salesforce.marketingcloud.messages.iam.IamFullscreenActivity"
+            android:configChanges="screenSize|orientation"/>
+        <activity
+            android:theme="@style/McSdk.Fullscreen"
+            android:label="@string/mcsdk_iam_activity_label"
+            android:name="com.salesforce.marketingcloud.messages.iam.IamFullImageFillActivity"
+            android:configChanges="screenSize|orientation"/>
+        <receiver
+            android:name="com.salesforce.marketingcloud.location.LocationReceiver"
+            android:exported="false"/>
+        <service
+            android:name="com.salesforce.marketingcloud.MCService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false"/>
+        <service
+            android:name="com.salesforce.marketingcloud.NotificationOpenedService"
+            android:exported="false"/>
+        <receiver
+            android:name="com.salesforce.marketingcloud.MCReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <action android:name="com.bancomer.mbanking.com.salesforce.marketingcloud.WAKE_FOR_ALARM"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.salesforce.marketingcloud.messages.push.MCFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter android:priority="-1">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <provider
+            android:name="com.salesforce.marketingcloud.MCInitContentProvider"
+            android:enabled="true"
+            android:exported="false"
+            android:authorities="com.bancomer.mbanking.com.salesforce.marketingcloud.initprovider"/>
+        <service
+            android:name="org.altbeacon.beacon.service.BeaconService"
+            android:foregroundServiceType="location"/>
+        <service
+            android:name="com.bbva.push.firebase.FirebasePushService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+            android:exported="false"
+            android:directBootAware="true">
+            <intent-filter android:priority="-500">
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.google.firebase.sessions.SessionLifecycleService"
+            android:enabled="true"
+            android:exported="false"/>
+        <service
+            android:name="com.bbva.ethermobilesdk.geolocation.geofencing.service.GeofencingService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false"/>
+        <service
+            android:name="com.bbva.ethermobilesdk.geolocation.activity.service.ActivityRecognitionService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false"/>
+        <receiver
+            android:name="com.bbva.ethermobilesdk.geolocation.receiver.JobServiceReceiver"
+            android:exported="false"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+            android:exported="false"
+            android:excludeFromRecents="true"/>
+        <service
+            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+            android:exported="true"
+            android:visibleToInstantApps="true"/>
+        <provider
+            android:name="com.google.firebase.provider.FirebaseInitProvider"
+            android:exported="false"
+            android:authorities="com.bancomer.mbanking.firebaseinitprovider"
+            android:initOrder="100"
+            android:directBootAware="true"/>
+        <receiver
+            android:name="com.instacart.library.truetime.BootCompletedBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+        <provider
+            android:name="com.google.mlkit.common.internal.MlKitInitProvider"
+            android:exported="false"
+            android:authorities="com.bancomer.mbanking.mlkitinitprovider"
+            android:initOrder="99"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"/>
+        <service
+            android:name="com.bbva.tohu.android.product.valkyria.sdk.services.intents.GetTokenWithDelayService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name="com.bbva.tohu.android.product.valkyria.sdk.services.intents.SuspendTokenIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name="com.bbva.tohu.android.product.valkyria.sdk.services.intents.InitIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name="com.bbva.valkyria.sdk.services.AndroidHceService"
+            android:permission="android.permission.BIND_NFC_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.nfc.cardemulation.host_apdu_service"
+                android:resource="@xml/apduservice"/>
+        </service>
+        <service
+            android:name="com.bbva.tohu.android.product.valkyria.sdk.services.intents.DeleteDeviceIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name="com.bbva.tohu.android.product.valkyria.sdk.services.intents.DeleteCardIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name="com.bbva.tohu.android.product.valkyria.sdk.services.intents.ReplenishIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name="com.bbva.tohu.android.product.valkyria.sdk.services.intents.EnablePaymentIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name="com.bbva.tohu.android.product.valkyria.sdk.services.intents.GetTransactionHistoryIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <service
+            android:name="com.bbva.tohu.android.product.valkyria.sdk.services.intents.ProcessMessageIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <provider
+            android:name="com.bbva.gp2.android.trustdevice.sdk.LibContentProvider"
+            android:enabled="true"
+            android:exported="false"
+            android:authorities="com.bbva.gp2.trustdevice.com.bancomer.mbanking"
+            android:initOrder="2147483647"/>
+        <activity
+            android:name="com.bbva.cellscore.web.activity.WebViewActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:configChanges="screenSize|orientation|keyboardHidden|keyboard|locale">
+            <meta-data
+                android:name="cells-tag"
+                android:value="component-id-cells-web-activity"/>
+        </activity>
+        <activity
+            android:theme="@style/Theme.Translucent"
+            android:name="com.bbva.showinfo.nativemodal.activity.NativeListModalActivity"
+            android:exported="true"/>
+        <provider
+            android:name="com.bbva.plugin.media.capture.MediaCaptureFileProvider"
+            android:exported="false"
+            android:authorities="com.bancomer.mbanking.mediacapture.fileprovider"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/media_capture_paths"/>
+        </provider>
+        <activity
+            android:name="com.bbva.document.scanner.presentation.preview.PreviewDocumentActivity"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="com.bancomer.mbanking.action.PREVIEW_DOCUMENT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/document_scanner_scheme"
+                    android:host="@string/document_scanner_host"
+                    android:path="/preview-document"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.bbva.document.scanner.presentation.capture.ScanDocumentActivity"
+            android:exported="false"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="com.bancomer.mbanking.action.SCAN_DOCUMENT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data
+                    android:scheme="@string/document_scanner_scheme"
+                    android:host="@string/document_scanner_host"
+                    android:path="/scan-document"/>
+            </intent-filter>
+        </activity>
+        <receiver
+            android:name="com.appsflyer.SingleInstallBroadcastReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER"/>
+            </intent-filter>
+        </receiver>
+        <activity
+            android:theme="@style/DigSigTheme"
+            android:name="com.bbva.signaturepad.ui.SignaturePadActivity"
+            android:exported="false"
+            android:screenOrientation="sensorLandscape"/>
+        <service
+            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+            android:enabled="@bool/enable_system_alarm_service_default"
+            android:exported="false"
+            android:directBootAware="false"/>
+        <service
+            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:enabled="@bool/enable_system_job_service_default"
+            android:exported="true"
+            android:directBootAware="false"/>
+        <service
+            android:name="androidx.work.impl.foreground.SystemForegroundService"
+            android:enabled="@bool/enable_system_foreground_service_default"
+            android:exported="false"
+            android:directBootAware="false"/>
+        <receiver
+            android:name="androidx.work.impl.utils.ForceStopRunnable.BroadcastReceiver"
+            android:enabled="true"
+            android:exported="false"
+            android:directBootAware="false"/>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryChargingProxy"
+            android:enabled="false"
+            android:exported="false"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryNotLowProxy"
+            android:enabled="false"
+            android:exported="false"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.StorageNotLowProxy"
+            android:enabled="false"
+            android:exported="false"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.NetworkStateProxy"
+            android:enabled="false"
+            android:exported="false"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+            android:enabled="false"
+            android:exported="false"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+            android:enabled="@bool/enable_system_alarm_service_default"
+            android:exported="false"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+            android:permission="android.permission.DUMP"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <activity
+            android:theme="@style/Theme.DigitalSignature"
+            android:name="mx.openpay.library.ui.signature.DigitalSignatureComponentActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:theme="@style/Theme.DigitalSignature"
+            android:name="mx.openpay.library.ui.signature.DigitalSignatureTopActivity"
+            android:exported="false"
+            android:launchMode="singleInstance"/>
+        <activity
+            android:theme="@style/Theme.DigitalSignature"
+            android:name="mx.openpay.library.ui.taponphone.charge.TapOnPhoneCreateChargeActivity"
+            android:exported="false"/>
+        <activity
+            android:theme="@style/Theme.DigitalSignature"
+            android:name="mx.openpay.library.ui.taponphone.refund.TapOnPhoneCreateRefundChargeActivity"
+            android:exported="false"/>
+        <service
+            android:name="androidx.room.MultiInstanceInvalidationService"
+            android:exported="false"
+            android:directBootAware="true"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name="com.bbva.qr.activity.ScannerActivity"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:screenOrientation="locked"/>
+        <service
+            android:name="androidx.camera.core.impl.MetadataHolderService"
+            android:enabled="false"
+            android:exported="false">
+            <meta-data
+                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider"/>
+        </service>
+        <activity
+            android:theme="@style/NNLSelectAuthenticatorTheme"
+            android:name="com.noknok.android.uaf.framework.service.SelectAuthenticatorActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="user"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation"/>
+        <activity
+            android:theme="@style/NNLThemeTransparent"
+            android:name="com.fido.android.framework.tm.AsmIntentHelperActivity"
+            android:excludeFromRecents="true"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation|keyboard"/>
+        <activity
+            android:theme="@style/NNLThemeTransparent"
+            android:name="com.noknok.android.client.appsdk.commlib.IntentHelperActivity"
+            android:excludeFromRecents="true"/>
+        <activity
+            android:theme="@style/NNLSoftPinTheme"
+            android:name="com.noknok.android.client.asm.authui.pin.PINActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="user"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:noHistory="true"/>
+        <activity
+            android:theme="@style/NNLThemeTransparent"
+            android:name="com.noknok.android.client.asm.authui.fps.FpActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="user"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation"
+            android:windowSoftInputMode="adjustPan|stateHidden"
+            android:noHistory="true"/>
+        <activity
+            android:theme="@style/NNLThemeTransparent"
+            android:name="com.noknok.android.client.asm.keyguard.KgActivity"
+            android:excludeFromRecents="true"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:name="com.noknok.android.client.utils.ConfirmationActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="user"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation"
+            android:noHistory="true"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:name="com.noknok.android.client.utils.TryFidoActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="user"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation"
+            android:noHistory="true"/>
+        <activity
+            android:theme="@style/NNLSelectionDialogTheme"
+            android:name="com.noknok.android.client.utils.SelectFromDialogActivity"
+            android:excludeFromRecents="true"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation|keyboardHidden"/>
+        <activity
+            android:theme="@style/NNLThemeTransparent"
+            android:name="com.noknok.android.client.utils.HelperActivity"
+            android:excludeFromRecents="true"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation|keyboardHidden"/>
+        <activity
+            android:theme="@style/NNLThemeAppCompatTransparent"
+            android:name="com.noknok.android.client.utils.WorkerActivity"
+            android:excludeFromRecents="true"
+            android:configChanges="screenSize|orientation"/>
+        <provider
+            android:name="com.salesforce.marketingcloud.sfmcsdk.SFMCSdkInitContentProvider"
+            android:enabled="true"
+            android:exported="false"
+            android:authorities="com.bancomer.mbanking.com.salesforce.marketingcloud.sfmcsdk.initprovider"/>
+        <receiver
+            android:name="com.salesforce.marketingcloud.sfmcsdk.SFMCSdkReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+        <service
+            android:name="com.salesforce.marketingcloud.sfmcsdk.SFMCSdkJobIntentService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false"/>
+        <receiver
+            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+            android:enabled="true"
+            android:exported="false"/>
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementService"
+            android:enabled="true"
+            android:exported="false"/>
+        <service
+            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:enabled="true"
+            android:exported="false"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
+        <activity
+            android:theme="@style/Theme.Transparent"
+            android:name="com.bbva.androidtoolkit.plugin.activity.ResultHandlerActivity"
+            android:exported="false"/>
+        <activity
+            android:theme="@style/Theme.Transparent"
+            android:name="com.bbva.androidtoolkit.plugin.activity.result.ResultHandlerActivity"
+            android:exported="false"/>
+        <activity
+            android:theme="@style/Theme.Transparent"
+            android:name="com.bbva.androidtoolkit.plugin.permission.PermissionActivity"
+            android:exported="false"/>
+        <service
+            android:name="com.bbva.ethermobilesdk.devicechecker.magisk.service.MagiskService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":magiskProcess"
+            android:isolatedProcess="true"/>
+        <service
+            android:name="com.bbva.ethermobilesdk.devicechecker.root.service.RootService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":rootProcess"
+            android:isolatedProcess="true"/>
+        <service
+            android:name="com.bbva.accounts.BbvaAuthenticatorService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator"/>
+        </service>
+        <activity
+            android:theme="@style/VDMaterialComponentsTheme.TransparentActivity"
+            android:name="com.veridas.permissions.PermissionsActivity"
+            android:exported="false"/>
+        <uses-library
+            android:name="androidx.window.extensions"
+            android:required="false"/>
+        <uses-library
+            android:name="androidx.window.sidecar"
+            android:required="false"/>
+        <service
+            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+            android:exported="false">
+            <meta-data
+                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+                android:value="cct"/>
+        </service>
+        <service
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false"/>
+        <receiver
+            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+            android:exported="false"/>
+        <receiver
+            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+            android:permission="android.permission.DUMP"
+            android:enabled="true"
+            android:exported="true"
+            android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SKIP_FILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION"/>
+            </intent-filter>
+        </receiver>
+        <meta-data
+            android:name="aia-compat-api-min-version"
+            android:value="1"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.Translucent"
+            android:name="com.facetec.sdk.FaceTecSessionActivity"
+            android:excludeFromRecents="true"
+            android:configChanges="screenSize|orientation|keyboardHidden"
+            android:windowSoftInputMode="adjustPan"
+            android:supportsRtl="true"
+            android:resizeableActivity="false"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:name="com.bbva.zoomauth.ui.ZoomActivity"
+            android:screenOrientation="portrait"
+            android:hardwareAccelerated="true"/>
+        <activity
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:name="com.vasco.digipass.sdk.utils.qrcodescanner.QRCodeScannerSDKActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:theme="@style/Theme.PlayCore.Transparent"
+            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+            android:exported="false"
+            android:stateNotNeeded="true"/>
+        <provider
+            android:name="com.bbva.sl.ar.android.libkeymanagement.LibContentProvider"
+            android:enabled="true"
+            android:exported="false"
+            android:authorities="com.bbva.gp2.keymng.com.bancomer.mbanking"
+            android:initOrder="2147483647"/>
+        <meta-data
+            android:name="componentverify_ag_cbg_root"
+            android:value="@string/ag_sdk_cbg_root"/>
+        <activity
+            android:theme="@style/DialogActivity"
+            android:name="com.cyberfend.cyfsecurity.CCADialogActivity"
+            android:excludeFromRecents="true"/>
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="io.card.payment.DataEntryActivity"/>
+        <activity
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            android:name="com.mypinpad.tsdk.isolation.setLastBaselineToBottomHeight"
+            android:process=":TLniWnlh6DxccKfljv7c"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation"
+            android:resizeableActivity="false"
+            android:supportsPictureInPicture="false"/>
+        <service
+            android:name="com.mypinpad.tsdk.isolation.IsolatedService"
+            android:process=":TLniWnlh6DxccKfljv7c"/>
+        <activity
+            android:name="com.bbva.ciscowebex.ui.FloatingCiscoActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation"
+            android:supportsPictureInPicture="true"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.ciscowebex.androidsdk.internal.AcquirePermissionActivity"
+            android:exported="false"
+            android:configChanges="screenSize|orientation"/>
+        <activity
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:name="com.ciscowebex.androidsdk.phone.internal.H264LicensePrompterActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:configChanges="screenSize|orientation"/>
+        <service
+            android:name="com.ciscowebex.androidsdk.phone.internal.ScreenShareForegroundServiceSDK"
+            android:foregroundServiceType="mediaProjection"/>
+        <meta-data
+            android:name="com.android.vending.splits.required"
+            android:value="true"/>
+        <meta-data
+            android:name="com.android.stamp.source"
+            android:value="https://play.google.com/store"/>
+        <meta-data
+            android:name="com.android.stamp.type"
+            android:value="STAMP_TYPE_DISTRIBUTION_APK"/>
+        <meta-data
+            android:name="com.android.vending.splits"
+            android:resource="@xml/splits0"/>
+        <meta-data
+            android:name="com.android.vending.derived.apk.id"
+            android:value="3"/>
+    </application>
+</manifest>

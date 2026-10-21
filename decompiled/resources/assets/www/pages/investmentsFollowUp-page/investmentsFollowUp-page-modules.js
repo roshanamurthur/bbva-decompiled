@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/follow-up-investments-dashboard/follow-up-investments-dashboard.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-investments/bbva-analyticmanager-investments.js";import"../../../node_modules/@glomo-web-components/bbva-nativeconnector-datepicker/bbva-nativeconnector-datepicker.js";

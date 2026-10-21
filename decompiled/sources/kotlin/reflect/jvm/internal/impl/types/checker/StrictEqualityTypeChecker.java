@@ -1,0 +1,20 @@
+package kotlin.reflect.jvm.internal.impl.types.checker;
+
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.reflect.jvm.internal.impl.types.AbstractStrictEqualityTypeChecker;
+import kotlin.reflect.jvm.internal.impl.types.UnwrappedType;
+import org.jetbrains.annotations.NotNull;
+
+/* JADX INFO: compiled from: NewKotlinTypeChecker.kt */
+/* JADX INFO: loaded from: classes12.dex */
+public final class StrictEqualityTypeChecker {
+
+    @NotNull
+    public static final StrictEqualityTypeChecker INSTANCE = new StrictEqualityTypeChecker();
+
+    public final boolean strictEqualTypes(@NotNull UnwrappedType a10, @NotNull UnwrappedType b10) {
+        Intrinsics.checkNotNullParameter(a10, "a");
+        Intrinsics.checkNotNullParameter(b10, "b");
+        return AbstractStrictEqualityTypeChecker.INSTANCE.strictEqualTypes(SimpleClassicTypeSystemContext.INSTANCE, a10, b10);
+    }
+}

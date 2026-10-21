@@ -1,0 +1,32 @@
+{
+  "payload": {
+    "components": [
+      {
+        "tagName": "error-screen",
+        "type": "SCREEN",
+        "properties": {
+          "toolbarTitleLabel": {
+            "type": "resource",
+            "value": "error_crash_screen_toolbar_title"
+          },
+          "headerImage": {
+            "type": "resource",
+            "value": "ic_warning_illus"
+          },
+          "titleLabel": {
+            "type": "resource",
+            "value": "error_crash_screen_title"
+          },
+          "descriptionLabel": {
+            "type": "resource",
+            "value": "error_crash_screen_description"
+          },
+          "positiveButton": {
+            "type": "resource",
+            "value": "error_crash_screen_positive_button"
+          }
+        }
+      }
+    ]
+  }
+}

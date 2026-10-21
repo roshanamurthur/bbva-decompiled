@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.google.android.material.textfield.TextInputLayout
+        android:textColorHint="@color/white"
+        android:id="@+id/text_input_layout_spinner"
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        app:boxCollapsedPaddingTop="5dp"
+        app:boxStrokeColor="@color/component_ui_login_spinner_stroke"
+        app:endIconDrawable="@drawable/component_ui_login_ic_arrow_down"
+        app:endIconMode="custom"
+        app:endIconTint="@color/component_ui_login_txt_link"
+        style="@style/LoginStyle_Spinner.TextInputLayout">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_tex_layout_spinner"
+            android:focusableInTouchMode="false"
+            android:longClickable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="none"
+            android:imeOptions="actionNext"
+            android:fontFamily="@font/benton_sans_bbva_book"
+            style="?attr/loginView_spinnerStyle"/>
+    </com.google.android.material.textfield.TextInputLayout>
+</FrameLayout>

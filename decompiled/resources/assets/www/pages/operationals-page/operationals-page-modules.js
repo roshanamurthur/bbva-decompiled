@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-widget-intelligent-frequent-operations/bbva-widget-intelligent-frequent-operations.js";import"../../../node_modules/@glomo-web-components/bbva-controller-bill-payments-home/bbva-controller-bill-payments-home.js";

@@ -1,0 +1,3934 @@
+(function (document) {
+  'use strict';
+
+  if (typeof Object.assign !== 'function') {
+    // .length of function is 2
+    Object.assign = function (target, varArgs) {
+      if (target === null) {
+        // TypeError if undefined or null
+        throw new TypeError('Cannot convert undefined or null to object');
+      }
+      var to = Object(target);
+      for (var index = 1; index < arguments.length; index++) {
+        var nextSource = arguments[index];
+
+        // Skip over if undefined or null
+        if (nextSource !== null) {
+          for (var nextKey in nextSource) {
+            // Avoid bugs when hasOwnProperty is shadowed
+            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+              to[nextKey] = nextSource[nextKey];
+            }
+          }
+        }
+      }
+      return to;
+    };
+  }
+
+  // Array.prototype.find ES6 polyfill for ES5 versions
+  Array.prototype.find = Array.prototype.find || function (callback) {
+    if (this === null) {
+      throw new TypeError('Array.prototype.find called on null or undefined');
+    } else if (typeof callback !== 'function') {
+      throw new TypeError('callback must be a function');
+    }
+    var list = Object(this);
+    // Makes sures is always has an positive integer as length.
+    var length = list.length >>> 0;
+    var thisArg = arguments[1];
+    for (var i = 0; i < length; i++) {
+      var element = list[i];
+      if (callback.call(thisArg, element, i, list)) {
+        return element;
+      }
+    }
+  };
+  window.AppConfig = {
+    "cache": true,
+    "debug": true,
+    "prplLevel": 1,
+    "preCache": true,
+    "preRender": true,
+    "componentsPath": "./bower_components/",
+    "litComponentsPath": "node_modules/",
+    "composerEndpoint": "composerMocks/",
+    "mainNode": "app__content",
+    "deployEndpoint": "",
+    "i18nPath": "locales/",
+    "perfMonitor": "",
+    "transpile": true,
+    "viewLimit": 20,
+    "transpileExclude": ["bbva-modal-carousel-swipe", "bbva-global-financial-overview-api-dm", "bgadp*", "cells-atom-radio-button", "cells-icon-message-change-data", "cells-rxjs", "cells-select", "cleave-import", "cropperjs", "d3", "moment", "web-animations-js", "cropperjs", "carousel-aem", "./scripts/vendor/tealeaf-library.js"],
+    "localStorageKeys": ["app_settings", "closed_offers_in_session", "reminded", "feature_flag", "fido_info_register", "notifications", "isMonoEnterpriseDebitCardClient", "softTokenUserId"],
+    "locales": {
+      "languages": ["es-MX", "es-ES", "en-US", "es", "en"],
+      "intlInputFileNames": ["locales"],
+      "intlFileName": "locales",
+      "enabledI18n": true
+    },
+    "enableLitElement": true,
+    "appModules": ["@bbva-web-components-widgets", "@bbva-global-apis-dm", "@glomo-web-components", "@bbva-experience-components"],
+    "extraDependencies": ["cells-analytics-collector", "cells-adobe-target"],
+    "buildTargets": ["chrome >= 88", "safari >= 14", "last 1 Android versions"],
+    "app": "mx",
+    "appVersion": "25.50.19",
+    "lang": "es-MX",
+    "splashLogo": "images/logo-bbva.svg",
+    "splashLogoHeight": 45,
+    "splashLogoClass": "middle",
+    "sessionTimeout": {
+      "foreground": 5,
+      "background": 5
+    },
+    "mapsLocationDefault": {
+      "latitude": "19.432608",
+      "longitude": "-99.133209"
+    },
+    "cardlessWelcomeVisits": 3,
+    "phoneNumbers": {},
+    "directory": {
+      "EFI": "+525552268968",
+      "TDC": "+525552268969",
+      "Consumo": "+525552268970",
+      "Pagare": "+525552268971",
+      "Recolocacion Consumo": "+525552268972",
+      "Portabilidad de Nomina": "+525552268973"
+    },
+    "startScheduleTime": "09:00:00",
+    "endScheduleTime": "17:30:00",
+    "callType": "IMMEDIATE",
+    "genericPhoneNumber": "5591565000",
+    "businessUnit": "BBVA Mexico",
+    "siteAppName": "App BBVA Mexico",
+    "sysEnv": "app",
+    "phoneNumberAssistant": "+525552268968",
+    "phoneNumberContact": "5552262663",
+    "phoneNumberClientPaymentsSolutions": "55 1054 8020",
+    "userSegmentGlobal": "003001",
+    "veridasVideoSelfie": {
+      "acceptedDocuments": ["MX_IDCard_2014", "MX_IDCard_2008", "MX_IDCard_2019"],
+      "useFlash": false,
+      "livePhoto": false,
+      "liveVideo": true,
+      "documentsPrefix": "glomo-mx",
+      "documentType": "",
+      "flowId": "new-upgrade-level-sdk-flow"
+    },
+    "mpos": {
+      "applicationId": "glomo-mx"
+    },
+    "blingsPlayerConfig": {
+      "cinematic": true,
+      "autoplay": true
+    },
+    "retargetingOffers": {
+      "ocLoanOfferPage": {
+        "formType": "CON01ZPR",
+        "lastStep": 5,
+        "numberChecksTerms": [2, 3],
+        "stepOfTerms": 3,
+        "keyFlag": "ocLoanOffer",
+        "customFields": ["sim_movement_period_amt", "sim_cust_financing_amount", "gf_frequency_type_desc", "gf_loan_term_month_number", "simulator_use"]
+      },
+      "ocPayrollAdvancePage": {
+        "formType": "ANM01ZPR",
+        "lastStep": 5,
+        "numberChecksTerms": [3],
+        "keyFlag": "ocPayrollAdvance",
+        "stepOfTerms": 3,
+        "removeGfStoryCtaLink": true,
+        "customFields": ["effective_annual_cost_rate_per", "gf_cust_or_financing_amount", "gf_minimum_amount", "gf_maximum_amount", "gf_data_calculation_date", "annual_interest_rate_per", "payment_fornight_deadline", "gf_loan_term_month_number", "gf_opening_fee_per", "loan_payment_biweekly_amount", "simulator_use"]
+      },
+      "ocPayrollPortability": {
+        "formType": "PTB01ZPR",
+        "lastStep": 7,
+        "numberChecksTerms": [1],
+        "stepOfTerms": 5,
+        "keyFlag": "ocPayrollPortabilityOffer",
+        "customFields": ["entities_payroll_pay_desc"]
+      },
+      "instantCash": {
+        "formType": "EFI01ZPR",
+        "lastStep": 5,
+        "numberChecksTerms": [1],
+        "stepOfTerms": 3,
+        "keyFlag": "ocInstantCashOffer",
+        "customFields": ["sim_cust_financing_amount", "sim_movement_period_amt", "gf_frequency_type_desc", "gf_loan_term_month_number", "simulator_use"]
+      },
+      "mobileTopUp": {
+        "formType": "RTA01ZPR",
+        "lastStep": 6,
+        "keyFlag": "mobileTopUp",
+        "isServicing": true,
+        "customFields": []
+      },
+      "carLoan": {
+        "formType": "CAU01ZPR",
+        "lastStep": 5,
+        "numberChecksTerms": [1],
+        "stepOfTerms": 2,
+        "keyFlag": "ocCarLoanOffer",
+        "customFields": ["credit_use_for_desc", "sim_cust_financing_amount", "gf_loan_term_month_number", "sim_movement_period_amt", "simulator_use"]
+      },
+      "mortgage": {
+        "formType": "HIP01ZPR",
+        "lastStep": 5,
+        "numberChecksTerms": [2],
+        "stepOfTerms": 3,
+        "keyFlag": "ocMortgageOffer",
+        "customFields": ["sim_cust_financing_amount", "sim_movement_period_amt", "gf_frequency_type_desc", "gf_loan_term_month_number", "credit_use_for_desc", "annual_interest_rate_per", "annual_total_cost_per"]
+      },
+      "dynamicLifeInsuranceMainPage": {
+        "formType": "SGV01ZPR",
+        "lastStep": 10,
+        "numberChecksTerms": [4],
+        "stepOfTerms": 8,
+        "keyFlag": "ocDynamicLifeInsurancOffer",
+        "customFields": ["gf_cust_or_financing_amount", "gf_movement_periodic_amount", "sim_cust_financing_amount", "sim_movement_period_amt", "currency_code_id", "policy_daily_coverage_number", "gf_frequency_type_desc", "gf_loan_term_month_number", "gf_incremental_type", "gf_payment_method_desc", "incremental_plan_desc", "gf_cr_card_payment_type", "simulator_use"]
+      },
+      "dynamicLifeInsuranceOfferPage": {
+        "formType": "SGV01ZPR",
+        "lastStep": 10,
+        "numberChecksTerms": [4],
+        "stepOfTerms": 8,
+        "keyFlag": "ocDynamicLifeInsurancOffer",
+        "customFields": ["gf_cust_or_financing_amount", "gf_movement_periodic_amount", "sim_cust_financing_amount", "sim_movement_period_amt", "currency_code_id", "policy_daily_coverage_number", "gf_frequency_type_desc", "gf_loan_term_month_number", "gf_incremental_type", "gf_payment_method_desc", "incremental_plan_desc", "gf_cr_card_payment_type", "simulator_use"]
+      },
+      "dynamicLifeInsuranceEditCoverageAmountPage": {
+        "formType": "SGV01ZPR",
+        "lastStep": 10,
+        "numberChecksTerms": [4],
+        "stepOfTerms": 8,
+        "keyFlag": "ocDynamicLifeInsurancOffer"
+      },
+      "dynamicLifeInsuranceAddBeneficiaryPage": {
+        "formType": "SGV01ZPR",
+        "lastStep": 10,
+        "numberChecksTerms": [4],
+        "stepOfTerms": 8,
+        "keyFlag": "ocDynamicLifeInsurancOffer"
+      },
+      "dynamicLifeInsuranceEditPercentagePage": {
+        "formType": "SGV01ZPR",
+        "lastStep": 10,
+        "numberChecksTerms": [4],
+        "stepOfTerms": 8,
+        "keyFlag": "ocDynamicLifeInsurancOffer"
+      },
+      "pocketsCreate": {
+        "formType": "CDA01ZPR",
+        "lastStep": 4,
+        "isServicing": true,
+        "keyFlag": "pockets",
+        "customFields": ["gf_associated_account_id"]
+      },
+      "nonPreApprovedConsumerLoanBureau": {
+        "formType": "CNP01ZPR",
+        "lastStep": 4,
+        "keyFlag": "nonPreApprovedConsumerLoanBureau",
+        "isNotPreApprovedOffer": true,
+        "isServicing": true,
+        "customFields": []
+      },
+      "nonPreApprovedConsumerLoan": {
+        "formType": "CNP01ZPR",
+        "lastStep": 4,
+        "keyFlag": "nonPreApprovedConsumerLoanBureau",
+        "isServicing": true,
+        "isNotPreApprovedOffer": true,
+        "customFields": ["annual_total_cost_per", "consm_insurance_per_thsd_amount", "cat_calc_date", "annual_interest_rate_per"]
+      },
+      "creditBureau": {
+        "formType": "ADB01ZPR",
+        "lastStep": 3,
+        "keyFlag": "creditBureau",
+        "isServicing": true,
+        "customFields": []
+      },
+      "contractPaymentExistingModal": {
+        "formType": "PAG01ZPR",
+        "lastStep": 7,
+        "currentStep": 1,
+        "keyFlag": "ocDepositHiringOffer",
+        "customFields": []
+      },
+      "contractPaymentExisting": {
+        "formType": "PAG01ZPR",
+        "lastStep": 7,
+        "currentStep": 1,
+        "keyFlag": "ocDepositHiringOffer",
+        "customFields": []
+      },
+      "depositHiring": {
+        "formType": "PAG01ZPR",
+        "lastStep": 7,
+        "numberChecksTerms": [3],
+        "stepOfTerms": 5,
+        "currentStep": 2,
+        "keyFlag": "ocDepositHiringOffer",
+        "customFields": ["sim_cust_financing_amount", "drawn_profit_amount", "gf_loan_term_month_number", "invst_instruct_upon_expiry", "simulator_use"]
+      },
+      "depositsPurchase": {
+        "formType": "PAG01ZPR",
+        "lastStep": 7,
+        "currentStep": 2,
+        "keyFlag": "ocDepositHiringOffer",
+        "customFields": ["sim_cust_financing_amount", "drawn_profit_amount", "gf_loan_term_month_number", "invst_instruct_upon_expiry", "simulator_use"]
+      },
+      "creditCardHolder": {
+        "formType": "TDC01ZPR",
+        "lastStep": 7,
+        "numberChecksTerms": [5],
+        "stepOfTerms": 5,
+        "keyFlag": "ocCreditCardOffer",
+        "customFields": ["sim_cust_financing_amount", "gf_cr_card_payment_type", "client_shipping_address_desc"]
+      },
+      "increment": {
+        "formType": "ILC01ZPR",
+        "lastStep": 4,
+        "keyFlag": "increment",
+        "isServicing": true,
+        "customFields": []
+      },
+      "nonPreApprovedCreditCardBureau": {
+        "formType": "TNP01ZPR",
+        "lastStep": 3,
+        "keyFlag": "nonPreApprovedCreditCardBureau",
+        "isServicing": true,
+        "isNotPreApprovedOffer": true,
+        "customFields": []
+      },
+      "nonPreApprovedCreditCard": {
+        "formType": "TNP01ZPR",
+        "lastStep": 3,
+        "keyFlag": "nonPreApprovedCreditCardBureau",
+        "isServicing": true,
+        "isNotPreApprovedOffer": true,
+        "customFields": []
+      },
+      "ocLoanRelocation": {
+        "formType": "REC01ZPR",
+        "lastStep": 5,
+        "numberChecksTerms": [3, 4],
+        "stepOfTerms": 3,
+        "keyFlag": "ocLoanRecolocation",
+        "customFields": ["sim_cust_financing_amount", "drawn_profit_amount", "sim_movement_period_amt", "gf_frequency_type_desc", "gf_loan_term_month_number", "simulator_use", "effective_annual_cost_rate_per", "gf_minimum_amount", "gf_maximum_amount", "guarantee_insurance_amount", "loan_monthy_interest_rate_per", "gf_validity_end_date", "gf_data_calculation_date", "annual_interest_rate_per", "consump_pend_balance_amount", "account_obfuscated_id", "gf_available_amount"]
+      },
+      "fundsHiring": {
+        "formType": "FDI01ZPR",
+        "lastStep": 11,
+        "numberChecksTerms": [4],
+        "stepOfTerms": 9,
+        "keyFlag": "ocFundsHiringOffer",
+        "customFields": ["gf_investor_type_ind_type", "total_investment_amount", "credit_use_for_desc", "simulator_use"]
+      },
+      "nonPreApprovedCarCertificate": {
+        "formType": "CAU02ZPR",
+        "lastStep": 2,
+        "numberChecksTerms": [2, 3],
+        "stepOfTerms": 3,
+        "isNotPreApprovedOffer": true,
+        "keyFlag": "nonPreApprovedCarCertificate",
+        "isServicing": true,
+        "customFields": []
+      }
+    },
+    "sphericaPages": {
+      "atmLocator": {},
+      "contactsAgenda": {},
+      "mobileTopUp": {},
+      "poisDetail": {},
+      "searchPlace": {},
+      "settings": {}
+    },
+    "routes": {
+      "sphericaSetup": "/spherica-setup",
+      "aboutInfo": "/about-info",
+      "aboutPage": "/about-page",
+      "account": "/account/:productId",
+      "accountCreditCardPayment": "/account-credit-card-payment",
+      "accountEditAlias": "/account/:productId/edit-alias",
+      "accountLinkMobile": "/account/:productId/link",
+      "accountMonthlyStatement": "/account-monthly-statement/:productId",
+      "accountMoreInfo": "/account/:productId/more-info",
+      "accountTransactionDetail": "/account/:productId/transaction/:transactionId",
+      "accountTransactions": "/account/:productId/transactions",
+      "accountUnlinkMobile": "/account/:productId/unlink",
+      "additionalCardDetail": "/additional-card-detail/:additionalProductId",
+      "additionalCreditCardMainPage": "/additional-credit-card",
+      "additionalCreditCardSuccessPage": "/additional-credit-card-success",
+      "addFundToContract": "/add-fund-to-contract",
+      "addFundToContractReview": "/add-fund-to-contract-review",
+      "addVideoSelfie": "/add-video-selfie",
+      "advancePayments": "/advance-payments",
+      "adviceConfiguration": "/advice-configuration",
+      "applianceSimulator": "/appliance-simulator",
+      "applicationFeedback": "/app-feedback",
+      "appPermissions": "/app-permissions",
+      "assistanceManager": "/assistance-manager",
+      "assistanceManagerEmail": "/assistance-manager-email",
+      "assistanceSection": "/assistance-section",
+      "billPayments": "/bill-payments",
+      "billPaymentsDashboard": "/bill-payments-dashboard",
+      "billPaymentsHome": "/bill-payments-home",
+      "billPaymentsSuccess": "/bill-payments-success",
+      "blackhawkAnswer": "/blackhawk-answer",
+      "blackhawkAnswerDetail": "/blackhawk-answer-detail",
+      "blackhawkInformation": "/blackhawk-information",
+      "blackhawkPurchase": "/blackhawk-purchase",
+      "blackhawkPurchaseDetail": "/blackhawk-purchase-detail",
+      "blackhawkPurchaseReview": "/blackhawk-purchase-review",
+      "branchLocator": "/branch-locator",
+      "blackhawkWelcome": "/blackhawk-welcome",
+      "blingsMortgage": "/blings-mortgage",
+      "blockAndReplacement": "/block-and-replacement",
+      "blockAndReplacementSuccess": "/block-and-replacement-success",
+      "businessAccountInfo": "/business-account-info",
+      "bbvaTraderProductDetail": "/bbva-trader-product-detail",
+      "bbvaTraderPurchaseSale": "/bbva-trader-purchase-sale",
+      "btraderEditAlias": "/bbva-trader-product-detail/:productId/edit-alias",
+      "atmLocator": "/atm-locator",
+      "callMeBackAssistanceManager": "/call-me-back-assistance-manager",
+      "callMeBackAssistanceManagerSuccess": "/call-me-back-assistance-manager-success",
+      "card": "/card/:productId",
+      "cardActivation": "/card-activation",
+      "cardCreditCardPayment": "/card-credit-card-payment",
+      "cardCreditCardPaymentPromise": "/card-credit-card-payment-promise",
+      "cardDetail": "/card-detail/:productId",
+      "cardDynamicCvv": "/card/:digitalProductId/dynamic-cvv",
+      "cardEditAlias": "/card/:productId/edit-alias",
+      "cardGenerateVirtual": "/card-detail/:productId/generate",
+      "cardGenerateVirtualReview": "/card-detail/:productId/generate-review",
+      "cardlessWithdrawal": "/cardless-withdrawal/",
+      "cardlessWithdrawalCommerce": "/cardless-withdrawal-commerce",
+      "cardlessWithdrawalDetail": "/cardless-withdrawal/transaction/:transactionId",
+      "cardlessWithdrawalHistoric": "/cardless-withdrawal/historic",
+      "cardlessWithdrawalHistoricSearcher": "/cardless-withdrawal/searcher",
+      "cardlessWithdrawalReview": "/cardless-withdrawal/review",
+      "cardMonthlyStatement": "/card-monthly-statement/:productId",
+      "cardMoreInfo": "/card/:productId/more-info",
+      "cardOriginationOcDebitCardInmediateDelivery": "/card-origination-oc-debit-card-inmediate-delivery",
+      "cardTransactionDetail": "/card/:productId/transaction/:transactionId",
+      "cardTransactions": "/card/:productId/transactions",
+      "cardWithoutData": "/card-without-data/:productId",
+      "carLoan": "/car-loan",
+      "carLoanPayment": "/car-loan-payment-loan/:loanId",
+      "carLoanSuccessPage": "/car-loan-success-page",
+      "carSimulator": "/car-simulator",
+      "solarPanelsSimulator": "/solar-panels-simulator",
+      "cashZonePaymentsMpos": "/cash-zone-payments-mpos/:viewMode",
+      "cashZonePaymentsMposCalc": "/cash-zone-payments-mpos/calculator/interceptor",
+      "cashZonePaymentsMposDash": "/cash-zone-payments-mpos/dashboard/interceptor",
+      "chat": "/chat",
+      "chatWelcome": "/chatWelcome",
+      "checksDeposits": "/checks-deposits",
+      "checksDepositsCheckAggregator": "/checks-deposits/check-aggregator",
+      "checksDepositsDetail": "/checks-deposits/list/:checkId",
+      "checksDepositsList": "/checks-deposits/list",
+      "checksDepositsListSearcher": "/checks-deposits/list-searcher",
+      "checksDepositsPhotos": "/checks-deposits/check-aggregator/photos",
+      "checksDepositsReview": "/checks-deposits/review",
+      "checksManagement": "/checks-management",
+      "checksManagementAddCheck": "/checks-management/add-check",
+      "checksManagementCancelReview": "/checks-management/cancel/review",
+      "checksManagementDetail": "/checks-management/detail",
+      "checksManagementList": "/checks-management/list",
+      "checksManagementListSearcher": "/checks-management/list-searcher",
+      "checksManagementReview": "/checks-management/review",
+      "checksManagementServiceTerms": "/checks-management/service-terms",
+      "checksManagementServiceTermsReview": "/checks-management/service-terms/review",
+      "checksSection": "/checks-section",
+      "clarificationsListCare": "/clarifications-list-care",
+      "clarificationsManagementCarePage": "/clarifications-management-care",
+      "clarificationsManagementCareSuccessPage": "/clarifications-management-care-success",
+      "clarificationsManagementClarificationSuccessPage": "/clarifications-management-clarification-success",
+      "clarificationsTrackingCare": "/clarifications-tracking-care",
+      "cleanCardOperations": "/clean-card-operations",
+      "cleanCardQrFaqs": "/clean-card-qr-faqs",
+      "codiAccountValidate": "/codi-account-validate",
+      "codiBeginRegister": "/codi-begin-register",
+      "codiEnrollment": "/codi-enrollment",
+      "codiPaymentInformation": "/codi-payment-information",
+      "codiPaymentInformationSuccess": "/codi-payment-information-success",
+      "codiPaymentPostponed": "/codi-payment-postponed",
+      "codiPaymentRejected": "/codi-payment-rejected",
+      "codiPaymentRequestInitial": "/codi-payment-request-initial",
+      "codiPaymentRequestMain": "/codi-payment-request-main",
+      "codiPaymentRequestSuccess": "/codi-payment-request-success",
+      "codiQrPaymentsInitial": "/codi-qr-payments-initial",
+      "codiQrPaymentsMain": "/codi-qr-payments-main",
+      "codiQrPaymentsReaderSuccess": "/codi-qr-payments-reader-success",
+      "codiQrPaymentsReceipt": "/codi-qr-payments-receipt",
+      "codiQrRequestSteps": "/codi-qr-request-steps",
+      "codiQrRequestSuccessfulScreen": "/codi-qr-request-successful-screen",
+      "codiQrScanner": "/codi-qr-scanner",
+      "codiSettings": "/codi-settings",
+      "codiSettingsKnowMore": "/codi-settings-know-more",
+      "codiTransactionHistory": "/codi-transaction-history",
+      "codicelAgreeAndRemoveConsent": "/codicel-agree-and-remove-consent",
+      "codicelPeerToPeerSend": "/codicel-peer-to-peer-send",
+      "codicelPeerToPeerTransferReview": "/codicel-peer-to-peer-transfer-review",
+      "comingSoon": "/coming-soon",
+      "configureProductsPage": "/configure-products",
+      "contactsAgenda": "/contacts-agenda",
+      "containerFaqsList": "/container-faqs-list",
+      "contractPaymentExisting": "/contract-payment-existing",
+      "contractPaymentExistingModal": "/contract-payment-existing-modal",
+      "contractProductSection": "/contract-product-section",
+      "creditBureau": "/credit-bureau",
+      "creditBureauReceipt": "/credit-bureau-receipt",
+      "creditCardHolder": "/credit-card-holder",
+      "creditCardHolderReview": "/credit-card-holder-review",
+      "creditCardPaymentReview": "/credit-card-payment/review",
+      "creditCardTracking": "/credit-card-tracking",
+      "curpPage": "/curp-page",
+      "curpSuccessPage": "/curp-success-page",
+      "customerContracts": "/customer-contracts",
+      "dashboard": "/dashboard",
+      "debitCardTracking": "/debit-card-tracking",
+      "debitCardTrackingDetail": "/debit-card-tracking-detail",
+      "deferredSignatureEquityContract": "/deferred-equity-contract",
+      "deferredSignatureEquityContractReview": "/deferred-equity-contract-review",
+      "deferredSignaturePurchaseInstruction": "/deferred-signature-purchase-instruction",
+      "deferredSignaturePurchaseInstructionReview": "/deferred-signature-purchase-instruction-review",
+      "deferredSignatureStructuredProducts": "/deferred-structured-products",
+      "deferredSignatureStructuredProductsReview": "/deferred-structured-products-review",
+      "demoFeedback": "/demo/feedback",
+      "deposit": "/deposit/:productId",
+      "depositConfiguration": "/deposit-configuration",
+      "depositConfigurationReview": "/deposit-configuration-review",
+      "depositHiring": "/deposit-hiring",
+      "depositHiringReview": "/deposit-hiring-review",
+      "depositMoreInfo": "/deposit/:productId/more-info",
+      "depositSale": "/deposit-sale",
+      "depositSaleReview": "/deposit-sale-review",
+      "depositsPurchase": "/deposits-purchase/:productId",
+      "depositsPurchaseReview": "/deposits-purchase-review",
+      "depositTransactionDetail": "/deposit/:productId/transactions/:transactionId",
+      "deviceInsurance": "/device-insurance",
+      "deviceInsuranceExclusions": "/device-insurance-exclusions",
+      "deviceInsuranceSuccess": "/device-insurance-success",
+      "digitalActivation": "/digital-activation",
+      "digitalActivationCall": "/digital-activation-call",
+      "digitalActivationMobileServices": "/digital-activation-mobile-services",
+      "digitalButler": "/digital-butler",
+      "disabilityVideocallHearingStrategic": "/disability-videocall-hearing-strategic",
+      "disabilityVideocallHearingTactical": "/disability-videocall-hearing-tactical",
+      "disabilityVideocallHearingTacticalCalling": "/disability-videocall-hearing-tactical-calling",
+      "disabilityVideocallHearingTacticalPutAttention": "/disability-videocall-hearing-tactical-put-attention",
+      "discreetModeActivation": "/discreet-mode-activation",
+      "discreetModeSettings": "/discreet-mode-settings/:pageFrom",
+      "domiciliationNoticeDecline": "/domiciliation-notice-decline",
+      "domiciliationNoticeDetail": "/domiciliation-notice-detail",
+      "domiciliationNoticeSuccess": "/domiciliation-notice-success",
+      "dynamicsAndRewards": "/dynamics-and-rewards",
+      "dynamicLifeInsuranceAddBeneficiaryPage": "/dynamic-life-insurance-beneficiary",
+      "dynamicLifeInsuranceEditCoverageAmountPage": "/dynamic-life-edit-coverage-amount",
+      "dynamicLifeInsuranceEditPercentagePage": "/dynamic-life-edit-percentage",
+      "dynamicLifeInsuranceMainPage": "/dynamic-life-insurance",
+      "dynamicLifeInsuranceNewAddressPage": "/dynamic-life-insurance-new-address",
+      "dynamicLifeInsuranceOfferPage": "/dynamic-life-insurance-offer",
+      "dynamicLifeInsuranceSuccess": "/dynamic-life-insurance-success",
+      "editCreditCardLimits": "/edit-credit-card-limits/:productId",
+      "deviceAccess": "/device-access",
+      "deviceAccessPage": "/device-access-page",
+      "deviceAccessVerification": "/device-access-verification",
+      "deviceAccessCall": "/device-access-call",
+      "deviceAccessSuccess": "/device-access-success",
+      "emergencyLostCard": "/emergency-lost-card",
+      "emergencyChangePassword": "/emergency-change-password",
+      "emergencyNeedCash": "/emergency-need-cash",
+      "emergencyReports": "/emergency-reports",
+      "emergencyTrackingReports": "/emergency-tracking-reports",
+      "emergencyZone": "/emergency-zone",
+      "equity": "/equity/:productId",
+      "equityAssistance": "/equity-assistance",
+      "equityContractsContribution": "/equity-contracts-contribution",
+      "equityContractsContributionSuccess": "/equity-contracts-contribution-success",
+      "equityContractsInvestmentDetail": "/equity-contracts-investment-detail",
+      "equityContractsNewFund": "/equity-contracts-new-fund",
+      "equityContractsWithdrawalSuccess": "/equity-contracts-withdrawal-success",
+      "equityContractsWithdrawal": "/equity-contracts-withdrawal",
+      "equityEditAlias": "/equity/:productId/edit-alias",
+      "equityError": "/equity-error",
+      "equityMoreInfo": "/equity/:productId/more-info",
+      "expensesGroup": "/expenses-group-experiences",
+      "facialRecognition": "/facial-recognition",
+      "facialRecognitionFacePicture": "/facial-recognition-face-picture",
+      "facialRecognitionMoreInfo": "/facial-recognition-more-info",
+      "facialRecognitionStartRegistry": "/facial-recognition-start-registry",
+      "facialRecognitionSuccessRegistration": "/facial-recognition-success-registration",
+      "fatcaValidation": "/fatca-validation",
+      "fatcaValidationResidenceForm": "/fatca-validation-residence-form",
+      "fatcaValidationSuccess": "/fatca-validation-success",
+      "fatcaValidationSurvey": "/fatca-validation-survey",
+      "faqsTagCardDetail": "/faqs-tag-card-detail",
+      "feedback": "/generic-feedback",
+      "feedbackLogout": "/feedback-logout",
+      "fido": "/fido",
+      "financeDebitLineCancel": "/finance-debit-line-cancel",
+      "financeTransactionMultipurchase": "/card/:productId/finance-transaction-multipurchase",
+      "financeTransactionMultipurchaseReview": "/card/finance-transaction-multipurchase/review",
+      "financeTransactionMultipurchaseDebit": "/finance-transaction-multipurchase-debit",
+      "financeTransactionMultipurchaseDebitPostHiring": "/finance-transaction-multipurchase-debit-post-hiring",
+      "financialEducation": "/financial-education",
+      "financialHealthPushAdvice": "/financial-health-push-advice",
+      "financialHealthPushAdviceFeedback": "/financial-health-push-advice-feedback",
+      "financingPurchase": "/card/:productId/transaction/:transactionId/financing-purchase",
+      "financingPurchaseReview": "/card/:productId/transaction/:transactionId/financing-purchase/review",
+      "filteredPoints": "/filtered-points",
+      "frequentOperationsList": "/frequent-operations-list",
+      "fund": "/fund/:productId",
+      "fundContractedDetail": "/fund-contracted-detail",
+      "fundEditAlias": "/fund-edit-alias",
+      "fundMoreInfo": "/fundMoreInfo",
+      "fundsContribution": "/funds-contribution",
+      "fundsHiring": "/funds-hiring",
+      "fundsHiringReview": "/funds-hiring-review",
+      "fundsInvestmentsContributionSuccessPage": "/funds-investments-contribution-success",
+      "fundsInvestmentsWithdrawalSuccessPage": "/funds-investments-withdrawal-success",
+      "fundsWithdrawal": "/funds-withdrawal",
+      "geolocation": "/geolocation",
+      "giveMoney": "/give-money",
+      "giveMoneyAdvice": "/give-money-advice",
+      "help": "/help",
+      "helpSectionDetail": "/help-section-detail",
+      "helpSection": "/help-section",
+      "historyCredit": "/history-credit",
+      "historyCreditReceipt": "/history-credit-receipt",
+      "inAppCrmAdvancedPage": "/in-app-crm-advanced-page",
+      "inAppCrmPage": "/in-app-crm-page",
+      "increment": "/card/:productId/increment",
+      "incrementReview": "/card/:productId/increment/review",
+      "instantCash": "/instant-cash",
+      "instantCashReview": "/instant-cash-review",
+      "insurance": "/insurance/:productId",
+      "insuranceCancelationRequest": "/insurance-cancelation-request",
+      "insuranceCancelationSuccess": "/insurance-cancelation-success",
+      "insuranceCoupons": "/insurance-coupons",
+      "insuranceDelayedPayment": "/insurance-delayed-payment",
+      "insuranceMoreInfo": "/insurance/:productId/more-info",
+      "interestSimulator": "/card/:productId/interest-simulator",
+      "internationalRefunds": "/international-refunds",
+      "internationalRefundsReceipt": "/international-refunds-receipt",
+      "internationalTransfers": "/international-transfers",
+      "internationalTransfersCreateRecipient": "/international-transfers-create-recipient",
+      "internationalTransfersDetail": "/international-transfers-detail",
+      "internationalTransfersHistorical": "/international-transfers-historical",
+      "internationalTransfersPanel": "/international-transfers-panel",
+      "internationalTransfersReviewRecipient": "/international-transfers-review-recipient",
+      "internationalTransfersSuccess": "/international-transfers-success",
+      "investAdvisoryPortfolio": "/invest-advisory-portfolio",
+      "invitationNonAccountClient": "/invitation-non-account-client",
+      "keyRecovery": "/access-key-recovery",
+      "keyRecoveryUpdate": "/key-recovery-update",
+      "kycValidation": "/kyc-validation",
+      "kycValidationMx": "/kyc-validation-mx",
+      "kycValidationSuccess": "/kyc-validation-success",
+      "investAdvisoryContributionAndWithdrawal": "/invest-advisory-contribution-and-withdrawal",
+      "investAdvisoryProductDetail": "/invest-advisory-product-detail",
+      "investAdvisoryProductDetailEditAlias": "/invest-edit-alias",
+      "investmentsFollowUp": "/investments-follow-up",
+      "investmentsFollowUpDistribution": "/investments-follow-up-distribution-of-investments",
+      "investmentsFollowUpFeedback": "/investments-follow-up-feedback",
+      "landingSettings": "/landing-settings",
+      "limitedOperativesInfo": "/limited-operatives-info",
+      "listCreditCardLimits": "/list-credit-card-limits/:productId",
+      "loanSustainableRateSimulator": "/loan-sustainable-rate-simulator",
+      "loanSustainableProductList": "/loan-sustainable-product-list",
+      "goals": "/goals",
+      "loan": "/loan/:productId",
+      "loanEditAlias": "/loan/:productId/edit-alias",
+      "loanMoreInfo": "/loan/:productId/more-info",
+      "loanPayment": "/loan-payment-loan/:loanId",
+      "lockCardsPage": "/lock-cards-page",
+      "magicLog": "/magic-log",
+      "magicLogModal": "/magic-log-modal",
+      "memberGetMemberPayrollPortability": "/member-get-member-payroll-portability",
+      "menuVisualPage": "/menu-visual",
+      "memberGetMemberCreditCard": "/member-get-member-credit-card",
+      "menuVisualAdditionalPage": "/menu-visual-additional-page",
+      "minimumPaymentClarifications": "/minimum-payment-clarifications",
+      "mixCreditCardAndLoan": "/mix-credit-card-and-loan",
+      "mixCreditCardAndLoanReview": "/mix-credit-card-and-loan-review",
+      "mobilePayment": "/mobile-payment/:operation",
+      "mobileTopUp": "/mobile-top-up",
+      "mobileTopUpReview": "/mobile-top-up-review",
+      "monthlyStatementPage": "/monthly-statement-page",
+      "mortgage": "/mortgage/:offerId",
+      "mortgageCertificateReview": "/mortgage-certificate-review",
+      "monthlyStatementEnquiry": "/monthly-statement-enquiry",
+      "mortgageCertificateCancellationSuccess": "/mortgage-certificate-cancellation-success",
+      "mortgageReview": "/mortgage-review",
+      "mortgageMainTracking": "/mortgage-main-tracking",
+      "mortgagePayment": "/loan-payment-mortgage/:loanId",
+      "mtuException": "/mtu-exception",
+      "myConversations": "/my-conversations",
+      "myConversationChatPage": "/my-conversation-chat-page",
+      "myConversationMessagePage": "/my-conversation-message-page",
+      "myConversationSearchPage": "/my-conversation-search-page",
+      "myConversationThemePage": "/my-conversation-theme-page",
+      "nationalIdAndVideoselfie": "/national-id-and-videoselfie",
+      "noClientBusinessDebitCardInfo": "/no-client-business-debit-card-info",
+      "nonPreApprovedCarCertificate": "/non-pre-approved-car-certificate",
+      "nonPreApprovedCarCertificateSuccess": "/non-pre-approved-car-certificate-success",
+      "nonPreApprovedCreditCardBureau": "/non-pre-approved-credit-card-bureau",
+      "nonPreApprovedConsumerLoan": "/non-pre-approved-consumer-loan",
+      "nonPreApprovedConsumerLoanBureau": "/non-pre-approved-consumer-loan-bureau",
+      "nonPreApprovedCreditCard": "/non-pre-approved-credit-card",
+      "notificationsCenter": "/notifications-center",
+      "notificationsList": "/notifications-list",
+      "notificationsListSearch": "/notifications-list-search",
+      "notificationsListSearchResult": "/notifications-list-search-result",
+      "notificationsSettingsEditPage": "/notifications-settings-edit",
+      "notificationsSettingsPage": "/notifications-settings",
+      "notificationManager": "/notification-manager",
+      "ocAccount": "/oc-account",
+      "ocAccountYoung": "/oc-account-young",
+      "ocCarLoanAccountListSelection": "/oc-car-loan-account-list-selection",
+      "ocCarLoanAccountSelection": "/oc-car-loan-account-selection",
+      "ocCarLoanAccountSelectionSuccess": "/oc-car-loan-account-selection-success",
+      "ocCarLoanContractSigning": "/oc-car-loan-contract-signing",
+      "ocCarLoanContractSigningSuccess": "/oc-car-loan-contract-signing-success",
+      "ocCarLoanDownPayment": "/oc-car-loan-down-payment",
+      "ocCarLoanRequestDetails": "/oc-car-loan-request-details",
+      "ocCarLoanTracking": "/oc-car-loan-tracking",
+      "ocCashZone": "/oc-cash-zone",
+      "ocFrequentOperationsCreditCardPayment": "/frequent-operations-credit-card-payment",
+      "ocFrequentOperationsTransfer": "/frequent-operations-transfer",
+      "ocLoanOfferPage": "/oc-loan-offer",
+      "ocLoanOfferSuccess": "/oc-loan-offer-success",
+      "ocLoanPaymentPlanLoanConsolidation": "/oc-loan-payment-plan-loan-consolidation-page",
+      "ocLoanRelocation": "/oc-loan-relocation",
+      "ocMetaseguraOffer": "/oc-metasegura-offer",
+      "ocMetaseguraOfferSuccess": "/oc-metasegura-offer-success",
+      "ocMortgageNonPreapproved": "/oc-mortgage-non-preapproved",
+      "ocPaymentPlanCardErrorPage": "/oc-payment-plan-card-error-page",
+      "ocPaymentPlanCardSuccessPage": "/oc-payment-plan-card-success-page",
+      "ocPaymentPlanDecreaseAuto": "/oc-payment-plan-loan-auto",
+      "ocPaymentPlanDecreaseLoan": "/oc-payment-plan-decrease-loan",
+      "ocPaymentPlanFixedPage": "/oc-payment-plan-fixed-page",
+      "ocPaymentPlanLoanErrorPage": "/oc-payment-plan-loan-error-page",
+      "ocPaymentPlanLoanSuccessPage": "/oc-payment-plan-loan-success-page",
+      "ocPaymentPlanRestructurePage": "/oc-payment-plan-restructure-page",
+      "ocPayrollAdvancePage": "/oc-payroll-advance",
+      "ocPayrollAdvanceReview": "/oc-payroll-advance-review",
+      "ocPayrollPortability": "/oc-payroll-portability",
+      "ocPayrollPortabilityReview": "/oc-payroll-portability-review",
+      "ocPayrollPortabilityWrongBirthDate": "/oc-payroll-portability-wrong-birth-date",
+      "ocLoanPaymentPlanRestructurePage": "/oc-loan-payment-plan-restructure-page",
+      "ocSupportFixedPaymentsPage": "/oc-support-fixed-payments-page",
+      "ocTopCreditCard": "/oc-top-credit-card",
+      "offerTdcModal": "/offer-tdc-modal",
+      "openDigitalAccount": "/open-digital-account",
+      "openDigitalAccountMultistep": "/open-digital-account-multistep",
+      "openDigitalAccountSignaturePadModal": "/open-digital-account-signature-pad",
+      "openDigitalAccountSuccess": "/open-digital-account-success",
+      "operationalLimits": "/operational-limits",
+      "operationals": "/operationals",
+      "operations": "/operations",
+      "parentalControlAccountLimits": "/parental-control-account-limits",
+      "parentalControlCardLimits": "/parental-control-card-limits",
+      "parkingDetailList": "/parking-detail-list",
+      "parkingEnrollment": "/parking-enrollment",
+      "parkingEnrollmentSuccess": "/parking-enrollment-success",
+      "parkingInfoList": "/parking-info-list",
+      "parkingList": "/parking-list",
+      "parkingRecharge": "/parking-recharge",
+      "parkingRechargeSuccess": "/parking-recharge-success",
+      "patrimonialEquitityAssistancePage": "/patrimonial-equitity-assistance",
+      "payByBank": "/pay-by-bank",
+      "paymentsThirdPartyWalletProvisioning": "/payments-third-party-wallet-provisioning",
+      "paymentDashboard": "/payment-dashboard",
+      "paymentsThirdPartyWalletVerification": "/payments-third-party-wallet-verification",
+      "payroll": "/payroll",
+      "payrollLink": "/payroll-link",
+      "payrollLinkBenefits": "/payroll-link-benefits",
+      "payrollLinkSuccess": "/payroll-link-success",
+      "payrollPortability": "/payroll-portability",
+      "payrollPortabilityListPage": "/payroll-portability-list-page",
+      "payrollPortabilityReview": "/payroll-portability-review",
+      "payrollPortabilityWrongBirthDate": "/payroll-portability-wrong-birth",
+      "personalAdvisorBenefits": "/personal-advisor-benefits",
+      "pfmCategorization": "/pfm/categorization",
+      "pfmDashboardCheckUp": "/pfm/dashboard/check-up",
+      "pfmDashboardDetail": "/pfm/dashboard/detail",
+      "pfmTransactionDetail": "/pfm/transaction/:transactionId",
+      "pinRequest": "/pin-request/:productId",
+      "pocketsAddMoney": "/pockets-add-money",
+      "pocketsCreate": "/pockets-create",
+      "pocketsDetail": "/pockets-detail",
+      "pocketsEdit": "/pockets-edit",
+      "pocketsList": "/pockets-list",
+      "pocketsMovementsList": "/pockets-movements-list",
+      "pocketsOrder": "/pockets-order",
+      "pocketsSuccess": "/pockets-success",
+      "pocketsWelcome": "/pockets-welcome",
+      "pocketsWithdrawal": "/pockets-withdrawal",
+      "pointsRaffle": "/points-raffle",
+      "pointsRaffleFaq": "/points-raffle-faq",
+      "pointsRaffleReview": "/points-raffle/review",
+      "pointsRedeemFaq": "/points-redeem-faq",
+      "pointsRedeemPurchases": "/points-redeem-purchases",
+      "pointsRedeemPurchasesReview": "/points-redeem-purchases/review",
+      "pointsTransfer": "/points-transfer",
+      "pointsTransferReview": "/points-transfer/review",
+      "poisDetail": "/pois/:type/:poisId",
+      "postalAddressNominees": "/postal-address-nominees",
+      "postalAddressNomineesReceipt": "/postal-address-nominees-receipt",
+      "proceedings": "/proceedings",
+      "profile": "/profile",
+      "profileAddressManagement": "/profile-address-management",
+      "profileAvatar": "/profile-avatar",
+      "profileRecipients": "/profile-recipients",
+      "profileUpdateRfc": "/profile/update-rfc",
+      "promotionsAdvancedPayments": "/promotions-advanced-payments",
+      "qrReader": "/qr/reader",
+      "recipientsAddressForm": "/recipients-address-form",
+      "recipientsForm": "/recipients-form",
+      "recipientsInit": "/recipients-init",
+      "recipientsReview": "/recipients-review",
+      "redirectCallMeBack": "/redirect-call-me-back",
+      "refunds": "/refunds",
+      "refundsReview": "/refundsReview",
+      "rechargeTag": "/recharge-tag",
+      "registerInfoTag": "/register-info-tag",
+      "registerTag": "/register-tag",
+      "registerTagSuccess": "/register-tag-success",
+      "registerUser": "/register-user",
+      "relevantFactsDetail": "/feed/detail/:relevantFactId",
+      "requestBranchAppointment": "/request-branch-appointment",
+      "requestBranchAppointmentDetail": "/request-branch-appointment-detail",
+      "requestBranchAppointmentSuccess": "/request-branch-appointment-success",
+      "requestFiscalData": "/request-fiscal-data",
+      "requestFiscalDataSuccess": "/request-fiscal-data-success",
+      "reward": "/reward",
+      "requestDebitCard": "/request-debit-card",
+      "requestDebitCardSuccess": "/request-debit-card-success",
+      "requestMoney": "/request-money",
+      "reuseOperationsBillPayments": "/bill-payments-reuse-operation",
+      "reuseOperationsTransfers": "/reuse-transfer",
+      "rewardFaqDetail": "/reward-faq-detail",
+      "rewardOriginCardPage": "/reward-origin-card-page",
+      "scheduledBillPayments": "/scheduled-bill-payments",
+      "searchPlace": "/search-place",
+      "searchPlacePage": "/search-place-page",
+      "securityAccess": "/security-access",
+      "securityMenu": "/security-menu-page",
+      "securityProfile": "/security-profile",
+      "securityReactivation": "/security-reactivation",
+      "securityTipsGlossaryPage": "/security-tips-glossary",
+      "securityTipsDetailPage": "/security_tips_detail",
+      "securityTipsPage": "/security-tips-dashboard",
+      "selfDrivenRoundUp": "/self-driven-round-up",
+      "servicePayment": "/service-payment",
+      "settings": "/settings",
+      "shareProductInfo": "/share-product-info",
+      "smartAssistant": "/smart-assistant",
+      "smartAssistantFeedback": "/smart-assistant-feedback",
+      "stBackgroundEnrollment": "/st-background/enrollment",
+      "specialSalesModalErrorPage": "/special-sales-modal-error",
+      "specialSalesModalPage": "/special-sales-modal",
+      "specialSalesPage": "/special-sales",
+      "specialSalesSuccessPage": "/special-sales-success",
+      "stEnrollment": "/soft-token/enrollment",
+      "stEnrollmentError": "/soft-token/enrollment-error",
+      "stEnrollmentSuccess": "/soft-token/enrollment-success",
+      "stOutBand": "/soft-token/out-band",
+      "stSecurityCode": "/soft-token/security-code",
+      "storesMap": "/stores-map",
+      "supportCenterChat": "/support-center-chat",
+      "suspectedTransactionsPage": "/suspected-transactions",
+      "suspectedTransactionDirectDebits": "/suspected-transaction-direct-debits",
+      "sustainability": "/sustainability",
+      "sustainabilityCarbonFootprintOffset": "/sustainability-carbon-footprint-offset",
+      "sustainabilityGlossary": "/sustainability-glossary",
+      "sustainabilityNews": "/sustainability-news",
+      "sustainabilityNewsDetail": "/sustainability-news-detail",
+      "sustainabilityPublic": "/sustainability-public",
+      "sustainabilitySection": "/sustainability-section",
+      "tagCardList": "/tag-card-list",
+      "televiaRegisterTag": "/televia-register-tag",
+      "televiaRechargeUp": "/televia-recharge-up",
+      "toggleCardsPage": "/toggle-cards",
+      "topUp": "/top-up",
+      "transfers": "/transfers",
+      "transfersPendingMovements": "/transfers-pending-movements",
+      "transfersSuccess": "/transfersSuccess",
+      "travelInsurance": "/travel-insurance",
+      "travelInsuranceCoverages": "/travel-insurance-coverages",
+      "travelInsuranceSuccessPage": "/travel-insurance-success",
+      "travelInsuranceUserDataModal": "/travel-insurance-user-data-modal",
+      "updateAddressOptionsPage": "/update-address-options",
+      "updateAddressPage": "/update-address",
+      "updateAddressStepInputPage": "/update-address-step-input",
+      "updateAddressSuccessPage": "/update-address-success",
+      "updateAddressUploadFilesPage": "/update-address-upload-files-page",
+      "updateContractConfirmation": "/update-contract-confirmation",
+      "unitLinked": "/unit-linked/:productId",
+      "unitLinkedEditAlias": "/unit-linked/:productId/edit-alias",
+      "unsubscribe": "/unsubscribe",
+      "sustainableRateJustification": "/susustainable-rate-justification",
+      "updateEmailPage": "/update-email",
+      "updateNationalId": "/update-national-id",
+      "updateNationalIdSuccess": "/update-national-id-success",
+      "upgradeAccountCustomerDataPage": "/upgrade-account-customer-data-page",
+      "upgradeAccountInitPage": "/upgrade-account",
+      "upgradeAccountPrevQuestionsPage": "/upgrade-account-prev-questions",
+      "upgradeAccountProofAddressPage": "/upgrade-account-proof-address-page",
+      "upgradeAccountRestrictionsModular": "/upgrade-account-restrictions-modular",
+      "upgradeAccountReviewN2N4": "/upgrade-account-review-n2-n4",
+      "upgradeAccountReviewPage": "/upgrade-account-review-page",
+      "upgradeConfirmN2N4": "/upgrade-confirm-N2-page",
+      "upgradeCustomer": "/upgrade-customer",
+      "upgradeCustomerSuccess": "/upgrade-customer-success",
+      "upgradeN2N4": "/upgrade-N2-page",
+      "userTransactionAmountConfirmation": "/user-transaction-amount-confirmation",
+      "userTransactionAmountDetailNotification": "/user-transaction-amount-detail-notification",
+      "userTransactionAmountError": "/user-transaction-amount-error",
+      "userTransactionAmountPendingConfirmation": "/user-transaction-amount-pending-confirmation",
+      "userTransactionAmountRejection": "/user-transaction-amount-rejection",
+      "validateEmailPage": "/validate-email",
+      "validatedEmailSuccess": "/validated-email-success",
+      "whatsNewSlider": "/whats-new-slider",
+      "welcomeExperience": "/welcome-experience",
+      "loading": "/"
+    },
+    "preRenderPages": {
+      "atmLocator": ["searchPlace", "poisDetail"],
+      "dashboard": ["account", "profile", "operationals"],
+      "loading": ["menuVisualPage", "dashboard"]
+    },
+    "authenticationTypeBirthDate": "83",
+    "authenticationTypeDvs": "222",
+    "authenticationTypeNumber": "84",
+    "authenticationTypeQrNumber": "153",
+    "chatEndTime": "22:50",
+    "chatStartTime": "08:30",
+    "myCurrentLocationCardHolder": {
+      "latitude": 19.422884,
+      "longitude": -99.174843
+    },
+    "environment": "pro",
+    "encryptedCoupon": "ulkoMLIbcjs",
+    "mapsApiKey": "AIzaSyA-ze0RNdtlXxMHgZd0Q8HwnyTKgCtCeME",
+    "dtmLibrary": "<script src=\"https://assets.adobedtm.com/95c3e405673d/c6291666d88d/launch-fa256db25d06.min.js\" async></script>",
+    "operatives": "../scripts/app-settings/v0/operations/mx/operations.json",
+    "bbvaLine": "8002262663",
+    "phoneNumberMixCreditCardAndLoan": "+525552268969",
+    "phoneNumberCall": {
+      "value": "8002262663"
+    },
+    "phoneNumberRejectedCard": "5552262685,990401",
+    "phoneNumberBbvaLine": "5552262663",
+    "phoneNumberBbvaLineMortgage": "5535470494",
+    "phoneNumberBbvaLineVehicle": "8008743683",
+    "phoneNumberSAC": "5511020000",
+    "swiftCode": "BCMRMXMMPYM",
+    "conversationHistoryParam": "RRUaFMTU5MA",
+    "thirdPartyWallets": {
+      "nonce": "0000",
+      "nonceSignature": "00000000000000000000000000000000000000000000000000",
+      "publicCertificateId": "00000000000000000000000000000000000000000000000000"
+    },
+    "googleMapsApiKey": "AIzaSyCKYuHcCgvM90xMrdqbm4kpRBSpgKcafFg",
+    "defaultLocation": {
+      "lat": 19.422884,
+      "lng": -99.174843
+    },
+    "login": {
+      "showSecondaryId": false
+    },
+    "settingsHost": "https://d2md35eggfheok.cloudfront.net",
+    "genesysHost": "https://api.mypurecloud.com",
+    "feedback": {
+      "urls": {
+        "global": "https://www.opinator.com/opi/glomo-app-mexico/",
+        "investmentsFollowUp": "https://www.opinator.com/opi/BBVA_GM_FollowUp_SUCCESS"
+      }
+    },
+    "qrReader": {
+      "host": "https://horus.payments.bbva",
+      "complementaryKey": "d04000d0f6406ee1981f6f296caf78"
+    },
+    "codiSettings": {
+      "androiId": "de3b0e8ccfcfee5d",
+      "appId": "com.bancomer.mbanking",
+      "appIosId": "com.bancomer.bbva.bancomermovil"
+    },
+    "globalServices": {
+      "aapTargetAuthentication": "10000183",
+      "authenticationTypeQrNumber": "153",
+      "idBank": ["038", "BBVABAN"],
+      "requiredToken": "tsec",
+      "loginProvider": "bbva-auth",
+      "backendUserRequest": true,
+      "showGrantedCredit": true,
+      "consumerId": "10000187",
+      "consumerIdAnonymous": "10000088",
+      "consumerIdPublic": "10000085",
+      "consumerIdQrCard": "10000173",
+      "countriesId": "06320074E",
+      "conversaConfig": {
+        "aapTarget": "30000105",
+        "originName": "futura",
+        "appVersion": 3.1,
+        "hostConversa": "https://dispatcher-conv-gl.live-04.platform.bbva.com"
+      },
+      "publicSettingsId": "GLOMO-MX-1.0-PROD",
+      "hasCvv": true,
+      "relatedDebitCards": true,
+      "host": "https://glomo.bancomermovil.com/SRVS_A02",
+      "hostGrantingTicket": "https://glomo.bancomermovil.com/QSRV_A02",
+      "hostExternal": "https://glomo.bancomermovil.com/SRES_A02",
+      "tenantGlobalConfig": {
+        "host": "https://aso-customers-global.live-01.platform.bbva.com",
+        "authPath": "TechArchitecture/grantingTickets/V02",
+        "AAPTarget": "30000086",
+        "TargetIdUniqueKey": "0082"
+      },
+      "hostAkamai": "https://glomo.bancomermovil.com",
+      "ieNamespace": "mx.mgmx.app-id-31840.pro",
+      "aemHostSos": "https://assets.caasbbva.com",
+      "publicSettingsHost": "https://cgs.bbva.com",
+      "apiKeyAp": "IrBcaceGliLWItQMnkwJaZmGoLBep7G4AWCjOHZg",
+      "bmeHost": "https://equitystreaming.bbvanet.com.mx",
+      "versions": {
+        "accounts": "0",
+        "accountsV1": "1",
+        "accountsV2": "2",
+        "accountTransactions": "0",
+        "addProducts": "0",
+        "appSettings": "0",
+        "apiAggregator": "0",
+        "authenticationDevices": "0",
+        "autoParts": "0",
+        "autoPartsV1": "1",
+        "balancesSearch": "2",
+        "banxicoApi": "0",
+        "apiAggregatorV1": "1",
+        "apiBranchOperation": "0",
+        "banxico": "0",
+        "branches": "0",
+        "businessDocument": "0",
+        "businessCryptography": "0",
+        "businessDocuments": "1",
+        "businessDocumentsGenerateV0": "0",
+        "businessDocumentsV0": "0",
+        "calculate": "0",
+        "campaigns": "1",
+        "campaignsV3": "3",
+        "campaignsV4": "4",
+        "cards": "0",
+        "cardsV1": "1",
+        "cardsV2": "2",
+        "cardsV3": "3",
+        "cardPayments": "1",
+        "cardPromotionsV1": "1",
+        "cardCoversV3": "3",
+        "cardDeliveriesV1": "1",
+        "cardProposeDeliveryV3": "3",
+        "cardTransactions": "1",
+        "categories": "0",
+        "catalogs": "0",
+        "childCustomersV3": "3",
+        "claims": "0",
+        "clientOnboarding": "0",
+        "contactsBook": "0",
+        "contactDetails": "0",
+        "contactDetailsV1": "1",
+        "contractDocuments": "0",
+        "contracts": "0",
+        "contractsConfigurationV1": "1",
+        "configurationRelatedContracts": "1",
+        "conversations": "0",
+        "customerFeedbackApiVersion": "1",
+        "customers": "0",
+        "customersAddresses": "0",
+        "customersAddressesV1": "1",
+        "customerContactDetailsV1": "1",
+        "customerDocuments": "0",
+        "customerDocumentsV1": "1",
+        "customersV1": "1",
+        "customerServices": "0",
+        "customerRequestSessionToken": "1",
+        "deposits": "0",
+        "depositsV1": "1",
+        "depositsV2": "2",
+        "digitalAppointments": "1",
+        "documentFileV1": "1",
+        "documentsFileV0": "0",
+        "documentsProcessV1": "1",
+        "documentProcesses": "0",
+        "documentsVerifications": "0",
+        "documentsVerificationsV1": "1",
+        "documentTypes": "0",
+        "dossiers": "0",
+        "economicActivitiesV1": "1",
+        "expensesGroup:": "0",
+        "geographicPlaces": "0",
+        "geographicPlacesV1": "1",
+        "grantingTicket": "0",
+        "financialInvestmentsV1": "1",
+        "financialOverview": "0",
+        "financialOverviewApiVersion": "1",
+        "fraudMonitoring": "0",
+        "flexibleFinancings": "0",
+        "getIndicators": "0",
+        "hubPayments": "0",
+        "hubPaymentsV1": "1",
+        "insurancesContracts": "0",
+        "insurancesContractsV1": "1",
+        "internationalTransfersV1": "1",
+        "investmentFundsApiVersion": "1",
+        "investmentFundsEditAlias": "0",
+        "loans": "1",
+        "loansV2": "2",
+        "loansEditAlias": "0",
+        "loginCustomerLogin": "1",
+        "loyalty": "0",
+        "loyaltyV1": "1",
+        "lossesReport": "1",
+        "limitsV1": "1",
+        "listEvidences": "0",
+        "mobiles": "0",
+        "morpho": "0",
+        "mposPriceStockV1": "1",
+        "mposPurchase": "0",
+        "mortgagesV1": "1",
+        "offers": "0",
+        "operationRegistries": "0",
+        "patrimonialContracts": "0",
+        "paymentsV0": "0",
+        "paymentsV1": "1",
+        "pfm": "1",
+        "places": "0",
+        "placesV1": "1",
+        "pockets": "1",
+        "privateBankingPortfolios": "0",
+        "products": "0",
+        "productLimits": "0",
+        "promotions": "0",
+        "promotionsV1": "1",
+        "promotionsStoresV1": "1",
+        "promotionsCategories": "0",
+        "publicSettings": "0",
+        "pureCloud": "0",
+        "savingGoals": "0",
+        "savingGoalsV1": "1",
+        "securityV0": "0",
+        "security": "1",
+        "settlementV1": "1",
+        "selfDriven": "2",
+        "servicePayments": "0",
+        "sessionsV1": "1",
+        "singleSignOnApiVersion": "0",
+        "smartSpace": "0",
+        "sso": "0",
+        "storesCommerce": "0",
+        "storedServices": "0",
+        "standInFinancialOverview": "1",
+        "standInPendingTransfers": "1",
+        "stockMarkets": "0",
+        "structuredProducts": "0",
+        "subscriptions": "0",
+        "suggestions": "0",
+        "suggestedOperations": "1",
+        "sustainability": "1",
+        "taxDocuments": "0",
+        "termTypes": "0",
+        "transfer": "0",
+        "transferV1": "1",
+        "transfersManagement": "0",
+        "userSettingsV2": "2",
+        "usersManagement": "0",
+        "vehicleInsurances": "1",
+        "verifications": "1",
+        "verificationV1": "1",
+        "notifications": "0"
+      },
+      "customers": {
+        "headers": {
+          "authenticationType": "58"
+        }
+      },
+      "security": {
+        "localVersion": "0",
+        "headers": {
+          "authenticationType": "58"
+        }
+      },
+      "vmInteractiveId": "xPUCFptPyOo",
+      "vmInteractiveContentsId": "hbWGin2L908",
+      "vmInteractiveContentsValue": "Y9XSGqdstKw"
+    },
+    "faqs": {
+      "url": "app-settings/mx/faqs.json"
+    },
+    "payments": {
+      "mobilePayments": {
+        "onboardingUrl": "content/caas/mexico/glomo/mobile-payment-onboarding/onboarding.model.json",
+        "faqsContentUrl": "content/caas/mexico/glomo/mobile-payment-faqs/faqs.model.json"
+      },
+      "financeTransactionMultipurchaseDebit": {
+        "onboardingUrl": "content/caas/mexico/glomo/finance-transaction-multipurchase-debit/onboarding.model.json"
+      },
+      "billPaymentsHome": {
+        "onboardingUrl": "content/caas/mexico/glomo/bill-payments-home/onboarding.model.json"
+      },
+      "payByBankWelcome": {
+        "onboardingUrl": "content/caas/mexico/glomo/landing/onboarding/paybybank.model.json"
+      }
+    },
+    "sustainability": {
+      "atmos": {
+        "forestryFaqsUrl": "content/caas/mexico/app/sustainability/atmos-faqs.model.json",
+        "forestryImagesPath": "content/dam/caas/mexico/glomo/atmos-bosque-bbva/fotografias-proyectos/"
+      }
+    },
+    "aemHost": "https://assets.caasbbva.com",
+    "namespace": "app-settings/mx",
+    "endpoints": {
+      "faqs": "faqs.json",
+      "flags": "feature-flags.json",
+      "publicSettings": "public.app-setting.json",
+      "fundList": "fundList.json"
+    },
+    "defaultGeoLocation": {
+      "lat": 19.432325,
+      "lng": -99.132149
+    },
+    "investmentsFollowUpOtherContractId": "oFabv8pKlxnEf4GZOX38iym7MdVYjfzUSNvb6RJUn9QoKswS2Tl1bDmKNYrQ-YzH",
+    "investmentsFollowUpTypeInternationalFunds": "1",
+    "rewards": {
+      "onboarding": {
+        "url": "content/caas/mexico/glomo/rewards-landing/onboarding.model.json"
+      },
+      "landing": {
+        "faqs": {
+          "url": "content/caas/mexico/glomo/faqs/rewards-landing-faqs.model.json"
+        }
+      },
+      "pointsRedeemPurchaseOptions": {
+        "faqs": {
+          "url": "content/caas/mexico/glomo/faqs/points-redeem-purchase-options.model.json"
+        }
+      },
+      "dynamics": {
+        "url": "content/caas/mexico/glomo/member-get-member/dynamics.model.json"
+      }
+    },
+    "genesysChat": {
+      "organizationId": "7156cb94-8e0e-4e0c-824f-9c2382945fc6",
+      "deploymentId": "1632ee99-70fe-4c73-b5e9-ee89bdc39c64",
+      "targetType": "queue",
+      "targetAddress": "ChatGlomoAtencion",
+      "displayName": "InApp Chat Glomo",
+      "urls": {
+        "feedback": "https://www.opinator.com/opi/BBVA_GM_MX_ZonaPublica"
+      }
+    },
+    "paymentsMpos": {
+      "reusableThirdPartyServiceId": "Gk1p5Kxlbl0P76NtbUuP",
+      "thirdPartyServiceId": "8Ss3qk9bmKnKyBRbYGwB",
+      "thirdPartyProviderId": "3PARTY001",
+      "hostOpenPay": "prod",
+      "redirectUrl": "http://openpay.mx/"
+    },
+    "clientVoiceConnectConfig": {
+      "feedbackLoginMaxFlow": 5
+    },
+    "newDigitalProvider": "ACF",
+    "native": true,
+    "engine": "native",
+    "nativeIos": false,
+    "nativeShell": true,
+    "initialBundle": ["dashboard.json", "transfer.json"],
+    "pagesPath": "pages/",
+    "once": true,
+    "pageDefinitions": [{
+      "name": "aboutInfo",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "aboutPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "account",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "accountCreditCardPayment",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "accountEditAlias",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "accountMonthlyStatement",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "accountMoreInfo",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "accountTransactionDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "accountTransactions",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "addFundToContract",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "addFundToContractReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "addVideoSelfie",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "additionalCardDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "additionalCreditCardMainPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "additionalCreditCardSuccessPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "advancePayments",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "adviceConfiguration",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "appPermissions",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "applianceSimulator",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "applicationFeedback",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "assistanceManager",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "assistanceManagerEmail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "assistanceSection",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "atmLocator",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "bbvaTraderProductDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "bbvaTraderPurchaseSale",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "billPayments",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "billPaymentsDashboard",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "billPaymentsHome",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "billPaymentsSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "blackhawkAnswer",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "blackhawkAnswerDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "blackhawkInformation",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "blackhawkPurchase",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "blackhawkPurchaseDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "blackhawkPurchaseReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "blackhawkWelcome",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "blingsMortgage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "blockAndReplacement",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "blockAndReplacementSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "branchLocator",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "btraderEditAlias",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "businessAccountInfo",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "callMeBackAssistanceManager",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "callMeBackAssistanceManagerSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "carLoan",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "carLoanPayment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "carLoanSuccessPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "carSimulator",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "card",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "cardActivation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardCreditCardPayment",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "cardCreditCardPaymentPromise",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardDynamicCvv",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardEditAlias",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardGenerateVirtual",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "cardGenerateVirtualReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "cardMonthlyStatement",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardMoreInfo",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "cardOriginationOcDebitCardInmediateDelivery",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardTransactionDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardTransactions",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardWithoutData",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "cardlessWithdrawal",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardlessWithdrawalCommerce",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardlessWithdrawalDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardlessWithdrawalHistoric",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cardlessWithdrawalHistoricSearcher",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "cardlessWithdrawalReview",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cashZonePaymentsMpos",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "chat",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "chatWelcome",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "checksDeposits",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "checksDepositsCheckAggregator",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksDepositsDetail",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksDepositsList",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksDepositsListSearcher",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksDepositsPhotos",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksDepositsReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksManagement",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "checksManagementAddCheck",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksManagementCancelReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksManagementDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "checksManagementList",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "checksManagementListSearcher",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksManagementReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksManagementServiceTerms",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "checksManagementServiceTermsReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "checksSection",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "clarificationsListCare",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "clarificationsManagementCarePage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "clarificationsManagementCareSuccessPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "clarificationsManagementClarificationSuccessPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "clarificationsTrackingCare",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "cleanCardOperations",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "cleanCardQrFaqs",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "codiAccountValidate",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiBeginRegister",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiEnrollment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiPaymentInformation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiPaymentInformationSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiPaymentPostponed",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiPaymentRejected",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiPaymentRequestInitial",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiPaymentRequestMain",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiPaymentRequestSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiQrPaymentsInitial",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiQrPaymentsMain",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiQrPaymentsReaderSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiQrPaymentsReceipt",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiQrRequestSteps",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiQrRequestSuccessfulScreen",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiQrScanner",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiSettings",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiSettingsKnowMore",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codiTransactionHistory",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codicelAgreeAndRemoveConsent",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codicelPeerToPeerSend",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "codicelPeerToPeerTransferReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "comingSoon",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "configureProductsPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "contactsAgenda",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "containerFaqsList",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "contractPaymentExisting",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "contractPaymentExistingModal",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "contractProductSection",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "creditBureau",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "creditBureauReceipt",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "creditCardHolder",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "creditCardHolderReview",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "creditCardPaymentReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "creditCardTracking",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "curpPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "curpSuccessPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "customerContracts",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "dashboard",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "debitCardTracking",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "debitCardTrackingDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deferredSignatureEquityContract",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deferredSignatureEquityContractReview",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deferredSignaturePurchaseInstruction",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deferredSignaturePurchaseInstructionReview",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deferredSignatureStructuredProducts",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deferredSignatureStructuredProductsReview",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "demoFeedback",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "deposit",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "depositConfiguration",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "depositConfigurationReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "depositHiring",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "depositHiringReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "depositMoreInfo",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "depositSale",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "depositSaleReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "depositTransactionDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "depositsPurchase",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "depositsPurchaseReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "deviceAccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deviceAccessCall",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deviceAccessPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deviceAccessSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deviceAccessVerification",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deviceInsurance",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "deviceInsuranceExclusions",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "deviceInsuranceSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "digitalActivation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "digitalActivationCall",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "digitalActivationMobileServices",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "digitalButler",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "disabilityVideocallHearingStrategic",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "disabilityVideocallHearingTactical",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "disabilityVideocallHearingTacticalCalling",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "disabilityVideocallHearingTacticalPutAttention",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "discreetModeActivation",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "discreetModeSettings",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "domiciliationNoticeDecline",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "domiciliationNoticeDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "domiciliationNoticeSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "dynamicLifeInsuranceAddBeneficiaryPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "dynamicLifeInsuranceEditCoverageAmountPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "dynamicLifeInsuranceEditPercentagePage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "dynamicLifeInsuranceMainPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "dynamicLifeInsuranceNewAddressPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "dynamicLifeInsuranceOfferPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "dynamicLifeInsuranceSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "dynamicsAndRewards",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "editCreditCardLimits",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "emergencyChangePassword",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "emergencyLostCard",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "emergencyNeedCash",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "emergencyReports",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "emergencyTrackingReports",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "emergencyZone",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "equity",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "equityAssistance",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "equityContractsContribution",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "equityContractsContributionSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "equityContractsInvestmentDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "equityContractsNewFund",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "equityContractsWithdrawal",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "equityContractsWithdrawalSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "equityEditAlias",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "equityError",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "equityMoreInfo",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "expensesGroup",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "facialRecognition",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "facialRecognitionFacePicture",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "facialRecognitionMoreInfo",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "facialRecognitionStartRegistry",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "facialRecognitionSuccessRegistration",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "faqsTagCardDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "fatcaValidation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "fatcaValidationResidenceForm",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "fatcaValidationSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "fatcaValidationSurvey",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "feedback",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "feedbackLogout",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "fido",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "filteredPoints",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "financeDebitLineCancel",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "financeTransactionMultipurchase",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "financeTransactionMultipurchaseDebit",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "financeTransactionMultipurchaseDebitPostHiring",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "financeTransactionMultipurchaseReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "financialEducation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "financialHealthPushAdvice",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "financialHealthPushAdviceFeedback",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "financingPurchase",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "financingPurchaseReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "frequentOperationsList",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "fund",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "fundContractedDetail",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "fundEditAlias",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "fundMoreInfo",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "fundsContribution",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "fundsHiring",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "fundsHiringReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "fundsInvestmentsContributionSuccessPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "fundsInvestmentsWithdrawalSuccessPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "fundsWithdrawal",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "geolocation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "giveMoney",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "giveMoneyAdvice",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "goals",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "help",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "helpSection",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "helpSectionDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "historyCredit",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "historyCreditReceipt",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "inAppCrmAdvancedPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "inAppCrmPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "increment",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "incrementReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "instantCash",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "instantCashReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "insurance",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "insuranceCancelationRequest",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "insuranceCancelationSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "insuranceCoupons",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "insuranceDelayedPayment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "insuranceMoreInfo",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "interestSimulator",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "internationalRefunds",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "internationalRefundsReceipt",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "internationalTransfers",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "internationalTransfersCreateRecipient",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "internationalTransfersDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "internationalTransfersHistorical",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "internationalTransfersPanel",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "internationalTransfersReviewRecipient",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "internationalTransfersSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "investAdvisoryContributionAndWithdrawal",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "investAdvisoryPortfolio",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "investAdvisoryProductDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "investAdvisoryProductDetailEditAlias",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "investmentsFollowUp",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "investmentsFollowUpDistribution",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "investmentsFollowUpFeedback",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "invitationNonAccountClient",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "keyRecovery",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "keyRecoveryUpdate",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "kycValidation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "kycValidationMx",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "kycValidationSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "landingSettings",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "limitedOperativesInfo",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "listCreditCardLimits",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "loading",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "loan",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "loanEditAlias",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "loanMoreInfo",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "loanPayment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "loanSustainableProductList",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "loanSustainableRateSimulator",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "lockCardsPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "magicLog",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "magicLogModal",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "memberGetMemberCreditCard",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "memberGetMemberPayrollPortability",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "menuVisualAdditionalPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "menuVisualPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "minimumPaymentClarifications",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mixCreditCardAndLoan",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mixCreditCardAndLoanReview",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mobilePayment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mobileTopUp",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mobileTopUpReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "monthlyStatementEnquiry",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "monthlyStatementPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "mortgage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mortgageCertificateCancellationSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mortgageCertificateReview",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mortgageMainTracking",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mortgagePayment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mortgageReview",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "mtuException",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "myConversationChatPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "myConversationMessagePage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "myConversationSearchPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "myConversationThemePage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "myConversations",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "nationalIdAndVideoselfie",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "noClientBusinessDebitCardInfo",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "nonPreApprovedCarCertificate",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "nonPreApprovedCarCertificateSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "nonPreApprovedConsumerLoan",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "nonPreApprovedConsumerLoanBureau",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "nonPreApprovedCreditCard",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "nonPreApprovedCreditCardBureau",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "notificationManager",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "notificationsCenter",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "notificationsList",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "notificationsListSearch",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "notificationsListSearchResult",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "notificationsSettingsEditPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "notificationsSettingsPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "ocAccount",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocAccountYoung",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocCarLoanAccountListSelection",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocCarLoanAccountSelection",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocCarLoanAccountSelectionSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocCarLoanContractSigning",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocCarLoanContractSigningSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocCarLoanDownPayment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocCarLoanRequestDetails",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocCarLoanTracking",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocCashZone",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocFrequentOperationsCreditCardPayment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocFrequentOperationsTransfer",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocLoanOfferPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocLoanOfferSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "ocLoanPaymentPlanLoanConsolidation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocLoanPaymentPlanRestructurePage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocLoanRelocation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocMetaseguraOffer",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocMetaseguraOfferSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocMortgageNonPreapproved",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPaymentPlanCardErrorPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPaymentPlanCardSuccessPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPaymentPlanDecreaseAuto",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPaymentPlanDecreaseLoan",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPaymentPlanFixedPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPaymentPlanLoanErrorPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPaymentPlanLoanSuccessPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPaymentPlanRestructurePage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPayrollAdvancePage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPayrollAdvanceReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "ocPayrollPortability",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocPayrollPortabilityReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "ocPayrollPortabilityWrongBirthDate",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "ocSupportFixedPaymentsPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "ocTopCreditCard",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "offerTdcModal",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "openDigitalAccount",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "openDigitalAccountMultistep",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "openDigitalAccountSignaturePadModal",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "openDigitalAccountSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "operationalLimits",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "operationals",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "operations",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "parentalControlAccountLimits",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "parentalControlCardLimits",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "parkingDetailList",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "parkingEnrollment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "parkingEnrollmentSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "parkingInfoList",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "parkingList",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "parkingRecharge",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "parkingRechargeSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "patrimonialEquitityAssistancePage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "payByBank",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "paymentDashboard",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "paymentsThirdPartyWalletProvisioning",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "paymentsThirdPartyWalletVerification",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "payroll",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "payrollLink",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "payrollLinkBenefits",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "payrollLinkSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "payrollPortability",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "payrollPortabilityListPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "payrollPortabilityReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "payrollPortabilityWrongBirthDate",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "personalAdvisorBenefits",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "pfmCategorization",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "pfmDashboardCheckUp",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "pfmDashboardDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "pfmTransactionDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "pinRequest",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "pocketsAddMoney",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pocketsCreate",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pocketsDetail",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pocketsEdit",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "pocketsList",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pocketsMovementsList",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pocketsOrder",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "pocketsSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pocketsWelcome",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pocketsWithdrawal",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pointsRaffle",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pointsRaffleFaq",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pointsRaffleReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pointsRedeemFaq",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pointsRedeemPurchases",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pointsRedeemPurchasesReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pointsTransfer",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "pointsTransferReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "poisDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "postalAddressNominees",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "postalAddressNomineesReceipt",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "proceedings",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "profile",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "profileAddressManagement",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "profileAvatar",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "profileRecipients",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "profileUpdateRfc",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "promotionsAdvancedPayments",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "qrReader",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "rechargeTag",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "recipientsAddressForm",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "recipientsForm",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "recipientsInit",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "recipientsReview",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "redirectCallMeBack",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "refunds",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "refundsReview",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "registerInfoTag",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "registerTag",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "registerTagSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "registerUser",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "relevantFactsDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "requestBranchAppointment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "requestBranchAppointmentDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "requestBranchAppointmentSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "requestDebitCard",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "requestDebitCardSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "requestFiscalData",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "requestFiscalDataSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "requestMoney",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "reuseOperationsBillPayments",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "reuseOperationsTransfers",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "reward",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "rewardOriginCardPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "scheduledBillPayments",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "searchPlace",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "searchPlacePage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "securityAccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "securityMenu",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "securityProfile",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "securityReactivation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "securityTipsDetailPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "securityTipsGlossaryPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "securityTipsPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "selfDrivenRoundUp",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "servicePayment",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "settings",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "shareProductInfo",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "smartAssistant",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "smartAssistantFeedback",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "solarPanelsSimulator",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "specialSalesModalErrorPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "specialSalesModalPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "specialSalesPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "specialSalesSuccessPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "sphericaSetup",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "stBackgroundEnrollment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "stEnrollment",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "stEnrollmentError",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "stEnrollmentSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "stOutBand",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "stSecurityCode",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "storesMap",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "supportCenterChat",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "suspectedTransactionDirectDebits",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "suspectedTransactionsPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "sustainability",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "sustainabilityCarbonFootprintOffset",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "sustainabilityGlossary",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "sustainabilityNews",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "sustainabilityNewsDetail",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "sustainabilityPublic",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "sustainabilitySection",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "sustainableRateJustification",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "tagCardList",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "televiaRechargeUp",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "toggleCardsPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "topUp",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "transfers",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "transfersPendingMovements",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "transfersSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "travelInsurance",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "travelInsuranceCoverages",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "travelInsuranceSuccessPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "travelInsuranceUserDataModal",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "unitLinked",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "unitLinkedEditAlias",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "unsubscribe",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "updateAddressOptionsPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "updateAddressPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "updateAddressStepInputPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "updateAddressSuccessPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "updateAddressUploadFilesPage",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "updateContractConfirmation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "updateEmailPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "updateNationalId",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "updateNationalIdSuccess",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "upgradeAccountCustomerDataPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "upgradeAccountInitPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "upgradeAccountPrevQuestionsPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "upgradeAccountRestrictionsModular",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "upgradeAccountReviewN2N4",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "upgradeAccountReviewPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "upgradeConfirmN2N4",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "upgradeCustomer",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "upgradeCustomerSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "upgradeN2N4",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "userTransactionAmountConfirmation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "userTransactionAmountDetailNotification",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "userTransactionAmountError",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "userTransactionAmountPendingConfirmation",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "userTransactionAmountRejection",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "validateEmailPage",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "validatedEmailSuccess",
+      "type": "dynamic",
+      "hasModules": true
+    }, {
+      "name": "welcomeExperience",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }, {
+      "name": "whatsNewSlider",
+      "type": "dynamic",
+      "hasModules": false,
+      "adapter": "polymer"
+    }],
+    "pages": []
+  };
+  window.AppComposerConfig = {};
+  function removeSplashScreen() {
+    var loadEl = document.getElementById('splash');
+    if (loadEl) {
+      loadEl.parentNode.removeChild(loadEl);
+      document.body.classList.remove('loading');
+    }
+  }
+  function continueLoading() {
+    if (isLoadingInitialPage()) {
+      fireComponentsLoadEvent();
+    } else {
+      loadAppElements(fireComponentsLoadEvent);
+    }
+  }
+  function fireComponentsLoadEvent() {
+    var eventComponentsLoaded = new CustomEvent('componentsLoaded');
+    document.body.dispatchEvent(eventComponentsLoaded);
+  }
+  function onScriptLoadError(file, cb) {
+    return function () {
+      var customEvent = new CustomEvent('scriptLoadError', {
+        detail: file
+      });
+      document.body.dispatchEvent(customEvent);
+      if (typeof cb === 'function') {
+        cb();
+      }
+    };
+  }
+  function _importHtml(url, cb, async) {
+    var loadAsync = typeof async !== 'undefined' ? async : false;
+    var nextBundle = document.createElement('link');
+    nextBundle.rel = 'import';
+    nextBundle.href = url;
+    nextBundle.addEventListener('load', cb);
+    nextBundle.addEventListener('error', onScriptLoadError(nextBundle.href, cb));
+    if (loadAsync) {
+      nextBundle.setAttribute('async', '');
+    }
+    document.head.appendChild(nextBundle);
+  }
+  function _importScript(url, cb, isModule) {
+    var nextBundle = document.createElement('script');
+    if (isModule) {
+      nextBundle.type = 'module';
+    }
+    nextBundle.src = url;
+    nextBundle.addEventListener('load', cb);
+    nextBundle.addEventListener('error', onScriptLoadError(nextBundle.href, cb));
+    document.head.appendChild(nextBundle);
+  }
+  function loadInitialPolymerComponents(cb) {
+    _importHtml(window.AppConfig.deployEndpoint + window.AppConfig.componentsPath + 'initial-components.html', cb);
+  }
+  function loadAppPolymerComponents(cb) {
+    _importHtml(window.AppConfig.deployEndpoint + window.AppConfig.componentsPath + 'app-components.html', cb, true);
+  }
+  function loadScriptsBundle(bundle, cb) {
+    var scripts = window.AppConfig.bundles[bundle];
+    var pendingTasks = scripts.length;
+    var i;
+    var taskCompleted = function () {
+      pendingTasks--;
+      if (pendingTasks === 0) {
+        if (typeof cb === 'function') {
+          cb();
+        }
+      }
+    };
+    for (i = 0; i < scripts.length; i++) {
+      _importScript(scripts[i], taskCompleted, false);
+    }
+  }
+  function loadFirstScripts(cb) {
+    loadScriptsBundle('initial', cb);
+  }
+  function loadRestScripts(cb) {
+    var scripts = window.AppConfig.bundles['rest'];
+    if (scripts.length === 0) {
+      scripts.push(window.AppConfig.deployEndpoint + './lit-components.js');
+    }
+    loadScriptsBundle('rest', cb);
+  }
+  const loadFirstBundle = cb => {
+    import('./lit-initial-components.js').then(() => typeof cb === 'function' ? cb() : '');
+  };
+  const loadRestBundle = cb => {
+    import('./lit-components.js').then(() => typeof cb === 'function' ? cb() : '');
+  };
+  function loadInitialLitElementComponents(cb) {
+    if (window.AppConfig.onlyLitElements && window.AppConfig.devmode) {
+      _importScript(window.AppConfig.deployEndpoint + 'scripts/lit-initial-components.js', cb, true);
+    } else {
+      if (window.AppConfig.bundles) {
+        loadFirstScripts(cb);
+      } else {
+        if (window.AppConfig.onlyLitElements) {
+          loadFirstBundle(cb);
+        } else {
+          _importHtmlWithModules(window.AppConfig.deployEndpoint + 'lit-initial-components.html', 'lit-initial-components-loaded', cb);
+        }
+      }
+    }
+  }
+  function _importHtmlWithModules(url, eventName, cb) {
+    var nextBundle = document.createElement('link');
+    nextBundle.rel = 'import';
+    nextBundle.href = url;
+    nextBundle.addEventListener('error', onScriptLoadError(nextBundle.href, cb));
+    document.body.addEventListener(eventName, cb, {
+      once: true
+    });
+    document.head.appendChild(nextBundle);
+  }
+  function loadAppLitComponents(cb) {
+    if (window.AppConfig.onlyLitElements && window.AppConfig.devmode) {
+      _importScript(window.AppConfig.deployEndpoint + 'scripts/lit-components.js', cb, true);
+    } else {
+      if (window.AppConfig.bundles) {
+        loadRestScripts(cb);
+      } else {
+        if (window.AppConfig.onlyLitElements) {
+          loadRestBundle(cb);
+        } else {
+          _importHtml(window.AppConfig.deployEndpoint + 'lit-components.html', cb, true);
+        }
+      }
+    }
+  }
+  function loadInitialElements() {
+    if (window.AppConfig.onlyLitElements) {
+      loadInitialLitElementComponents(continueLoading);
+    } else {
+      loadInitialPolymerComponents(function () {
+        if (window.AppConfig.enableLitElement) {
+          loadInitialLitElementComponents(continueLoading);
+        } else {
+          continueLoading();
+        }
+      });
+    }
+  }
+  function loadAppElements(cb) {
+    if (window.AppConfig.onlyLitElements) {
+      loadAppLitComponents(cb);
+    } else {
+      loadAppPolymerComponents(function () {
+        if (window.AppConfig.enableLitElement) {
+          loadAppLitComponents(cb);
+        } else {
+          if (cb && typeof cb === 'function') {
+            cb();
+          }
+        }
+      });
+    }
+  }
+  function isLoadingInitialPage() {
+    var initialPage;
+    var hash;
+    var isInitialPage = true;
+    if (window.AppConfig.initialBundle && window.AppConfig.initialBundle.length > 0) {
+      hash = window.location.hash;
+      if (hash === '' || hash === '#!/') {
+        isInitialPage = true;
+      } else {
+        initialPage = window.AppConfig.initialBundle[0].split('.')[0];
+        isInitialPage = hash.indexOf(initialPage) > -1;
+      }
+    }
+    return isInitialPage;
+  }
+  function onNavigation(msg) {
+    var customEvent = new CustomEvent('aria-announce', {
+      detail: msg.detail.detail.page
+    });
+    document.body.dispatchEvent(customEvent);
+  }
+  function onAnnounce(msg) {
+    var announcer = document.querySelector('#announcer');
+    if (announcer) {
+      announcer.textContent = msg.detail;
+    }
+  }
+  function detectPlatform(which, orelse) {
+    return 'desktop';
+  }
+
+  //TODO: write a proper platform detection
+  function getPlatform() {
+    return detectPlatform('ios', detectPlatform('android', 'desktop'));
+  }
+  function shouldAddCordovaScript(config) {
+    var userAgent = window.navigator.userAgent.toLowerCase();
+    var ios = /iphone|ipod|ipad/.test(userAgent);
+    var android = /android/.test(userAgent);
+    var safari = /safari/.test(userAgent);
+    var webViewWv = / wv\)/.test(userAgent);
+    var crosswalk = /crosswalk/.test(userAgent);
+    if (!config.cordovaScript) {
+      return false;
+    }
+    if (ios) {
+      return !safari;
+    }
+    if (android) {
+      return webViewWv || crosswalk;
+    }
+  }
+  function appendCordovaScript() {
+    var script = document.createElement('script');
+    script.setAttribute('src', window.AppConfig.cordovaScript);
+    script.setAttribute('type', 'text/javascript');
+    script.setAttribute('charset', 'utf-8');
+    script.onerror = onScriptLoadError(window.AppConfig.cordovaScript);
+    document.body.appendChild(script);
+  }
+  function generateRequestHeaders() {
+    var composerHeader = {};
+    if (window.AppConfig.composerHeaderKey && window.AppConfig.composerHeaderValue) {
+      composerHeader[window.AppConfig.composerHeaderKey] = window.AppConfig.composerHeaderValue;
+    }
+    return composerHeader;
+  }
+  function onRender(template, fixed) {
+    if (!template.parentNode) {
+      document.getElementById(this.mainNode).appendChild(template);
+      var componentsInTemplateLoaded = new CustomEvent('componentsInTemplateLoaded');
+      document.body.dispatchEvent(componentsInTemplateLoaded);
+    }
+    if (fixed) {
+      document.getElementById('external__header').innerHTML = '';
+      document.getElementById('external__footer').innerHTML = '';
+      fixed.forEach(function (component) {
+        document.getElementById(component.zone).appendChild(component.node);
+      });
+    }
+  }
+  function startCore(options) {
+    const sc = function () {
+      var reference = getBridgeEngineReference(options);
+      if (reference) {
+        new reference(options);
+      } else {
+        console.log('Error instantiating core');
+        setTimeout(sc, 1000);
+      }
+    };
+    return sc;
+  }
+  function getBridgeEngineReference(options) {
+    var enginesNamespace = {
+      polymer: 'CellsPolymerBridge',
+      native: 'CellsNativeBridge'
+    };
+    var defaultEngine = 'polymer';
+    var engine = (options.engine || defaultEngine).toLowerCase();
+    if (!enginesNamespace[engine]) {
+      engine = defaultEngine;
+      console.warn('Invalid value for AppConfig.engine. Using ' + defaultEngine);
+    }
+    var engineReference = enginesNamespace[engine];
+    return window[engineReference];
+  }
+  function webComponentsSupported() {
+    return window.customElements && 'content' in document.createElement('template');
+  }
+  function proxyCustomElements() {
+    var _customElementsDefine = window.customElements.define;
+    window.customElements.define = function (name, cl, conf) {
+      if (!customElements.get(name)) {
+        _customElementsDefine.call(window.customElements, name, cl, conf);
+      } else {
+        console.warn(name + 'has been defined twice');
+      }
+    };
+    loadInitialElements();
+  }
+  window.CellsPolymer = {
+    start: function (options) {
+      var config = Object.assign({
+        binding: 'currentview',
+        cache: window.AppConfig.coreCache || false,
+        domMode: 'shadow',
+        headers: generateRequestHeaders(),
+        mainNode: 'app__content',
+        onRender: onRender,
+        getPlatform: getPlatform,
+        preCache: false,
+        preRender: false,
+        loadAppElements: loadAppElements
+      }, window.AppConfig, options, AppComposerConfig);
+      var onNavigation = config.onNavigation || onNavigation;
+      var removeSplash = config.removeSplashScreen || removeSplashScreen;
+      window.Polymer = window.Polymer || {
+        dom: config.domMode,
+        lazyRegister: 'max',
+        useNativeCSSProperties: true
+      };
+      document.body.addEventListener('aria-announce', onAnnounce);
+      document.body.addEventListener('componentsInTemplateLoaded', removeSplash, {
+        once: true
+      });
+      if (config.initialBundle && isLoadingInitialPage() && !window.AppConfig.loadBundleOnDemand) {
+        document.body.addEventListener('componentsInTemplateLoaded', loadAppElements);
+      }
+      document.body.addEventListener('componentsLoaded', startCore(config), {
+        once: true
+      });
+      if (options.enableSSLPinning) {
+        document.body.addEventListener('componentsLoaded', options.enableSSLPinning, {
+          once: true
+        });
+      }
+      document.getElementById(config.mainNode).addEventListener('nav-request', onNavigation);
+      if (shouldAddCordovaScript(config)) {
+        appendCordovaScript();
+      }
+      if (!config.skipInitialLoad) {
+        this.ensureWebComponentsSupport();
+      }
+    },
+    ensureWebComponentsSupport: function () {
+      if (webComponentsSupported() && window.AppConfig.onlyLitElements) {
+        proxyCustomElements();
+      }
+      if (!window.AppConfig.onlyLitElements && !('import' in document.createElement('link'))) {
+        loadWebComponentPolyfill();
+      }
+    }
+  };
+  function loadWebComponentPolyfill() {
+    var url = 'none';
+    if (window.AppConfig.onlyLitElements) {
+      url = window.AppConfig.deployEndpoint + 'scripts/webcomponentsjs/webcomponents-hi.js';
+    } else {
+      url = window.AppConfig.deployEndpoint + window.AppConfig.componentsPath + 'webcomponentsjs/webcomponents-hi.js';
+    }
+    var polyfill = document.createElement('script');
+    polyfill.src = url;
+    polyfill.addEventListener('load', proxyCustomElements);
+    polyfill.addEventListener('error', onScriptLoadError(polyfill.src));
+    document.head.appendChild(polyfill);
+  }
+})(document);

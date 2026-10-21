@@ -1,0 +1,15 @@
+package com.esotericsoftware.kryo;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/* JADX INFO: loaded from: classes9.dex */
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface DefaultSerializer {
+    Class<? extends SerializerFactory> serializerFactory() default SerializerFactory.ReflectionSerializerFactory.class;
+
+    Class<? extends Serializer> value() default Serializer.class;
+}

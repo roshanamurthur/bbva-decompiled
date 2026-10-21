@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-widget-loan-sustainable-product-list/bbva-widget-loan-sustainable-product-list.js";

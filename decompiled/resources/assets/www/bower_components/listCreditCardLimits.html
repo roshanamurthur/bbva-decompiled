@@ -1,0 +1,725 @@
+<html><head></head><body><div hidden="" by-polymer-bundler=""><dom-module id="glomo-list-credit-card-limits-manager-mx" assetpath="glomo-list-credit-card-limits-manager/"><template></template><script>
+
+    class GlomoListCreditCardLimitsManagerMx extends Polymer.mixinBehaviors([
+      CellsBehaviors.i18nBehavior, CellsBehaviors.CellsCheckNestedKeysBehavior,
+    ], Polymer.Element) {
+      static get is() {
+        return 'glomo-list-credit-card-limits-manager-mx';
+      }
+
+      static get properties() {
+        return {
+          /**
+          * Product id
+          */
+          productId: {
+            type: String
+          },
+          /**
+           * Data of the different types of limits
+           */
+          limitsData: {
+            type: Array,
+            value: () => ([])
+          },
+          /**
+           * Selected limit
+           */
+          limitSelected: {
+            type: Object,
+            value: () => ({})
+          },
+          /**
+          * Flag to identify if is DebitCard
+          * @type {Boolean}
+          */
+          isDebitCard: {
+            type: Boolean,
+            value: false
+          },
+          /**
+           * Flag to identify a modal is Opened
+           * @type {Boolean}
+           */
+          isModalOpened: {
+            type: Boolean,
+            value: false
+          },
+          /**
+          * Text description in Modal
+          * @property {Object}
+          */
+          bulletsInModal: {
+            type: Object,
+            value: () => ({
+              TEXT_CREDIT: 6,
+              TEXT_DEBIT: 4,
+              TEXT_OPERATIVE_credit: 7,
+            })
+          },
+          /**
+          * Data of the diferent kind of cards
+          * @property {Array}
+          */
+          _limitsArray: {
+            type: Array,
+            value: () => ([])
+          },
+          /**
+          * Data from card-detail-manager
+          * @property {Object}
+          */
+          _cardsArray: {
+            type: Object,
+            value: () => ({})
+          },
+          /**
+          * Define if the request is for a card with differentiated limits
+          * @property {Boolean}
+          */
+          _cardOperativeLimitsTdc: {
+            type: Boolean,
+            value: false
+          },
+          /**
+          * Text of card type
+          * @property {String}
+          */
+          _cardType: {
+            type: Array,
+            value: () => []
+          },
+          /**
+          * request limits error code
+          * @property {Object}
+          */
+          _errorCode: {
+            type: Object,
+            value: () => ({})
+          },
+          /**
+          * request limits error code
+          * @property {Object}
+          */
+          _hasNotDigitalCard: {
+            type: Boolean,
+            value: false
+          },
+          /**
+          * @description flags from glomo-settings
+          * @type {Object}
+          */
+          featureFlags: {
+            type: Object,
+            value: () => ({
+              'CardOperativeLimitsTdc': false
+            })
+          },
+          /**
+          * @description card data
+          * @type {Object}
+          */
+          cardSelected: {
+            type: Object
+          },
+          /**
+          * @description financial overview data
+          * @type {Object}
+          */
+          financialData: {
+            type: Object
+          },
+          /**
+          * @description product name and id of digital and physical card
+          * @type {Object}
+          */
+          _productsName: {
+            type: Object
+          },
+          /**
+          * @description define value to digital card (example: not found)
+          * @type {Boolean}
+          */
+          _digitalCardError: {
+            type: Boolean,
+            value: false
+          },
+          /**
+          * @description flag for Deep Link
+          * @type {Boolean}
+          */
+          isDeepLink: {
+            type: Boolean,
+            value: false
+          }
+        };
+      }
+
+      navigationDeepLink(params) {
+        if (!!Object.keys(this.financialData).length && params?.deeplink === 'HTDCLIM') {
+          this.isDeepLink = true;
+          const lastCardDigits = params?.variables_terminacionTDC;
+          const contracts = this.financialData?.data?.contracts;
+          const foundCard = contracts?.find(card =>
+            card.productType === 'CARD' && lastCardDigits === card.number?.slice(-4)
+          );
+          const physicalCard = foundCard?.detail?.physicalSupport?.id === 'VIRTUAL'
+            ? contracts?.find(card =>
+              card.productType === 'CARD' &&
+              card.relatedContracts[0]?.id === foundCard.relatedContracts[0]?.id &&
+              card.detail?.physicalSupport?.id === 'NORMAL_PLASTIC'
+            )
+            : foundCard;
+
+          if (physicalCard) {
+            this.productId = physicalCard?.id;
+            const cardData = { cardId: this.productId, cardsApiVersion: '1' };
+            this._dispatch('deep-link-set-version-and-id', cardData);
+            this._dispatch('deep-link-set-expand', { expand: 'payment-methods,blocks,indicators,activations' });
+            this._dispatch('set-push-data-void', {});
+          }
+        }
+      }
+
+      getDataForDeepLink(params) {
+        this.cardSelected = params;
+        this.isDeepLink = false;
+        this.getLimitsData();
+      }
+
+      /**
+        * Reset list
+        */
+      resetList() {
+        this.limitsData = [];
+        this._limitsArray = [];
+        this._cardOperativeLimitsTdc = false;
+        this._cardType = [];
+        this._errorCode = {};
+        this._hasNotDigitalCard = false;
+        this._digitalCardError = false;
+        this._dispatch('show-key-values-list-skeleton');
+        this._dispatch('hide-empty-list-advice-image');
+        this._dispatch('reset-list-data', this.limitsData);
+        this._dispatch('set-list-title', '');
+        this._dispatch('set-list-subtitle', '');
+      }
+
+      /**
+       * Get the limit data for differentiated limits
+       * @event 'digital-card-data'
+       * @event 'fisica-card-data'
+       * @event 'show-key-values-list-skeleton'
+       * @event 'get-limits-data'
+       */
+      _requestDifferentiatedLimits(card) {
+        this._dispatch(`${card}-card-data`, this._cardsArray[card]);
+        this._dispatch('show-key-values-list-skeleton');
+        this._dispatch('get-limits-data', {expand: 'limits'});
+      }
+
+      /**
+       * Get the digital credit card data
+       */
+      _getDigitalCardData() {
+        this._cardsArray = {};
+        this._productsName = {};
+        this._cardType = [];
+        const cardOperativeLimitsTdcFlag = this.get('CardOperativeLimitsTdc', this.featureFlags);
+        if (this.cardSelected?.cardType?.id === 'CREDIT_CARD' && !this.cardSelected?.isBusiness && this.financialData?.data?.contracts && cardOperativeLimitsTdcFlag) {
+          let physicalCard = {};
+          let digitalCard = {};
+          let relatedContract = '';
+          let creditCards = [];
+          this.financialData.data.contracts.forEach(contract => {
+            if (contract.id === this.cardSelected.id) {
+              physicalCard = contract;
+              relatedContract = contract.relatedContracts[0].contractId;
+            }
+            if (contract?.subProductType?.id === 'CREDIT_CARD' && contract?.id !== this.cardSelected?.id) {
+              creditCards.push(contract);
+            }
+          });
+          digitalCard = creditCards.find(card => card.relatedContracts[0].contractId === relatedContract) || '';
+          this._cardsArray = {
+            digital: digitalCard ? digitalCard.id : '',
+            physical: physicalCard.id,
+          };
+          this._productsName = {
+            digital: digitalCard ? {
+              id: digitalCard.product.id,
+              name: digitalCard.product.name
+            } : {},
+            physical: {
+              id: physicalCard.product.id,
+              name: physicalCard.product.name
+            }
+          };
+          this._cardType = Object.keys(this._cardsArray);
+        }
+      }
+
+      /**
+       * Get the limit data
+       * @event 'show-key-values-list-skeleton'
+       * @event 'get-limits-data'
+       */
+      getLimitsData() {
+        if (this.limitsData.length === 0  && !this.isDeepLink) {
+          this._getDigitalCardData();
+          if (this._cardType.length > 0) {
+            if (!this._cardsArray[this._cardType[0]]) {
+              this._cardType.shift();
+              this._hasNotDigitalCard = true;
+            }
+            this._cardOperativeLimitsTdc = true;
+            this._requestDifferentiatedLimits(this._cardType[0]);
+          } else {
+            const cardDataTdd = { cardId: this.cardSelected?.id, cardsApiVersion: '0' };
+            this._dispatch('show-key-values-list-skeleton');
+            this._dispatch('deep-link-set-version-and-id', cardDataTdd);
+            this._dispatch('get-limits-data', {expand: 'limits'});
+          }
+        }
+      }
+
+      /**
+       * Get the title of the limit
+       */
+      _convertLimitIds(id) {
+        const listOfLimits = {
+          'POS_DAILY': this.t(`cells-limits-${this.isDebitCard ? 'debit-' : ''}category_POS_DAILY`),
+          'ATM_DAILY': this.t(`cells-limits-${this.isDebitCard ? 'debit-' : ''}category_ATM_DAILY`),
+          'OFFICE_DAILY': this.t('cells-limits-category_OFFI_DAILY'),
+          'TRANSACTION_DAILY': this.t('cells-limits-category_TRANSACTION_DAILY')
+        };
+        return listOfLimits[id] || listOfLimits.ATM_DAILY;
+      }
+
+      /**
+       *  Get the id and cardType of the limit
+       * @return {Object}
+       */
+      _limitType(data) {
+        const limitsType = {
+          ['POS_DAILY-digital']: {id: 'POS_DAILY', cardType: 'digital'},
+          ['POS_DAILY-physical']: {id: 'POS_DAILY', cardType: 'physical'},
+          ['ATM_DAILY-physical']: {id: 'ATM_DAILY', cardType: 'physical'},
+        };
+        return limitsType[data];
+      }
+
+      /**
+       *  Get the typology of card
+       * @event 'set-product-info'
+       */
+      _analyticsInfo(id) {
+        const additionalInfo = { typology: id };
+        const infoData = JSON.parse(JSON.stringify(this.cardSelected));
+        Object.assign(infoData, additionalInfo);
+        Object.assign(infoData, {product: this._productsName[this.limitSelected.cardType]});
+        this._dispatch('set-product-info', infoData);
+        this._dispatch('set-card-operative-limits-tdc', this._cardOperativeLimitsTdc);
+      }
+
+      /**
+       *  Navigate to the limits page by sending the selected limit
+       * @event 'navigate-to-edit-limits-page'
+       * @event 'send-data-to-edit-limits-page'
+       */
+      navigateToEditLimitsPage(e) {
+        if (!this._cardOperativeLimitsTdc) {
+          this.set('limitSelected', (this.limitsData || []).find(element => element.id === e.id));
+          this._dispatch('navigate-to-edit-limits-page', {'productId': this.cardSelected?.id});
+        } else {
+          const limit = this._limitType(e.id);
+          this.set('limitSelected', this.limitsData.find(element => element.id === limit.id && element.cardType === limit.cardType));
+          this._analyticsInfo(e.id);
+          this._dispatch('navigate-to-edit-limits-page', {'productId': this.limitSelected.cardNumber, 'cardType': this.limitSelected.cardType});
+          const productNameValue = this._productsName[this.limitSelected.cardType].name.toLowerCase();
+          Object.assign(this.limitSelected, {productName: {name: productNameValue}});
+        }
+        this._dispatch('send-data-to-edit-limits-page', this.limitSelected);
+      }
+
+      /**
+       *  Navigate to the limits page by sending the selected limit
+       * @event 'hide-empty-list-advice-image'
+       * @event 'show-empty-list-advice-image'
+       * @event 'hide-key-values-list-skeleton'
+       * @event 'send-limits-list-data'
+       * @event 'set-list-title'
+       * @event 'additional-info-class'
+       * @event 'set-list-subtitle'
+       * @event 'set-list-styles'
+       */
+      _mappingListofLimits() {
+        const listOfLimits = [];
+        if (this.limitsData && this.limitsData.length) {
+          this.limitsData.map((element) => {
+            if (this.c(element, 'disposedLimits') && this.c(element, 'disposedLimits').length > 0) {
+              listOfLimits.push({
+                key: !this._cardOperativeLimitsTdc ? this._convertLimitIds(element.id) : element.id === 'ATM_DAILY' ? this._convertLimitIds(element.id) : `cells-limits-category-${element.cardType}-card`,
+                localCurrency: element.disposedLimits[0].currency,
+                id: !this._cardOperativeLimitsTdc ? element.id : `${element.id}-${element.cardType}`,
+                class: this._cardOperativeLimitsTdc ? 'inline-value' : '',
+                value: {
+                  amount: this.c(element, 'amountLimits.0.amount'),
+                  currencyCode: this.c(element, 'disposedLimits.0.currency'),
+                  zeroDecimalsHidden: this.isDebitCard,
+                },
+                additionalInfo: [
+                  {
+                    type: 'amount',
+                    key: this.t('cells-limits-text-disposed-' + element.id),
+                    value: {
+                      amount: this.c(element, 'disposedLimits.0.amount'),
+                      currencyCode: this.c(element, 'amountLimits.0.currency'),
+                      localCurrency: this.c(element, 'amountLimits.0.currency'),
+                      zeroDecimalsHidden: this.isDebitCard,
+                    },
+                  },
+                  {
+                    type: 'amount',
+                    key: this.t('cells-list-text-disposed-limit'),
+                    value: {
+                      amount: this.c(element, 'amountLimits.0.amount') - this.c(element, 'disposedLimits.0.amount'),
+                      currencyCode: this.c(element, 'amountLimits.0.currency'),
+                      localCurrency: this.c(element, 'disposedLimits.0.currency'),
+                      zeroDecimalsHidden: this.isDebitCard,
+                    }
+                  }
+                ],
+                valueIcon: 'coronita:edit'
+              });
+            }
+          });
+        }
+        const emptyListImageAdviceText = this.t(
+          'cells-key-values-list-empty-list-image-additional-info',
+          ' _no Available limits_'
+        );
+        const textDiaryLimit = this.t('cells-key-values-list-empty-additional');
+        const eventName = listOfLimits.length > 0 ? 'hide-empty-list-advice-image' : 'show-empty-list-advice-image';
+        this._dispatch('hide-key-values-list-skeleton');
+        this._dispatch(eventName);
+        this._dispatch('send-limits-list-data', { list: listOfLimits, emptyListResultsText: emptyListImageAdviceText, textAdditional: textDiaryLimit });
+        this._dispatch('set-list-title', this._cardOperativeLimitsTdc ? 'glomo-limits-list-daily-limits-title2' : 'glomo-limits-list-daily-limits-title');
+        this._dispatch('additional-info-class', this._cardOperativeLimitsTdc ? 'additional-info-m' : '');
+        this._dispatch('set-list-subtitle', this._cardOperativeLimitsTdc ? 'glomo-limits-list-daily-limits-subtitle' : '');
+        this._dispatch('set-list-styles', this._cardOperativeLimitsTdc ? 'title-icon-align' : 'title-ml title-gap-bottom-s title-icon-vertical-align-center');
+        this._dispatch('set-cells-icon-message-button', this._cardOperativeLimitsTdc);
+      }
+
+      /**
+       * Set and send limits data
+       */
+      setLimitsData(data) {
+        const getLimit = (list, id) => ((list || []).find(el => this.c(el, 'id') === id));
+        this.limitsData = [getLimit(data, 'POS_DAILY'), getLimit(data, 'ATM_DAILY')].filter(Boolean);
+
+        if (this._cardOperativeLimitsTdc) {
+          this._creditCardConfiguration();
+        } else {
+          this._mappingListofLimits();
+        }
+      }
+
+      /**
+       * Close the page
+       */
+      cancelLimitsData() {
+        this._dispatch('close-page');
+      }
+
+      /**
+       * Configuration to modal error
+       */
+      _errorModalConfig(data) {
+        const responseStatusCode = data['http-status'];
+        if (responseStatusCode >= 200 && responseStatusCode <= 300) {
+          this._dispatch('open-list-credit-card-limits-error-modal', {
+            code: 'list-credit-card-limits-error-modal',
+            primaryButtonClass: 'primary',
+            time: 1000,
+            selectedConfig: {
+              className: 'error exit',
+              iconOnlyFullHeight: true,
+              acceptBtLabel: 'cells-list-credit-card-limits-title-error-modal-accept-label',
+              cancelBtLabel: 'cells-list-credit-card-limits-title-error-modal-cancel-label',
+              template: {
+                type: 'paragraphs',
+                values: [
+                  {
+                    class: 'spacing',
+                    icon: 'coronita:alert'
+                  },
+                  {
+                    title: 'cells-list-credit-card-limits-title-error-modal-title'
+                  },
+                  {
+                    text: 'cells-list-credit-card-limits-title-error-modal-text'
+                  }
+                ]
+              }
+            }
+          });
+        } else {
+          this._dispatch('open-list-credit-card-limits-error-modal', {
+            code: 'list-credit-card-limits-error-modal',
+            primaryButtonClass: 'primary',
+            time: 1000,
+            selectedConfig: {
+              className: 'error exit',
+              iconOnlyFullHeight: true,
+              acceptBtLabel: 'cells-list-credit-card-limits-title-error-modal-accept-label',
+              cancelBtLabel: 'cells-list-credit-card-limits-title-error-modal-cancel-label',
+              template: {
+                type: 'paragraphs',
+                values: [
+                  {
+                    class: 'spacing',
+                    icon: 'coronita:alert'
+                  },
+                  {
+                    title: 'cells-list-credit-card-limits-title-error-modal-title'
+                  },
+                  {
+                    text: data['error-message']
+                  }
+                ]
+              }
+            }
+          });
+        }
+      }
+
+      /**
+       * To open error modal for limits data
+       */
+      errorLimitsData(data) {
+        if (!this.isDeepLink) {
+          if (this._cardOperativeLimitsTdc === true && this._limitsArray.length === 0) {
+            this._digitalCardError = true;
+            this._cardType.shift();
+            this._requestDifferentiatedLimits(this._cardType[0]);
+          } else {
+            this._errorModalConfig(data);
+          }
+        }
+      }
+
+
+      /**
+       * To open modal for limits list title help button
+       */
+      openTitleHelpModal() {
+        this._dispatch('open-title-limits-help-modal', {
+          code: 'title-limits-help-modal',
+          primaryButtonClass: 'primary',
+          selectedConfig: {
+            className: 'paragraphs__list full-height-info header--blue header--core info',
+            openMaximized: true,
+            title: this._cardOperativeLimitsTdc ? 'glomo-modal-OPERATIVE_credit-card-limits-list-title-help-modal' : 'glomo-modal-credit-card-limits-list-title-help-modal',
+            acceptBtLabel: 'cells-edit-credit-card-limits-title-help-modal-accept-text',
+            template: {
+              type: 'paragraphs',
+              values: [
+                {
+                  icon: 'coronita:help',
+                  iconClass: this._cardOperativeLimitsTdc ? '' : 'dark-core-blue'
+                },
+                {
+                  list: this._iterativeLocales()
+                }
+              ]
+            }
+          }
+        });
+        this.isModalOpened = true;
+      }
+
+      /**
+       * return the texts depending on the limit
+       * @return {Array}
+       */
+      _iterativeLocales() {
+        let str = `cells-list-${this.isDebitCard ? 'debit' : this._cardOperativeLimitsTdc ? 'OPERATIVE_credit' : 'credit'}-card-limits-title-help-modal-list-text`;
+        const getNumOfElements = (num) => ['one', 'two', 'three', 'four', 'five', 'six', 'seven'].slice(0, num - 1);
+        let numOfElements = getNumOfElements(this.c(this.bulletsInModal, `TEXT_${this._cardOperativeLimitsTdc ? 'OPERATIVE_credit' : this.isDebitCard ? 'DEBIT' : 'CREDIT'}`));
+        const list = numOfElements.reduce((acc, num) => {
+          acc.push(`${str}-${num}`);
+          return acc;
+        }, []);
+        return list;
+      }
+
+      /**
+       * Configuration for the generic limits help modal
+       */
+      _getLimitsHelpModalConfiguration() {
+        return {
+          smallSpacing: 'spacing--xs',
+          normalSpacing: 'spacing',
+          creditType: this._cardOperativeLimitsTdc ? 'OPERATIVE_credit-' : this.isDebitCard ? 'debit-' : 'credit-',
+          iconColor: this._cardOperativeLimitsTdc ? '' : 'dark-core-blue',
+        };
+      }
+
+      /**
+       * To open the generic limits help modal we dispatch an event with all modal data as payload
+       */
+      openGenericLimitsHelpModal() {
+        const conf = this._getLimitsHelpModalConfiguration();
+        this._dispatch('open-header-limits-help-modal', {
+          code: 'generic-limits-help-modal',
+          primaryButtonClass: 'primary',
+          selectedConfig: {
+            className: 'full-height-info header--blue header--core info',
+            openMaximized: true,
+            title: 'glomo-modal-credit-card-limits-list-header-help-modal',
+            acceptBtLabel: 'cells-list-credit-card-limits-header-help-modal-accept-text',
+            template: {
+              type: 'paragraphs',
+              values: [
+                {
+                  icon: 'coronita:help',
+                  iconClass: conf.iconColor
+                },
+                {
+                  title: `glomo-modal-${conf.creditType}card-limits-list-how-do-limits-work-title`,
+                  class: conf.smallSpacing
+                },
+                {
+                  text: `glomo-modal-${conf.creditType}card-limits-list-how-do-limits-work-text`,
+                  class: conf.normalSpacing
+                },
+                {
+                  title: this._cardOperativeLimitsTdc ? '' : 'glomo-modal-credit-debit-card-limits-list-what-happen-with-my-digital-card-title',
+                  class: conf.smallSpacing
+                },
+                {
+                  text: this._cardOperativeLimitsTdc ? '' : 'glomo-modal-credit-debit-card-limits-list-what-happen-with-my-digital-card-text',
+                  class: conf.normalSpacing
+                },
+                {
+                  title: `glomo-modal-${conf.creditType}card-limits-list-how-to-change-default-limits-title`,
+                  class: conf.smallSpacing
+                },
+                {
+                  text: `glomo-modal-${conf.creditType}card-limits-list-how-to-change-default-limits-text`,
+                  class: conf.normalSpacing
+                },
+                {
+                  title: `glomo-modal-${this.isDebitCard ? 'debit-' : 'credit-'}card-limits-list-change-times-defaul-limits-title`,
+                  class: conf.smallSpacing
+                },
+                {
+                  text: `glomo-modal-${this.isDebitCard ? 'debit-' : 'credit-'}card-limits-list-change-times-defaul-limits-text`,
+                  class: conf.normalSpacing
+                },
+                {
+                  title: `glomo-modal-${this.isDebitCard ? 'debit-' : 'credit-'}card-limits-list-change-times-limits-title`,
+                  class: conf.smallSpacing
+                },
+                {
+                  text: `glomo-modal-${this.isDebitCard ? 'debit-' : 'credit-'}card-limits-list-change-times-limits-text`,
+                  class: conf.normalSpacing
+                },
+                {
+                  title: this.isDebitCard ? '' : 'glomo-modal-credit-card-limits-list-what-about-extraordinary-limit-increase-title',
+                  class: conf.smallSpacing
+                },
+                {
+                  text: this.isDebitCard ? '' : 'glomo-modal-credit-card-limits-list-what-about-extraordinary-limit-increase-text',
+                  class: conf.normalSpacing
+                },
+              ]
+            }
+          }
+        });
+        this.isModalOpened = true;
+      }
+
+      /**
+       * General dispatcher events method
+       */
+      _dispatch(eventName, detail) {
+        this.dispatchEvent(new CustomEvent(eventName, {
+          bubbles: true,
+          composed: true,
+          detail: detail
+        }));
+      }
+
+      /**
+       *  Function to exit when native back button is selected
+       *
+       */
+      manageBackBtn() {
+        if (this.isModalOpened) {
+          this._dispatch('native-back-close-modal');
+          this.isModalOpened = false;
+        } else {
+          this.cancelLimitsData();
+        }
+      }
+
+      /**
+       * Advice modal closed yet for manageBackButton /  data are received from close modal alert event
+       * @param {Boolean} data
+       */
+      closedModal(data) {
+        if (!data) {
+          this.isModalOpened = false;
+        }
+      }
+
+      /**
+       * Configuration for digital and phisical limits at credit cards
+       */
+      _creditCardConfiguration() {
+        this._limitsArray.push([ ...this.limitsData ]);
+        if (this._limitsArray.length === 2 || this._hasNotDigitalCard || this._digitalCardError) {
+          let limits = [];
+          this._limitsArray.forEach((item, index) => {
+            item.forEach(item2 => {
+              Object.assign(item2, {
+                cardType: this._cardType[index],
+                cardNumber: this._cardsArray[this._cardType[index]]
+              });
+              limits = [...limits, {...item2}];
+            });
+          });
+          this.limitsData = limits.filter(item => {
+            if (item.cardType === 'digital') {
+              return item.id !== 'ATM_DAILY';
+            } else {
+              return item;
+            }
+          });
+          this._mappingListofLimits();
+        } else {
+          this._requestDifferentiatedLimits(this._cardType[1]);
+        }
+      }
+
+      /**
+       * get feature flag data
+       */
+      getFeatureFlagCollection(featureFlagCollection) {
+        const _featureFlags = this.featureFlags;
+        Object.keys(_featureFlags).forEach(flag => {
+          this.set(`featureFlags.${flag}`, this.get('value', featureFlagCollection[`glomo.limits.${flag}`]) || false);
+        });
+      }
+
+      /**
+       * get feature flag data
+       */
+      cardOperativeLimitTdcFlag(data) {
+        this.set('featureFlags.CardOperativeLimitsTdc', this.get('CardOperativeLimitsTdc', data) || false);
+      }
+    }
+    window.customElements.define(GlomoListCreditCardLimitsManagerMx.is, GlomoListCreditCardLimitsManagerMx);
+  </script></dom-module></div></body></html>

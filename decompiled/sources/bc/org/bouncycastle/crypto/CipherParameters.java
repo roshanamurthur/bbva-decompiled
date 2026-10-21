@@ -1,0 +1,5 @@
+package bc.org.bouncycastle.crypto;
+
+/* JADX INFO: loaded from: classes2.dex */
+public interface CipherParameters {
+}

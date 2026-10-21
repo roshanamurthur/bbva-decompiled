@@ -1,0 +1,149 @@
+package org.bouncycastle.crypto.generators;
+
+import androidx.appcompat.widget.a;
+import java.math.BigInteger;
+import org.bouncycastle.crypto.DataLengthException;
+import org.bouncycastle.crypto.DerivationParameters;
+import org.bouncycastle.crypto.Mac;
+import org.bouncycastle.crypto.MacDerivationFunction;
+import org.bouncycastle.crypto.params.KDFDoublePipelineIterationParameters;
+import org.bouncycastle.crypto.params.KeyParameter;
+
+/* JADX INFO: loaded from: classes4.dex */
+public class KDFDoublePipelineIterationBytesGenerator implements MacDerivationFunction {
+
+    /* JADX INFO: renamed from: j, reason: collision with root package name */
+    public static final BigInteger f88747j = BigInteger.valueOf(2147483647L);
+
+    /* JADX INFO: renamed from: k, reason: collision with root package name */
+    public static final BigInteger f88748k = BigInteger.valueOf(2);
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public final Mac f88749a;
+
+    /* JADX INFO: renamed from: b, reason: collision with root package name */
+    public final int f88750b;
+
+    /* JADX INFO: renamed from: c, reason: collision with root package name */
+    public byte[] f88751c;
+
+    /* JADX INFO: renamed from: d, reason: collision with root package name */
+    public int f88752d;
+
+    /* JADX INFO: renamed from: e, reason: collision with root package name */
+    public byte[] f88753e;
+
+    /* JADX INFO: renamed from: f, reason: collision with root package name */
+    public boolean f88754f;
+
+    /* JADX INFO: renamed from: g, reason: collision with root package name */
+    public int f88755g;
+
+    /* JADX INFO: renamed from: h, reason: collision with root package name */
+    public final byte[] f88756h;
+
+    /* JADX INFO: renamed from: i, reason: collision with root package name */
+    public final byte[] f88757i;
+
+    public KDFDoublePipelineIterationBytesGenerator(Mac mac) {
+        this.f88749a = mac;
+        int macSize = mac.getMacSize();
+        this.f88750b = macSize;
+        this.f88756h = new byte[macSize];
+        this.f88757i = new byte[macSize];
+    }
+
+    public final void a() {
+        int i10 = this.f88755g;
+        byte[] bArr = this.f88756h;
+        Mac mac = this.f88749a;
+        if (i10 == 0) {
+            byte[] bArr2 = this.f88751c;
+            mac.update(bArr2, 0, bArr2.length);
+        } else {
+            mac.update(bArr, 0, bArr.length);
+        }
+        mac.doFinal(bArr, 0);
+        mac.update(bArr, 0, bArr.length);
+        if (this.f88754f) {
+            int i11 = (this.f88755g / this.f88750b) + 1;
+            byte[] bArr3 = this.f88753e;
+            int length = bArr3.length;
+            if (length != 1) {
+                if (length != 2) {
+                    if (length != 3) {
+                        if (length != 4) {
+                            throw new IllegalStateException("Unsupported size of counter i");
+                        }
+                        bArr3[0] = (byte) (i11 >>> 24);
+                    }
+                    bArr3[bArr3.length - 3] = (byte) (i11 >>> 16);
+                }
+                bArr3[bArr3.length - 2] = (byte) (i11 >>> 8);
+            }
+            bArr3[bArr3.length - 1] = (byte) i11;
+            mac.update(bArr3, 0, bArr3.length);
+        }
+        byte[] bArr4 = this.f88751c;
+        mac.update(bArr4, 0, bArr4.length);
+        mac.doFinal(this.f88757i, 0);
+    }
+
+    @Override // org.bouncycastle.crypto.DerivationFunction
+    public int generateBytes(byte[] bArr, int i10, int i11) throws DataLengthException, IllegalArgumentException {
+        int i12 = this.f88755g;
+        int i13 = i12 + i11;
+        if (i13 < 0 || i13 >= this.f88752d) {
+            throw new DataLengthException(a.c(new StringBuilder("Current KDFCTR may only be used for "), this.f88752d, " bytes"));
+        }
+        int i14 = this.f88750b;
+        if (i12 % i14 == 0) {
+            a();
+        }
+        int i15 = this.f88755g;
+        int i16 = i15 % i14;
+        int iMin = Math.min(i14 - (i15 % i14), i11);
+        byte[] bArr2 = this.f88757i;
+        System.arraycopy(bArr2, i16, bArr, i10, iMin);
+        this.f88755g += iMin;
+        int i17 = i11 - iMin;
+        while (true) {
+            i10 += iMin;
+            if (i17 <= 0) {
+                return i11;
+            }
+            a();
+            iMin = Math.min(i14, i17);
+            System.arraycopy(bArr2, 0, bArr, i10, iMin);
+            this.f88755g += iMin;
+            i17 -= iMin;
+        }
+    }
+
+    @Override // org.bouncycastle.crypto.MacDerivationFunction
+    public Mac getMac() {
+        return this.f88749a;
+    }
+
+    @Override // org.bouncycastle.crypto.DerivationFunction
+    public void init(DerivationParameters derivationParameters) {
+        if (!(derivationParameters instanceof KDFDoublePipelineIterationParameters)) {
+            throw new IllegalArgumentException("Wrong type of arguments given");
+        }
+        KDFDoublePipelineIterationParameters kDFDoublePipelineIterationParameters = (KDFDoublePipelineIterationParameters) derivationParameters;
+        this.f88749a.init(new KeyParameter(kDFDoublePipelineIterationParameters.getKI()));
+        this.f88751c = kDFDoublePipelineIterationParameters.getFixedInputData();
+        int r3 = kDFDoublePipelineIterationParameters.getR();
+        this.f88753e = new byte[r3 / 8];
+        int iIntValue = Integer.MAX_VALUE;
+        if (kDFDoublePipelineIterationParameters.useCounter()) {
+            BigInteger bigIntegerMultiply = f88748k.pow(r3).multiply(BigInteger.valueOf(this.f88750b));
+            if (bigIntegerMultiply.compareTo(f88747j) != 1) {
+                iIntValue = bigIntegerMultiply.intValue();
+            }
+        }
+        this.f88752d = iIntValue;
+        this.f88754f = kDFDoublePipelineIterationParameters.useCounter();
+        this.f88755g = 0;
+    }
+}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="181dp"
+    android:width="566dp"
+    android:viewportWidth="566"
+    android:viewportHeight="181">
+    <group android:name="v_right_mask_group">
+        <path
+            android:name="v_right_mask"
+            android:fillColor="#ffffff"
+            android:pathData="M81.812,0.391h134.997v300h-134.997z"
+            android:strokeWidth="1"/>
+    </group>
+</vector>

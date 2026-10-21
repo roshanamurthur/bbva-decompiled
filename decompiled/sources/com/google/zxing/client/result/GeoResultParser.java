@@ -1,0 +1,40 @@
+package com.google.zxing.client.result;
+
+import com.google.zxing.Result;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/* JADX INFO: loaded from: classes10.dex */
+public final class GeoResultParser extends ResultParser {
+
+    /* JADX INFO: renamed from: e, reason: collision with root package name */
+    public static final Pattern f49755e = Pattern.compile("geo:([\\-0-9.]+),([\\-0-9.]+)(?:,([\\-0-9.]+))?(?:\\?(.*))?", 2);
+
+    @Override // com.google.zxing.client.result.ResultParser
+    public GeoParsedResult parse(Result result) {
+        Matcher matcher = f49755e.matcher(ResultParser.getMassagedText(result));
+        if (!matcher.matches()) {
+            return null;
+        }
+        String strGroup = matcher.group(4);
+        try {
+            double d2 = Double.parseDouble(matcher.group(1));
+            if (d2 <= 90.0d && d2 >= -90.0d) {
+                double d3 = Double.parseDouble(matcher.group(2));
+                if (d3 <= 180.0d && d3 >= -180.0d) {
+                    double d7 = 0.0d;
+                    if (matcher.group(3) != null) {
+                        double d10 = Double.parseDouble(matcher.group(3));
+                        if (d10 < 0.0d) {
+                            return null;
+                        }
+                        d7 = d10;
+                    }
+                    return new GeoParsedResult(d2, d3, d7, strGroup);
+                }
+            }
+        } catch (NumberFormatException unused) {
+        }
+        return null;
+    }
+}

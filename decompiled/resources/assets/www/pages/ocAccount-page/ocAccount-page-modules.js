@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-oc-account-mx/bbva-feature-oc-account-mx.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-account-origination/bbva-analyticmanager-oc-account-mx.js";import"../../../node_modules/@glomo-web-components/bbva-manager-widgets-error-handler/bbva-manager-widgets-error-interceptor.js";

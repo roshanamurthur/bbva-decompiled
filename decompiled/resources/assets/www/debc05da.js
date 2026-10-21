@@ -1,0 +1,1 @@
+import{B as s}from"./9e63ca53.js";import"./952f98a9.js";class e extends s{static get is(){return"bbva-smart-collections-smart-space-pe-api-dm"}async _responseMapping(s){return await this.updateComplete,s}}customElements.define(e.is,e);export{e as BbvaSmartCollectionsSmartSpacePeApiDm};

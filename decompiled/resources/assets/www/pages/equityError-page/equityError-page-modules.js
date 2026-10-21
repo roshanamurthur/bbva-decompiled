@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components/bbva-panel-info/bbva-panel-info.js";

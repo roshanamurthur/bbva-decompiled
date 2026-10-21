@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-pfm-dashboard-check-up-mx/bbva-feature-pfm-dashboard-check-up-mx.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-pfm/bbva-analyticmanager-pfm-dashboard-check-up.js";

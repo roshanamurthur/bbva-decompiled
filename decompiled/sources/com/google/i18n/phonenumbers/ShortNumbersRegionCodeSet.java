@@ -1,0 +1,84 @@
+package com.google.i18n.phonenumbers;
+
+import com.bbva.cellscore.web.model.page.components.ComponentDTO;
+import com.bbva.component_devicemanager.data.datasource.BlackBoxDataSource;
+import com.bbva.glomohybrid.login.domain.constants.LoginHelperConstants;
+import com.bbva.tohu.android.product.valkyria.sdk.logic.ReplenishLogic;
+import com.bbva.zoomauth.facialauth.constant.AuthConstants;
+import com.google.zxing.client.result.ExpandedProductParsedResult;
+import java.util.HashSet;
+import java.util.Set;
+import mx.openpay.library.data.util.EglobalUtils;
+import mx.openpay.library.domain.model.EnvironmentConstants;
+
+/* JADX INFO: loaded from: classes10.dex */
+public class ShortNumbersRegionCodeSet {
+    public static Set<String> getRegionCodeSet() {
+        HashSet hashSet = new HashSet(321);
+        hashSet.add("AC");
+        hashSet.add("AD");
+        hashSet.add("AE");
+        hashSet.add("AF");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "AG", "AI", "AL", "AM");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "AO", "AR", "AS", "AT");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "AU", "AW", "AX", "AZ");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "BA", "BB", "BD", "BE");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "BF", "BG", "BH", "BI");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "BJ", "BL", "BM", "BN");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "BO", "BQ", "BR", "BS");
+        androidx.constraintlayout.core.parser.a.d(hashSet, EglobalUtils.CONNECTION_TYPE_BLUETOOTH, "BW", "BY", "BZ");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "CA", ComponentDTO.CROSS_COMPONENT, "CD", "CF");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "CG", "CH", "CI", "CK");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "CL", "CM", LoginHelperConstants.CLIENT_STATUS_CANCELLED_BY_BUSINESS, "CO");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "CR", "CU", "CV", "CW");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "CX", "CY", "CZ", "DE");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "DJ", "DK", ComponentDTO.DATA_MANAGER, "DO");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "DZ", LoginHelperConstants.CLIENT_STATUS_PENDING_TO_ACTIVATE_EC, "EE", "EG");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "EH", "ER", "ES", "ET");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "FI", "FJ", "FK", "FM");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "FO", "FR", "GA", BlackBoxDataSource.GIGA_BYTE);
+        androidx.constraintlayout.core.parser.a.d(hashSet, "GD", "GE", "GF", "GG");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "GH", "GI", "GL", "GM");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "GN", "GP", "GR", "GT");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "GU", "GW", "GY", "HK");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "HN", "HR", "HT", "HU");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "ID", "IE", "IL", "IM");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "IN", "IQ", "IR", "IS");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "IT", "JE", "JM", "JO");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "JP", "KE", ExpandedProductParsedResult.KILOGRAM, "KH");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "KI", "KM", "KN", "KP");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "KR", "KW", "KY", "KZ");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "LA", ExpandedProductParsedResult.POUND, "LC", "LI");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "LK", "LR", "LS", "LT");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "LU", "LV", "LY", "MA");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "MC", "MD", "ME", "MF");
+        androidx.constraintlayout.core.parser.a.d(hashSet, AuthConstants.FACIAL_AUTH_CHANNEL, "MH", "MK", "ML");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "MM", "MN", "MO", "MP");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "MQ", "MR", "MS", "MT");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "MU", "MV", "MW", "MX");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "MY", "MZ", "NA", "NC");
+        androidx.constraintlayout.core.parser.a.d(hashSet, LoginHelperConstants.CLIENT_STATUS_NEW_CLIENT, "NF", "NG", "NI");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "NL", "NO", "NP", "NR");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "NU", "NZ", "OM", LoginHelperConstants.CLIENT_STATUS_PENDING_TO_ACTIVATE_PA);
+        androidx.constraintlayout.core.parser.a.d(hashSet, LoginHelperConstants.CLIENT_STATUS_PENDING_TO_ACTIVATE_PE, "PF", "PG", "PH");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "PK", "PL", "PM", "PR");
+        androidx.constraintlayout.core.parser.a.d(hashSet, LoginHelperConstants.CLIENT_STATUS_PENDING_TO_ACTIVATE_PS, "PT", "PW", "PY");
+        androidx.constraintlayout.core.parser.a.d(hashSet, EnvironmentConstants.QA_ENV, "RE", "RO", "RS");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "RU", "RW", "SA", "SB");
+        androidx.constraintlayout.core.parser.a.d(hashSet, ReplenishLogic.SC_PARAM_KEY, "SD", "SE", "SG");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "SH", "SI", "SJ", "SK");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "SL", "SM", "SN", "SO");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "SR", "SS", "ST", "SV");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "SX", "SY", "SZ", "TC");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "TD", "TG", "TH", "TJ");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "TL", "TM", "TN", "TO");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "TR", "TT", "TV", "TW");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "TZ", "UA", "UG", "US");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "UY", "UZ", "VA", "VC");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "VE", "VG", "VI", "VN");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "VU", "WF", "WS", "XK");
+        androidx.constraintlayout.core.parser.a.d(hashSet, "YE", "YT", "ZA", "ZM");
+        hashSet.add("ZW");
+        return hashSet;
+    }
+}

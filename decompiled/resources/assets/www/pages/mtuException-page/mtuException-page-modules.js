@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-widget-user-transaction-amount/bbva-widget-user-transaction-amount.js";

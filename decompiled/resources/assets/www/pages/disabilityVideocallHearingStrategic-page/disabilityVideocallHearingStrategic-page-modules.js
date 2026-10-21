@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-disability-videocall-hearing-mx/bbva-feature-disability-videocall-hearing-mx.js";

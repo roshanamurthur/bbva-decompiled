@@ -1,0 +1,13 @@
+package com.bumptech.glide.request;
+
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.request.target.Target;
+
+/* JADX INFO: loaded from: classes9.dex */
+@Deprecated
+public abstract class ExperimentalRequestListener<ResourceT> implements RequestListener<ResourceT> {
+    public abstract boolean onResourceReady(ResourceT resourcet, Object obj, Target<ResourceT> target, DataSource dataSource, boolean z10, boolean z11);
+
+    public void onRequestStarted(Object obj) {
+    }
+}

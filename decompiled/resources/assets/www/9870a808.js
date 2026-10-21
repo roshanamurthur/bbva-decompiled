@@ -1,0 +1,1 @@
+import{H as e}from"./952f98a9.js";const s=e((e=>class extends e{_dispatchEvent(e,s){this.dispatchEvent(new CustomEvent(e,{bubbles:!0,composed:!0,detail:s}))}_sendModalConfig(e){this._dispatchEvent("update-email-address-send-modal-config",e)}_openVeil(){this._dispatchEvent("open-control-veil")}_closeVeil(){this._dispatchEvent("close-control-veil")}}));export{s as B};

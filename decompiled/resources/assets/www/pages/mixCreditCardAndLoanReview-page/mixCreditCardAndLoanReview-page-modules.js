@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-mix-loan-and-credit-card/bbva-manager-mix-loan-and-credit-card.js";

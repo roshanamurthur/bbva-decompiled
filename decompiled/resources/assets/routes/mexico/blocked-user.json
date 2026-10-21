@@ -1,0 +1,33 @@
+{
+  "payload": {
+    "components": [
+      {
+        "tagName": "error-screen",
+        "type": "SCREEN",
+        "properties": {
+          "toolbarTitleLabel": {
+            "type": "resource",
+            "value": "blockedUser_toolbar_title"
+          },
+          "headerImage": {
+            "type": "resource",
+            "value": "ic_warning_illus"
+          },
+          "titleLabel": {
+            "type": "resource",
+            "value": "blockedUser_title"
+          },
+          "descriptionLabel": {
+            "type": "resource",
+            "value": "blockedUser_description"
+          },
+          "positiveButton": {
+            "type": "resource",
+            "value": "blockedUser_positive_button"
+          },
+          "style": "WHITE"
+        }
+      }
+    ]
+  }
+}

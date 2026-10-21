@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-widget-cardless-with-drawal-commerce-qr/bbva-widget-cardless-with-drawal-commerce-qr.js";import"../../../node_modules/@glomo-web-components/bbva-nativeconnector-bbva-qr-creator/bbva-nativeconnector-bbva-qr-creator.js";

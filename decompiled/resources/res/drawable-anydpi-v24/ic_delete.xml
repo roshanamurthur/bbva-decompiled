@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="300dp"
+    android:width="300dp"
+    android:viewportWidth="300"
+    android:viewportHeight="300">
+    <path
+        android:fillColor="#1973b8"
+        android:pathData="M180.03,40C185.54,40 190,44.43 190,50.09L189.99,60L250,60L250,90L229.99,90L230,250.08C230,255.56 225.55,260 219.99,260L80.01,260C74.48,260 70,255.45 70,250.08L69.99,90L50,90L50,60L109.99,60L110,50.09C110,44.52 114.53,40 119.97,40L180.03,40ZM120,150L100,150L100,210L120,230L120,150ZM160,150L140,150L140,210L160,230L160,150ZM200,150L180,150L180,210L200,230L200,150Z"
+        android:strokeColor="#00000000"
+        android:strokeWidth="1"
+        android:fillType="evenOdd"/>
+</vector>

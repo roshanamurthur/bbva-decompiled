@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-controller-device-activation-facial-biometrics-enrollment/bbva-controller-device-activation-facial-biometrics-enrollment.js";

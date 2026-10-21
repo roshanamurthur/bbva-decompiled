@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/configuration-access-screen/configuration-access-screen.js";import"../../../node_modules/@glomo-web-components/bbva-manager-landing-settings/bbva-manager-landing-settings.js";

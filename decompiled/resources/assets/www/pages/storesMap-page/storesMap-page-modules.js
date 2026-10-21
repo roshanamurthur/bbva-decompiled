@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/promotions-stores-map/promotions-stores-map.js";import"../../../node_modules/@glomo-web-components/bbva-manager-rewards-landing/bbva-manager-rewards-landing.js";

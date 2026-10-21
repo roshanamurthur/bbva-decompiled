@@ -1,0 +1,32 @@
+{
+  "payload": {
+    "components": [
+      {
+        "tagName": "error-screen",
+        "type": "SCREEN",
+        "properties": {
+          "toolbarTitleLabel": {
+            "type": "resource",
+            "value": "force_update_webview_toolbar_title"
+          },
+          "headerImage": {
+            "type": "resource",
+            "value": "ic_webview_force_update"
+          },
+          "titleLabel": {
+            "type": "resource",
+            "value": "force_update_webview_title"
+          },
+          "descriptionLabel": {
+            "type": "resource",
+            "value": "force_update_webview_description"
+          },
+          "positiveButton": {
+            "type": "resource",
+            "value": "force_update_webview_positive_button"
+          }
+        }
+      }
+    ]
+  }
+}

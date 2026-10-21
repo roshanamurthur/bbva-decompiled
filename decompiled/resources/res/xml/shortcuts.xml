@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <capability android:name="actions.intent.PAY_INVOICE">
+        <intent>
+            <url-template android:value="bbva://bbva-actions.bbva.mx/pay-invoice{?serviceName}"/>
+            <parameter
+                android:name="invoice.forService.name"
+                android:key="serviceName"/>
+        </intent>
+    </capability>
+    <capability android:name="actions.intent.CREATE_MONEY_TRANSFER">
+        <intent>
+            <url-template android:value="bbva://bbva-actions.bbva.mx/create-money-transfer{?senderBankAccountType,recipientBankAccountType,amount,currency}"/>
+            <parameter
+                android:name="moneyTransfer.moneyTransferOrigin.name"
+                android:key="senderBankAccountType"/>
+            <parameter
+                android:name="moneyTransfer.moneyTransferDestination.name"
+                android:key="recipientBankAccountType"/>
+            <parameter
+                android:name="moneyTransfer.amount.value"
+                android:key="amount"/>
+            <parameter
+                android:name="moneyTransfer.amount.currency"
+                android:key="currency"/>
+        </intent>
+    </capability>
+</shortcuts>

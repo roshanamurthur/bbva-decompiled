@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-card-tracking-mx/bbva-feature-card-tracking-mx.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-technical-core/bbva-analyticmanager-technical-core.js";import"../../../node_modules/@glomo-web-components/bbva-manager-widgets-error-handler/bbva-manager-widgets-error-interceptor.js";

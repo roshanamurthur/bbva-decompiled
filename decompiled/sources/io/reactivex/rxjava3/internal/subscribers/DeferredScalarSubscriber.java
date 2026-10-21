@@ -1,0 +1,44 @@
+package io.reactivex.rxjava3.internal.subscribers;
+
+import io.reactivex.rxjava3.core.FlowableSubscriber;
+import io.reactivex.rxjava3.internal.subscriptions.DeferredScalarSubscription;
+import io.reactivex.rxjava3.internal.subscriptions.SubscriptionHelper;
+import org.reactivestreams.Subscriber;
+import org.reactivestreams.Subscription;
+
+/* JADX INFO: loaded from: classes12.dex */
+public abstract class DeferredScalarSubscriber<T, R> extends DeferredScalarSubscription<R> implements FlowableSubscriber<T> {
+    protected boolean hasValue;
+    protected Subscription upstream;
+
+    public DeferredScalarSubscriber(Subscriber<? super R> subscriber) {
+        super(subscriber);
+    }
+
+    @Override // io.reactivex.rxjava3.internal.subscriptions.DeferredScalarSubscription, org.reactivestreams.Subscription
+    public void cancel() {
+        super.cancel();
+        this.upstream.cancel();
+    }
+
+    public void onComplete() {
+        if (this.hasValue) {
+            complete(this.value);
+        } else {
+            this.downstream.onComplete();
+        }
+    }
+
+    public void onError(Throwable th2) {
+        this.value = null;
+        this.downstream.onError(th2);
+    }
+
+    public void onSubscribe(Subscription subscription) {
+        if (SubscriptionHelper.validate(this.upstream, subscription)) {
+            this.upstream = subscription;
+            this.downstream.onSubscribe(this);
+            subscription.request(Long.MAX_VALUE);
+        }
+    }
+}

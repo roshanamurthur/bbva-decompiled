@@ -1,0 +1,1 @@
+import"./7f3d7ca9.js";import{L as t}from"./952f98a9.js";import{B as s}from"./8fb69d5e.js";import"./216055dc.js";import"./c0a2f832.js";import"./cae0f1de.js";class e extends(s(t)){static get is(){return"bbva-analyticmanager-oc-account-mx"}fireAppCompleted(t){const{operationNumber:s}=t;this._dispatch("analytics-app-completed",{operationNumber:s})}}customElements.define(e.is,e);

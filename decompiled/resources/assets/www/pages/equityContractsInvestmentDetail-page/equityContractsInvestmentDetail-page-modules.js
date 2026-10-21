@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-equity-contracts/bbva-manager-equity-contracts.js";

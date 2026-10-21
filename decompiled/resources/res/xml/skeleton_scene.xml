@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/skeleton_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/enter">
+        <Constraint
+            android:id="@+id/skeleton_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </ConstraintSet>
+    <ConstraintSet android:id="@+id/exit">
+        <Constraint
+            android:id="@+id/skeleton_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </ConstraintSet>
+    <Transition
+        android:id="@+id/initial_step"
+        app:constraintSetEnd="@+id/enter"
+        app:constraintSetStart="@+id/start"
+        app:duration="1600"
+        app:motionInterpolator="easeIn"/>
+    <Transition
+        android:id="@+id/finish_step"
+        app:autoTransition="animateToEnd"
+        app:constraintSetEnd="@+id/exit"
+        app:constraintSetStart="@+id/enter"
+        app:duration="1600"
+        app:motionInterpolator="easeIn"/>
+    <Transition
+        app:autoTransition="jumpToEnd"
+        app:constraintSetEnd="@+id/start"
+        app:constraintSetStart="@+id/exit"/>
+</MotionScene>

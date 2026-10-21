@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/account-transaction-servicing-bill-payments-home/account-transaction-servicing-bill-payments-home.js";

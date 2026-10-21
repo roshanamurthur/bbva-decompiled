@@ -1,0 +1,119 @@
+{
+  "version": "25.50.19",
+  "basis": "Static recovered code; no bank requests or runtime observation",
+  "facts": [
+    {
+      "name": "production_host",
+      "observation": "https://glomo.bancomermovil.com",
+      "source": {
+        "file": "decompiled/resources/assets/routes/common/global.json",
+        "line": 9
+      }
+    },
+    {
+      "name": "login_path",
+      "observation": "/QSRV_A02/TechArchitecture/mx/grantingTicket/V02",
+      "source": {
+        "file": "decompiled/resources/assets/routes/common/global.json",
+        "line": 14
+      }
+    },
+    {
+      "name": "native_login_wiring",
+      "observation": "LoginType.GLOBAL uses the configured host and path",
+      "source": {
+        "file": "decompiled/sources/com/bbva/glomohybrid/provider/g0.java",
+        "line": 38
+      }
+    },
+    {
+      "name": "request_method",
+      "observation": "POST with JSON granting-ticket DTO",
+      "source": {
+        "file": "decompiled/sources/com/bbva/component/dm/login/data/datasource/GlobalLoginDataSource.java",
+        "line": 96
+      }
+    },
+    {
+      "name": "credential_mapper_limit",
+      "observation": "JADX failed to reconstruct this method; inspect original instructions before implementing",
+      "source": {
+        "file": "decompiled/sources/com/bbva/component/dm/login/data/mapper/GrantingTicketRequestMapper.java",
+        "line": 134
+      }
+    },
+    {
+      "name": "user_agent",
+      "observation": "Runtime Android OS, manufacturer and model included in GLOMO app-version User-Agent",
+      "source": {
+        "file": "decompiled/sources/com/bbva/glomohybrid/UserAgent.java",
+        "line": 20
+      }
+    },
+    {
+      "name": "login_sensor_wiring",
+      "observation": "Akamai interceptor matches POST grantingTicket",
+      "source": {
+        "file": "decompiled/sources/com/bbva/glomohybrid/provider/modules/a1.java",
+        "line": 26
+      }
+    },
+    {
+      "name": "sensor_header",
+      "observation": "X-acf-sensor-data attached by interceptor",
+      "source": {
+        "file": "decompiled/sources/com/bbva/component/dm/akamai/interceptor/interceptors/AkamaiBotInterceptor.java",
+        "line": 83
+      }
+    },
+    {
+      "name": "sensor_source",
+      "observation": "CYFMonitor.getSensorData() from runtime",
+      "source": {
+        "file": "decompiled/sources/com/bbva/component/dm/akamai/interceptor/AkamaiSensorInfo.java",
+        "line": 15
+      }
+    },
+    {
+      "name": "session_request_header",
+      "observation": "Stored tsec attached to allowed requests",
+      "source": {
+        "file": "decompiled/sources/com/bbva/component/dm/headers/interceptor/TsecInterceptor.java",
+        "line": 43
+      }
+    },
+    {
+      "name": "session_response_header",
+      "observation": "Response tsec updates stored session value",
+      "source": {
+        "file": "decompiled/sources/com/bbva/component/dm/headers/interceptor/TsecInterceptor.java",
+        "line": 53
+      }
+    },
+    {
+      "name": "multistep_response",
+      "observation": "authenticationState and multistepProcessId parsed from response",
+      "source": {
+        "file": "decompiled/sources/com/bbva/component/dm/login/data/mapper/LoginResponseMapper.java",
+        "line": 61
+      }
+    },
+    {
+      "name": "post_login_work",
+      "observation": "getCustomer() and external device ID passed to WebView",
+      "source": {
+        "file": "decompiled/sources/com/bbva/glomohybrid/login/presentation/viewmodel/LoginGlobalViewModel.java",
+        "line": 2388
+      }
+    }
+  ],
+  "unknowns": [
+    "Faithful credential-mapper reconstruction",
+    "Runtime Akamai sensor output",
+    "Current server challenge and authentication state",
+    "Account and device enrollment state",
+    "Whether this old app version remains supported"
+  ],
+  "login_attempted": false,
+  "credentials_collected": false
+}

@@ -1,0 +1,127 @@
+{
+  "api": {
+    "host": {
+      "virtual": "https://artichoke.platform.bbva.com",
+      "vbank": "https://127.0.0.1:9000",
+      "desa": "https://t-glomo-mx.prev.grupobbva.com:443",
+      "qatest": "https://t-glomo-mx.prev.grupobbva.com:443",
+      "preprod": "https://lo-glomo-mx.prev.grupobbva.com:443",
+      "prod": "https://glomo.bancomermovil.com"
+    },
+    "paths": {
+      "default": {
+        "customerSubPath":"/SRVS_A02",
+        "login": "/QSRV_A02/TechArchitecture/mx/grantingTicket/V02",
+        "documents": "%s/documents/v0/documents/%s/file/"
+      }
+    }
+  },
+  "settings": {
+    "host": {
+      "virtual": "https://revision-jda460ms.openweb.bbva",
+      "vbank": "https://127.0.0.1:9001",
+      "desa": "https://revision-jda460ms.openweb.bbva",
+      "qatest": "https://revision-jda460ms.openweb.bbva",
+      "preprod": "https://jda460ms.openweb.bbva",
+      "prod": "https://jda460ms.openweb.bbva"
+    },
+    "path": {
+      "settings": {
+        "desa": "/app-settings/mx/public.app-setting.json",
+        "qatest": "/app-settings/mx/public.app-setting.json",
+        "virtual": "/app-settings/mx/public.app-setting.json",
+        "preprod": "/app-settings/mx/public.app-setting.json",
+        "prod": "/app-settings/mx/public.app-setting.json",
+        "vbank": "/app-settings/mx/public.app-setting.json"
+      },
+      "features": {
+        "desa": "/app-settings/mx/feature-flags.json",
+        "qatest": "/app-settings/mx/feature-flags.json",
+        "virtual": "/app-settings/mx/feature-flags.json",
+        "preprod": "/app-settings/mx/feature-flags.json",
+        "prod": "/app-settings/mx/feature-flags.json",
+        "vbank": "/app-settings/mx/feature-flags.json"
+      },
+      "profiling": {
+        "desa": "/app-settings/mx/profiling.json",
+        "qatest": "/app-settings/mx/profiling.json",
+        "virtual": "/app-settings/mx/profiling.json",
+        "preprod": "/app-settings/mx/profiling.json",
+        "prod": "/app-settings/mx/profiling.json",
+        "vbank": "/app-settings/mx/profiling.json"
+      }
+    }
+  },
+  "aem": {
+    "host": {
+      "virtual": "https://assets-stage.caasbbva.com",
+      "vbank": "https://127.0.0.1:9031",
+      "desa": "https://assets-stage.caasbbva.com",
+      "qatest": "https://assets-stage.caasbbva.com",
+      "preprod": "https://assets-stage.caasbbva.com",
+      "prod": "https://assets.caasbbva.com"
+    }
+  },
+  "softToken": {
+    "appId": "RETAILMX",
+    "host": {
+      "virtual": "https://t-glomo-mx.prev.grupobbva.com/SRVS_A02",
+      "vbank": "https://t-glomo-mx.prev.grupobbva.com/SRVS_A02",
+      "desa": "https://t-glomo-mx.prev.grupobbva.com/SRVS_A02",
+      "qatest": "https://t-glomo-mx.prev.grupobbva.com/SRVS_A02",
+      "preprod": "https://lo-glomo-mx.prev.grupobbva.com/SRVS_A02",
+      "prod": "https://glomo.bancomermovil.com/SRVS_A02"
+    },
+    "path": "/security/v1/software-tokens/[softwareTokensId]/activation-data-hash/[activationDataHashId]"
+  },
+  "gema": {
+    "host": {
+      "virtual": "https://int.bbvaempresas.mx/",
+      "vbank": "https://int.bbvaempresas.mx/",
+      "desa": "https://int.bbvaempresas.mx/",
+      "qatest": "https://int.bbvaempresas.mx/",
+      "preprod": "https://lo-gema-mx.bbvaempresas.mx/qsrv_gemalo_v2_mx/",
+      "prod": "https://pr-gema-mx.bbvaempresas.mx/qsrv_gemapr_mx_v2/",
+      "test": "https://int.bbvaempresas.mx/"
+    },
+    "path": {
+      "virtual": "TechArchitecture/mx/grantingTicket/V02",
+      "vbank": "TechArchitecture/mx/grantingTicket/V02",
+      "desa": "TechArchitecture/mx/grantingTicket/V02",
+      "qatest": "TechArchitecture/mx/grantingTicket/V02",
+      "preprod": "TechArchitecture/mx/grantingTicket/V02",
+      "prod": "TechArchitecture/mx/grantingTicket/V02",
+      "test": "TechArchitecture/mx/grantingTicket/V02"
+    }
+  },
+  "single-sign-on": {
+    "host": {
+      "virtual": "https://t-glomo-mx.prev.grupobbva.com/SRVS_A02/",
+      "vbank": "https://t-glomo-mx.prev.grupobbva.com/SRVS_A02/",
+      "desa": "https://t-glomo-mx.prev.grupobbva.com/SRVS_A02/",
+      "qatest": "https://t-glomo-mx.prev.grupobbva.com/SRVS_A02/",
+      "preprod": "https://lo-glomo-mx.prev.grupobbva.com/SRVS_A02/",
+      "prod": "https://glomo.bancomermovil.com/SRVS_A02/",
+      "test": "https://t-glomo-mx.prev.grupobbva.com:443/SRVS_A02/"
+    },
+    "path": {
+      "virtual": "single-sign-on/v0/single-sign-on",
+      "vbank": "single-sign-on/v0/single-sign-on",
+      "desa": "single-sign-on/v0/single-sign-on",
+      "qatest": "single-sign-on/v0/single-sign-on",
+      "preprod": "single-sign-on/v0/single-sign-on",
+      "prod": "single-sign-on/v0/single-sign-on",
+      "test": "single-sign-on/v0/single-sign-on"
+    }
+  },
+  "verishow": {
+    "host": {
+      "virtual": "https://bc2.verishow.com/client/conference",
+      "vbank": "https://bc2.verishow.com/client/conference",
+      "desa": "https://bc2.verishow.com/client/conference",
+      "qatest": "https://bc2.verishow.com/client/conference",
+      "preprod": "https://platform2.verishow.com/client/conference",
+      "prod": "https://platform2.verishow.com/client/conference"
+    }
+  }
+}

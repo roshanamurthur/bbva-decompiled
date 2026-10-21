@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-widget-faqs-detail/bbva-widget-faqs-detail.js";

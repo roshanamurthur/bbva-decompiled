@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/logo_group"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/v_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/v_right_vector"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/v_right_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/v_right_animated_vector"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/v_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/v_left_vector"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/v_left_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/v_left_animated_vector"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/i"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/i_animated_vector"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/s"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/s_animated_vector"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/a"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/a_animated_vector"/>
+</merge>

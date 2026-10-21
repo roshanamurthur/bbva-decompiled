@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/account-transaction-servicing-request-money/account-transaction-servicing-request-money.js";

@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/follow-up-investments-distribution-of-investments/follow-up-investments-distribution-of-investments.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-investments/bbva-analyticmanager-investments.js";

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="false">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="1.5dp"/>
+                    <gradient
+                        android:startColor="#242424"
+                        android:endColor="#222222"
+                        android:angle="-90"
+                        android:type="linear"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_focused="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="2dp"/>
+                    <padding
+                        android:top="5dp"
+                        android:bottom="5dp"/>
+                    <stroke
+                        android:width="1.5dp"
+                        android:color="#2b90d1"/>
+                    <solid android:color="#257ec3"/>
+                </shape>
+            </item>
+            <item>
+                <bitmap
+                    android:gravity="center"
+                    android:src="@drawable/nnl_asm_pin_bck_btn"/>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_pressed="true">
+        <layer-list>
+            <item>
+                <shape android:shape="rectangle">
+                    <corners android:radius="2dp"/>
+                    <padding
+                        android:top="5dp"
+                        android:bottom="5dp"/>
+                    <stroke
+                        android:width="1dp"
+                        android:color="#257ec3"/>
+                    <solid android:color="#257ec3"/>
+                </shape>
+            </item>
+            <item>
+                <bitmap
+                    android:gravity="center"
+                    android:src="@drawable/nnl_asm_pin_bck_btn"/>
+            </item>
+        </layer-list>
+    </item>
+</selector>

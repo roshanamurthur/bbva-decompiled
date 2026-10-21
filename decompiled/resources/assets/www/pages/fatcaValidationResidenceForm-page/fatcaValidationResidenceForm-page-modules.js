@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-fatca/bbva-manager-fatca.js";import"../../../node_modules/@glomo-web-components/bbva-aggregation-editable-list/bbva-aggregation-editable-list.js";

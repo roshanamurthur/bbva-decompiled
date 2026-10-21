@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/vd_document_bubble_arrow_drawable">
+        <rotate
+            android:fromDegrees="30"
+            android:toDegrees="35"
+            android:pivotX="125%"
+            android:pivotY="114.9994%">
+            <shape android:shape="rectangle">
+                <solid android:color="#aa000000"/>
+                <stroke
+                    android:width="0dp"
+                    android:color="#aa000000"/>
+            </shape>
+        </rotate>
+    </item>
+</layer-list>

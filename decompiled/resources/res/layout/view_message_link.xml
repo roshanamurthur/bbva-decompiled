@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/message_link_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textview.MaterialTextView
+            android:textColor="@color/BBVA_WHITE"
+            android:id="@+id/message_link_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/message_link_margin_m"
+            android:fontFamily="@font/benton_sans_bbva_book"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:gravity="center_vertical"
+            android:id="@+id/message_link_button"
+            android:background="@android:color/transparent"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/message_link_text_box_height"
+            android:layout_marginTop="@dimen/message_link_margin_s"
+            android:layout_marginBottom="@dimen/message_link_margin_m"
+            android:minHeight="0dp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/benton_sans_bbva_medium"
+            android:letterSpacing="0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/message_link_text_view"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

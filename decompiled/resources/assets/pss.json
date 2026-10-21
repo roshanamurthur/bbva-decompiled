@@ -1,0 +1,24 @@
+{
+  "fingerprintList": [
+    {
+      "mdAlgorithm": "SHA1",
+      "value": "CF:97:C8:08:18:48:2A:05:35:46:60:9E:F3:13:0F:D6:22:F1:D8:81"
+    },
+    {
+      "mdAlgorithm": "SHA1",
+      "value": "2B:0A:29:63:67:B3:17:1E:C1:E4:53:FF:62:5B:A0:37:CC:63:04:CE"
+    },
+    {
+      "mdAlgorithm": "SHA1",
+      "value": "F2:74:E1:92:EF8C:E7:38:FC:B2:25:43:B1:00:69:6D:37:A4:0E:B1"
+    },
+    {
+      "mdAlgorithm": "SHA1",
+      "value": "87:7D:FB:B2:78:57:D0:82:EF:33:3C:81:46:A6:1A:7A:89:44:89:13"
+    },
+    {
+      "mdAlgorithm": "SHA1",
+      "value": "70:B9:B3:3D:9C:5E:7C:84:B9:20:CC:DD:42:7F:4D:5F:39:22:4E:A4"
+    }
+  ]
+}

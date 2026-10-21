@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bbva.ui.component.menu.SlideMenuView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/slideMenuView"
+    android:background="@color/bg_sidebar"
+    android:fitsSystemWindows="false"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:theme="@style/Theme.BBVA.Primary"
+        android:id="@+id/landing"
+        android:background="?attr/surface.ambient.default"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"/>
+    <com.bbva.glomohybrid.landing.presentation.view.LandingToolbar
+        android:theme="@style/Theme.BBVA.Primary"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <com.bbva.component.ui.loader.LoaderSpinnerComponent
+        android:id="@+id/loaderSpinnerComponent"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.bbva.cellscore.web.component.CellsWebView
+        android:id="@+id/webView"
+        android:background="@color/transparent"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"/>
+</com.bbva.ui.component.menu.SlideMenuView>

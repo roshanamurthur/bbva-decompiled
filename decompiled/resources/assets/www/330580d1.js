@@ -1,0 +1,1 @@
+import{b as e}from"./28fb68d0.js";import"./952f98a9.js";class s extends e{static get is(){return"bbva-file-es-api-dm"}async _responseMapping(e){return await this.updateComplete,e}}customElements.define(s.is,s);export{s as BbvaFileEsApiDm};

@@ -1,0 +1,13 @@
+package com.google.android.gms.internal.auth;
+
+import android.os.IInterface;
+import android.os.RemoteException;
+import androidx.annotation.Nullable;
+import com.google.android.gms.auth.AccountChangeEventsResponse;
+import com.google.android.gms.common.api.Status;
+
+/* JADX INFO: compiled from: com.google.android.gms:play-services-auth-base@@18.0.10 */
+/* JADX INFO: loaded from: classes9.dex */
+public interface zzm extends IInterface {
+    void zzb(Status status, @Nullable AccountChangeEventsResponse accountChangeEventsResponse) throws RemoteException;
+}

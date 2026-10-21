@@ -1,0 +1,34 @@
+package com.bumptech.glide.load.resource.bitmap;
+
+import android.graphics.Bitmap;
+import androidx.annotation.NonNull;
+import com.bumptech.glide.load.Key;
+import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
+import java.security.MessageDigest;
+
+/* JADX INFO: loaded from: classes9.dex */
+public class CircleCrop extends BitmapTransformation {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public static final byte[] f38545a = "com.bumptech.glide.load.resource.bitmap.CircleCrop.1".getBytes(Key.CHARSET);
+
+    @Override // com.bumptech.glide.load.Key
+    public boolean equals(Object obj) {
+        return obj instanceof CircleCrop;
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public int hashCode() {
+        return 1101716364;
+    }
+
+    @Override // com.bumptech.glide.load.resource.bitmap.BitmapTransformation
+    public Bitmap transform(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i10, int i11) {
+        return TransformationUtils.circleCrop(bitmapPool, bitmap, i10, i11);
+    }
+
+    @Override // com.bumptech.glide.load.Key
+    public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
+        messageDigest.update(f38545a);
+    }
+}

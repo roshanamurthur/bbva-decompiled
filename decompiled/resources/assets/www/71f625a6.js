@@ -1,0 +1,1 @@
+import{a as t}from"./ff18b1dc.js";class s extends t{constructor(t=null){super(Object.assign({requiresTsec:!0},t||{})),this._setPath(`accounts/v${this.version}/accounts/{account-id}`)}toString(){return super.toString("BGADPAccountsAccountGetV0")}}export{s as B};

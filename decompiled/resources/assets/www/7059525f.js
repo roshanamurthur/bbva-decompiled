@@ -1,0 +1,1 @@
+const e=(e,t)=>{let s={};if(e.includes("ASO")){const e="x-dm-local-",t=window.sessionStorage;s=Object.keys(t).filter((t=>t.startsWith(e))).reduce(((s,r)=>(s[r.replace(e,"")]=t.getItem(r),s)),{})}return JSON.stringify({...t,...s})};export{e as g};

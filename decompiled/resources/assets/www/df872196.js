@@ -1,0 +1,1 @@
+import{G as s}from"./7f3d7ca9.js";import"./952f98a9.js";import"./216055dc.js";import"./c0a2f832.js";import"./cae0f1de.js";class t extends s{static get is(){return"bbva-categories-es-api-dm"}async _responseMapping(s){return await this.updateComplete,s}}customElements.define(t.is,t);export{t as BbvaCategoriesEsApiDm};

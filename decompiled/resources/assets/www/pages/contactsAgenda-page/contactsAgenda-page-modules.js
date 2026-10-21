@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components/bbva-form-predictive/bbva-form-predictive.js";

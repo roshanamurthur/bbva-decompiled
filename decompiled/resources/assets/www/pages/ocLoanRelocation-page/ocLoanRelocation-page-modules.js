@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-controller-call-me-back/bbva-controller-call-me-back.js";import"../../../node_modules/@glomo-web-components/bbva-feature-loan-relocation-mx/bbva-feature-loan-relocation-mx.js";import"../../../node_modules/@glomo-web-components/bbva-manager-widgets-error-handler/bbva-manager-widgets-error-interceptor.js";

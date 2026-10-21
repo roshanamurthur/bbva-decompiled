@@ -1,0 +1,13 @@
+package com.bbva.qr.model.input;
+
+import androidx.annotation.Keep;
+import kotlin.Metadata;
+
+/* JADX INFO: compiled from: DecoderConfig.kt */
+/* JADX INFO: loaded from: classes8.dex */
+@Keep
+@Metadata(d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\u0010\n\u0002\b\u0004\b\u0087\u0001\u0018\u00002\b\u0012\u0004\u0012\u00020\u00000\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002j\u0002\b\u0003j\u0002\b\u0004¨\u0006\u0005"}, d2 = {"Lcom/bbva/qr/model/input/ImageSourceType;", "", "(Ljava/lang/String;I)V", "BASE64", "URI", "qr_release"}, k = 1, mv = {1, 8, 0}, xi = 48)
+public enum ImageSourceType {
+    BASE64,
+    URI
+}

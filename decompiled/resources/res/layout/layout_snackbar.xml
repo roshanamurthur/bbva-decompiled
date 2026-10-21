@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/SnackBar"
+    android:gravity="start"
+    android:orientation="vertical"
+    android:id="@+id/snackbar"
+    android:paddingTop="@dimen/snack_bar_padding_vertical"
+    android:paddingBottom="@dimen/snack_bar_padding_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/snack_bar_padding_horizontal"
+    android:paddingEnd="@dimen/snack_bar_padding_horizontal">
+    <com.bbva.ui.widget.BbvaTextView
+        android:id="@+id/snackbar_message"
+        app:customFontStyle="italic"
+        style="@style/SnackBar.Message"/>
+    <com.bbva.ui.widget.BbvaTextView
+        android:id="@+id/snackbar_action"
+        style="@style/SnackBar.Link"/>
+</LinearLayout>

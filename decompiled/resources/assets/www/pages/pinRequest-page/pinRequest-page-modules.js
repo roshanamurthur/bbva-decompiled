@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-pin-view-mx/bbva-feature-pin-view-mx.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-technical-core/bbva-analyticmanager-technical-core.js";import"../../../node_modules/@glomo-web-components/bbva-manager-widgets-error-handler/bbva-manager-widgets-error-interceptor.js";

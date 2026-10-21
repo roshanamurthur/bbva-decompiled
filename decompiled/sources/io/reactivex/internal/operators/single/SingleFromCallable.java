@@ -1,0 +1,45 @@
+package io.reactivex.internal.operators.single;
+
+import a.e;
+import io.reactivex.Single;
+import io.reactivex.SingleObserver;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.disposables.Disposables;
+import io.reactivex.exceptions.Exceptions;
+import io.reactivex.internal.functions.ObjectHelper;
+import io.reactivex.plugins.RxJavaPlugins;
+import java.util.concurrent.Callable;
+
+/* JADX INFO: loaded from: classes12.dex */
+public final class SingleFromCallable<T> extends Single<T> {
+
+    /* JADX INFO: renamed from: p0, reason: collision with root package name */
+    public final Callable<? extends T> f73517p0;
+
+    public SingleFromCallable(Callable<? extends T> callable) {
+        this.f73517p0 = callable;
+    }
+
+    @Override // io.reactivex.Single
+    public void subscribeActual(SingleObserver<? super T> singleObserver) {
+        Disposable disposableEmpty = Disposables.empty();
+        singleObserver.onSubscribe(disposableEmpty);
+        if (disposableEmpty.isDisposed()) {
+            return;
+        }
+        try {
+            e eVar = (Object) ObjectHelper.requireNonNull(this.f73517p0.call(), "The callable returned a null value");
+            if (disposableEmpty.isDisposed()) {
+                return;
+            }
+            singleObserver.onSuccess(eVar);
+        } catch (Throwable th2) {
+            Exceptions.throwIfFatal(th2);
+            if (disposableEmpty.isDisposed()) {
+                RxJavaPlugins.onError(th2);
+            } else {
+                singleObserver.onError(th2);
+            }
+        }
+    }
+}

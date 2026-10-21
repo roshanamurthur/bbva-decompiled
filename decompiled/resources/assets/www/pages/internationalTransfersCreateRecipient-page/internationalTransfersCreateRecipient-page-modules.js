@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-dataprovider-money-laundering/bbva-dataprovider-money-laundering-international-transfers-questionnaire-answers.js";

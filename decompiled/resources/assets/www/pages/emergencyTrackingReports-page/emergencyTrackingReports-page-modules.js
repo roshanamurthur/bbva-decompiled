@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/emergency-tracking-reports/emergency-tracking-reports.js";import"../../../node_modules/@glomo-web-components/bbva-manager-emergency-sos/bbva-manager-emergency-sos.js";import"../../../node_modules/@glomo-web-components/bbva-manager-emergency-sos/bbva-manager-emergency-sos-analytics.js";

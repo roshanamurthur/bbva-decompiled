@@ -1,0 +1,27 @@
+package androidx.core.database;
+
+import android.text.TextUtils;
+import androidx.camera.camera2.internal.compat.u;
+
+/* JADX INFO: loaded from: classes.dex */
+@Deprecated
+public final class DatabaseUtilsCompat {
+    @Deprecated
+    public static String[] appendSelectionArgs(String[] strArr, String[] strArr2) {
+        if (strArr == null || strArr.length == 0) {
+            return strArr2;
+        }
+        String[] strArr3 = new String[strArr.length + strArr2.length];
+        System.arraycopy(strArr, 0, strArr3, 0, strArr.length);
+        System.arraycopy(strArr2, 0, strArr3, strArr.length, strArr2.length);
+        return strArr3;
+    }
+
+    @Deprecated
+    public static String concatenateWhere(String str, String str2) {
+        if (TextUtils.isEmpty(str)) {
+            return str2;
+        }
+        return TextUtils.isEmpty(str2) ? str : u.g("(", str, ") AND (", str2, ")");
+    }
+}

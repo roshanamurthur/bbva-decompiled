@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components/bbva-header-main/bbva-header-main.js";import"../../../node_modules/@glomo-web-components/bbva-aggregation-clip-list/bbva-aggregation-clip-list.js";import"../../../node_modules/@glomo-web-components/bbva-manager-visual-menu/bbva-manager-visual-menu.js";

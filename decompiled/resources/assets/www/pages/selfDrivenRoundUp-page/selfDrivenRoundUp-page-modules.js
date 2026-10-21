@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/self-driven-round-up/self-driven-round-up.js";import"../../../node_modules/@glomo-web-components/bbva-manager-goals/bbva-manager-goals.js";import"../../../node_modules/@glomo-web-components/bbva-manager-goals/bbva-analyticmanager-goals.js";

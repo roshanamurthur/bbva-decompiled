@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<splits>
+    <module name="">
+        <language>
+            <entry
+                key="es"
+                split="config.es"/>
+        </language>
+    </module>
+    <module name="ciscowebex">
+        <language>
+            <entry
+                key="es"
+                split="ciscowebex.config.es"/>
+        </language>
+    </module>
+</splits>

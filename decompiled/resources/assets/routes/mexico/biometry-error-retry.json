@@ -1,0 +1,58 @@
+{
+  "payload": {
+    "components": [
+      {
+        "tagName": "biometry-error-retry-fingerprint",
+        "type": "SCREEN",
+        "properties": {
+          "toolbarTitleLabel": {
+            "type": "resource",
+            "value": "invalid_biometry_toolbar_title"
+          },
+          "headerImage": {
+            "type": "resource",
+            "value": "ic_warning_illus"
+          },
+          "titleLabel": {
+            "type": "resource",
+            "value": "invalid_biometry_title"
+          },
+          "descriptionLabel": {
+            "type": "resource",
+            "value": "invalid_biometry_description"
+          },
+          "positiveButton": {
+            "type": "resource",
+            "value": "invalid_biometry_positive_button"
+          }
+        }
+      },
+      {
+        "tagName": "biometry-error-retry-face",
+        "type": "SCREEN",
+        "properties": {
+          "toolbarTitleLabel": {
+            "type": "resource",
+            "value": "invalid_biometry_toolbar_title"
+          },
+          "headerImage": {
+            "type": "resource",
+            "value": "ic_warning_illus"
+          },
+          "titleLabel": {
+            "type": "resource",
+            "value": "invalid_biometry_title"
+          },
+          "descriptionLabel": {
+            "type": "resource",
+            "value": "invalid_biometry_description"
+          },
+          "positiveButton": {
+            "type": "resource",
+            "value": "invalid_biometry_positive_button"
+          }
+        }
+      }
+    ]
+  }
+}

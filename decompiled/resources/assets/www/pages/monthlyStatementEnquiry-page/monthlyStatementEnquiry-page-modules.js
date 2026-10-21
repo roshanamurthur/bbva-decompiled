@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/card-information-monthly-statement-enquiry-card-flexible-financing/card-information-monthly-statement-enquiry-card-flexible-financing.js";import"../../../node_modules/@glomo-web-components/bbva-manager-widgets-error-handler/bbva-manager-widgets-error-interceptor.js";

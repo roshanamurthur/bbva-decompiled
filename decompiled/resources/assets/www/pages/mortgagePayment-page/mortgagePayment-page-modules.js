@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-mortgage-payment-mx/bbva-analytics-mortgage-payment.js";import"../../../node_modules/@glomo-web-components/bbva-feature-mortgage-payment-mx/bbva-feature-mortgage-payment-mx.js";import"../../../node_modules/@glomo-web-components/bbva-manager-widgets-error-handler/bbva-manager-widgets-error-interceptor.js";

@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-security-tips-list/bbva-manager-security-tips-list.js";

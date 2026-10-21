@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.SplashScreen" parent="@android:style/Theme.DeviceDefault.DayNight">
+        <item name="android:windowLayoutInDisplayCutoutMode">1</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+    </style>
+    <style name="Base.Theme.SplashScreen.Light" parent="@style/Base.Theme.SplashScreen">
+    </style>
+    <style name="CellsWeb" parent="@style/BaseScreen">
+        <item name="android:statusBarColor">@color/BBVA_NAVY</item>
+        <item name="android:forceDarkAllowed">true</item>
+        <item name="android:isLightTheme">true</item>
+    </style>
+    <style name="Glomo.FullModalParent" parent="@style/Theme.MaterialComponents.Dialog">
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+    <style name="HalfModalParent" parent="">
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+    <style name="InAppBrowser" parent="@style/GloMo.Dark">
+        <item name="android:forceDarkAllowed">true</item>
+        <item name="android:isLightTheme">true</item>
+    </style>
+    <style name="ListOption" parent="">
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+    <style name="LoaderViewParent" parent="">
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+    <style name="NNLButtonStyle" parent="@style/Widget.AppCompat.Button">
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="nnl_button_color">@color/nnl_button_color</item>
+        <item name="nnl_button_drawable">@drawable/nnl_button_background</item>
+        <item name="nnl_button_text_color">@color/nnl_button_text_color</item>
+    </style>
+</resources>

@@ -1,0 +1,5 @@
+{
+  "createToken": "https://glomo.bancomermovil.com/SRVS_A02/security/v1/tokens",
+  "validateToken": "https://glomo.bancomermovil.com/SRVS_A02/security/v1/tokens/%s/validate-data-hash",
+  "activateToken": "https://glomo.bancomermovil.com/SRVS_A02/security/v1/tokens/%s/activate-data-hash"
+}

@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/pfm-categorization-detail/pfm-categorization-detail.js";import"../../../node_modules/@glomo-web-components/bbva-nativeconnector-datepicker/bbva-nativeconnector-datepicker.js";

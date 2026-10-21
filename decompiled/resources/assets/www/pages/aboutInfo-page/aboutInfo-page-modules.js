@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-about-mx/bbva-feature-about-mx.js";import"../../../node_modules/@glomo-web-components/bbva-nativeconnector-device-info/bbva-nativeconnector-device-info.js";

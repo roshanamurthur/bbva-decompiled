@@ -1,0 +1,21 @@
+package com.google.android.gms.internal.p002authapi;
+
+import android.os.IBinder;
+import android.os.Parcel;
+import android.os.RemoteException;
+import com.google.android.gms.auth.api.identity.AuthorizationRequest;
+
+/* JADX INFO: compiled from: com.google.android.gms:play-services-auth@@21.2.0 */
+/* JADX INFO: loaded from: classes9.dex */
+public final class zbj extends zba {
+    public zbj(IBinder iBinder) {
+        super(iBinder, "com.google.android.gms.auth.api.identity.internal.IAuthorizationService");
+    }
+
+    public final void zbc(zbi zbiVar, AuthorizationRequest authorizationRequest) throws RemoteException {
+        Parcel parcelZba = zba();
+        zbc.zbd(parcelZba, zbiVar);
+        zbc.zbc(parcelZba, authorizationRequest);
+        zbb(1, parcelZba);
+    }
+}

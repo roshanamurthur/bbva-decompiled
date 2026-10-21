@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/fund-information-monthly-statement-enquiry-fund/fund-information-monthly-statement-enquiry-fund.js";

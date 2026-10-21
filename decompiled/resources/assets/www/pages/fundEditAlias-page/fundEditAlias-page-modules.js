@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-edit-alias-fund/bbva-feature-edit-alias-fund.js";

@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-kyc-validation-mx/bbva-feature-kyc-validation-mx.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-user-info/bbva-analyticmanager-kyc-validation-mx.js";import"../../../node_modules/@glomo-web-components/bbva-manager-widgets-error-handler/bbva-manager-widgets-error-interceptor.js";

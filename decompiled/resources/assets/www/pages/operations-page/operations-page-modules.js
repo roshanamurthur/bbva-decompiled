@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-payments/bbva-analyticmanager-tpw-provisioning.js";

@@ -1,0 +1,6 @@
+package com.bbva.androidtoolkit.optional.function;
+
+/* JADX INFO: loaded from: classes2.dex */
+public interface Consumer<T> {
+    void accept(T t10);
+}

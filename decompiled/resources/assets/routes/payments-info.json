@@ -1,0 +1,32 @@
+{
+  "payload": {
+    "components": [
+      {
+        "tagName": "error-screen",
+        "type": "SCREEN",
+        "properties": {
+          "toolbarTitleLabel": {
+            "type": "resource",
+            "value": "mobile_payment_info_notification_screen_toolbar_title"
+          },
+          "headerImage": {
+            "type": "resource",
+            "value": "ic_check"
+          },
+          "titleLabel": {
+            "type": "resource",
+            "value": "mobile_payment_info_notification_screen_title_success"
+          },
+          "descriptionLabel": {
+            "type": "resource",
+            "value": "mobile_payment_info_notification_screen_description_success"
+          },
+          "positiveButton": {
+            "type": "resource",
+            "value": "error_crash_screen_positive_button"
+          }
+        }
+      }
+    ]
+  }
+}

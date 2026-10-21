@@ -1,0 +1,1 @@
+{const{Element,mixinBehaviors,IronMenuBehavior}=Polymer;class CellsSelectList extends mixinBehaviors([IronMenuBehavior],Element){static get is(){return"cells-select-list"}}window.customElements.define(CellsSelectList.is,CellsSelectList)}

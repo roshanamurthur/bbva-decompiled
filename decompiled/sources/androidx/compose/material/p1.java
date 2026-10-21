@@ -1,0 +1,94 @@
+package androidx.compose.material;
+
+import androidx.compose.foundation.layout.Arrangement;
+import androidx.compose.foundation.layout.ColumnKt;
+import androidx.compose.foundation.layout.ColumnScope;
+import androidx.compose.foundation.layout.ColumnScopeInstance;
+import androidx.compose.runtime.Applier;
+import androidx.compose.runtime.ComposablesKt;
+import androidx.compose.runtime.Composer;
+import androidx.compose.runtime.ComposerKt;
+import androidx.compose.runtime.CompositionLocalMap;
+import androidx.compose.runtime.SkippableUpdater;
+import androidx.compose.runtime.Updater;
+import androidx.compose.ui.Alignment;
+import androidx.compose.ui.Modifier;
+import androidx.compose.ui.layout.LayoutKt;
+import androidx.compose.ui.layout.MeasurePolicy;
+import androidx.compose.ui.node.ComposeUiNode;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function0;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.functions.Function3;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.Lambda;
+import kotlin.jvm.internal.SourceDebugExtension;
+
+/* JADX INFO: compiled from: ModalBottomSheet.kt */
+/* JADX INFO: loaded from: classes.dex */
+@SourceDebugExtension({"SMAP\nModalBottomSheet.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ModalBottomSheet.kt\nandroidx/compose/material/ModalBottomSheetKt$ModalBottomSheetLayout$2$6\n+ 2 Column.kt\nandroidx/compose/foundation/layout/ColumnKt\n+ 3 Layout.kt\nandroidx/compose/ui/layout/LayoutKt\n+ 4 Composables.kt\nandroidx/compose/runtime/ComposablesKt\n+ 5 Composer.kt\nandroidx/compose/runtime/Updater\n*L\n1#1,831:1\n71#2,7:832\n78#2:867\n82#2:872\n78#3,11:839\n91#3:871\n456#4,8:850\n464#4,3:864\n467#4,3:868\n4144#5,6:858\n*S KotlinDebug\n*F\n+ 1 ModalBottomSheet.kt\nandroidx/compose/material/ModalBottomSheetKt$ModalBottomSheetLayout$2$6\n*L\n689#1:832,7\n689#1:867\n689#1:872\n689#1:839,11\n689#1:871\n689#1:850,8\n689#1:864,3\n689#1:868,3\n689#1:858,6\n*E\n"})
+public final class p1 extends Lambda implements Function2<Composer, Integer, Unit> {
+
+    /* JADX INFO: renamed from: p0, reason: collision with root package name */
+    public final /* synthetic */ Function3<ColumnScope, Composer, Integer, Unit> f8860p0;
+
+    /* JADX INFO: renamed from: q0, reason: collision with root package name */
+    public final /* synthetic */ int f8861q0;
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: Multi-variable type inference failed */
+    public p1(Function3<? super ColumnScope, ? super Composer, ? super Integer, Unit> function3, int i10) {
+        super(2);
+        this.f8860p0 = function3;
+        this.f8861q0 = i10;
+    }
+
+    @Override // kotlin.jvm.functions.Function2
+    public final Unit invoke(Composer composer, Integer num) {
+        Composer composer2 = composer;
+        int iIntValue = num.intValue();
+        if ((iIntValue & 11) == 2 && composer2.getSkipping()) {
+            composer2.skipToGroupEnd();
+        } else {
+            if (ComposerKt.isTraceInProgress()) {
+                ComposerKt.traceEventStart(1552994302, iIntValue, -1, "androidx.compose.material.ModalBottomSheetLayout.<anonymous>.<anonymous> (ModalBottomSheet.kt:687)");
+            }
+            int i10 = (this.f8861q0 << 9) & 7168;
+            composer2.startReplaceableGroup(-483455358);
+            Modifier.Companion companion = Modifier.INSTANCE;
+            int i11 = i10 >> 3;
+            MeasurePolicy measurePolicyColumnMeasurePolicy = ColumnKt.columnMeasurePolicy(Arrangement.INSTANCE.getTop(), Alignment.INSTANCE.getStart(), composer2, (i11 & 112) | (i11 & 14));
+            composer2.startReplaceableGroup(-1323940314);
+            int currentCompositeKeyHash = ComposablesKt.getCurrentCompositeKeyHash(composer2, 0);
+            CompositionLocalMap currentCompositionLocalMap = composer2.getCurrentCompositionLocalMap();
+            ComposeUiNode.Companion companion2 = ComposeUiNode.INSTANCE;
+            Function0<ComposeUiNode> constructor = companion2.getConstructor();
+            Function3<SkippableUpdater<ComposeUiNode>, Composer, Integer, Unit> function3ModifierMaterializerOf = LayoutKt.modifierMaterializerOf(companion);
+            int i12 = ((((i10 << 3) & 112) << 9) & 7168) | 6;
+            if (!(composer2.getApplier() instanceof Applier)) {
+                ComposablesKt.invalidApplier();
+            }
+            composer2.startReusableNode();
+            if (composer2.getInserting()) {
+                composer2.createNode(constructor);
+            } else {
+                composer2.useNode();
+            }
+            Composer composerM2074constructorimpl = Updater.m2074constructorimpl(composer2);
+            Function2 function2C = com.google.android.gms.measurement.internal.a.c(companion2, composerM2074constructorimpl, measurePolicyColumnMeasurePolicy, composerM2074constructorimpl, currentCompositionLocalMap);
+            if (composerM2074constructorimpl.getInserting() || !Intrinsics.areEqual(composerM2074constructorimpl.rememberedValue(), Integer.valueOf(currentCompositeKeyHash))) {
+                bc.org.bouncycastle.math.ec.a.f(currentCompositeKeyHash, composerM2074constructorimpl, currentCompositeKeyHash, function2C);
+            }
+            ai.a.j((i12 >> 3) & 112, function3ModifierMaterializerOf, SkippableUpdater.m2065boximpl(SkippableUpdater.m2066constructorimpl(composer2)), composer2, 2058660585);
+            this.f8860p0.invoke(ColumnScopeInstance.INSTANCE, composer2, Integer.valueOf(((i10 >> 6) & 112) | 6));
+            composer2.endReplaceableGroup();
+            composer2.endNode();
+            composer2.endReplaceableGroup();
+            composer2.endReplaceableGroup();
+            if (ComposerKt.isTraceInProgress()) {
+                ComposerKt.traceEventEnd();
+            }
+        }
+        return Unit.INSTANCE;
+    }
+}

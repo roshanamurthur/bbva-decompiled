@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/advice-fh-configuration/advice-fh-configuration.js";

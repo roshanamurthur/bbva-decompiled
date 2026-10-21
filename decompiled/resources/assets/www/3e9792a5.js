@@ -1,0 +1,16 @@
+import"./751fa7b4.js";import"./7f3d7ca9.js";import"./7cc4714b.js";import{C as e}from"./216055dc.js";import{z as s,L as t,ak as i,h as a}from"./952f98a9.js";import"./c0a2f832.js";import"./cae0f1de.js";import"./9cadd5ad.js";var r=s`:host {
+  display: block;
+  box-sizing: border-box;
+  @apply --bbva-manager-security-tips-glossary;
+}
+
+:host([hidden]), [hidden] {
+  display: none !important;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+`;class l extends(e(t)){static get is(){return"bbva-manager-security-tips-glossary"}static get properties(){return{glossary:{type:Array},searching:{type:Boolean},hideResults:{type:Boolean},_glossaryFiltered:{type:Array}}}constructor(){super(),this.glossary=[],this._glossaryFiltered=[],this.searching=!1,this.hideResults=!0}updated(e){e.has("hideResults")&&this._toggleResultTitle(),e.has("searching")&&this._toggleGroupListTitle()}_toggleResultTitle(){this.dispatchEvent(new CustomEvent("toggle-results-label",{bubbles:!0,composed:!0,detail:this.hideResults}))}_toggleGroupListTitle(){this.dispatchEvent(new CustomEvent("toggle-results-group-label",{bubbles:!0,composed:!0,detail:!this.searching}))}init(){this._showSpinner(!0),this._setLabels()}_setLabels(){const e=[{eventName:"set-results-label",label:this.t("security-tips-search-results")},{eventName:"set-empty-label",label:this.t("security-tips-modal-error-text-not-found")},{eventName:"set-input-search-label",label:this.t("security-tips-text-input")}];for(let s=0;s<e.length;s++)this.dispatchEvent(new CustomEvent(e[s].eventName,{bubbles:!0,composed:!0,detail:e[s].label}))}setGlossary(e){this._parseGlossary(e),this._filterGlossary(),this._showSpinner(!1)}_parseGlossary(e){const s=((e||{}).items||[]).map((e=>{const s=e.content.map((e=>e.content.join(""))),t=[];t.push(e.title,...s);return{synonyms:e.synonyms,_searchText:t.join(" "),title:e.title,content:s}}));this.glossary=s}search(e){this.searching=!0,this._filterGlossary(e)}clearSearch(e){this.hideResults=!0,""===e?(this.searching=!1,this._filterGlossary()):this.search(e)}_submitSearch(e){this.hideResults=!(""!==e.value&&this._glossaryFiltered.length)}_filterGlossary(e){let s=[...this.glossary];if(e){const t=new RegExp(e,"i");s=s.filter((e=>t.test(JSON.stringify(e._searchText))))}this._glossaryFiltered=s,this.dispatchEvent(new CustomEvent("set-empty-glossary-message",{detail:!!s.length,bubbles:!0,composed:!0})),this.dispatchEvent(new CustomEvent("set-filtered-glossary",{detail:s,bubbles:!0,composed:!0}))}_showSpinner(e){const s=(e?"open":"close")+"-control-veil";this.dispatchEvent(new CustomEvent(s,{bubbles:!0,composed:!0}))}expandedItem(e){const s=String(e.relatedSearchesNumber),t=e.title.toLowerCase(),i=this.inputValue.value.toLowerCase();this.analyticsData={relatedSearchesNumber:s,title:t,term:i},this.dispatchEvent(new CustomEvent("expanded-item-analytic",{detail:this.analyticsData,bubbles:!0,composed:!0}))}reset(){this.hideResults=!0,this.dispatchEvent(new CustomEvent("reset-search-value",{detail:"",bubbles:!0,composed:!0}))}static get shadyStyles(){return`\n      ${r.cssText}\n      ${i("bbva-manager-security-tips-glossary-shared-styles").cssText}\n    `}render(){return a`
+      <style>${this.constructor.shadyStyles}</style>
+    `}}customElements.define(l.is,l);

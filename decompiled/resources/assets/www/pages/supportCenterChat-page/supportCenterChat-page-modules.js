@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-widget-chat/bbva-widget-chat.js";

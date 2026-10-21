@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="300dp"
+    android:width="300dp"
+    android:viewportWidth="300"
+    android:viewportHeight="300">
+    <path
+        android:fillColor="#1973b8"
+        android:pathData="M270,100L270,230L70,230L90,210L250,210L250,120L270,100ZM230,70L230,190L30,190L30,70L230,70ZM190,140L60,140L60,160L170,160L190,140ZM120,100L60,100L60,120L100,120L120,100Z"
+        android:strokeColor="#00000000"
+        android:strokeWidth="1"
+        android:fillType="evenOdd"/>
+</vector>

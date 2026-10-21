@@ -1,0 +1,33 @@
+{
+    "payload": {
+      "components": [
+        {
+          "tagName": "error-screen",
+          "type": "SCREEN",
+          "properties": {
+            "toolbarTitleLabel": {
+              "type": "resource",
+              "value": "maintenanceFlowmeter_toolbar_title"
+            },
+            "headerImage": {
+              "type": "resource",
+              "value": "ic_info_blue_120"
+            },
+            "titleLabel": {
+              "type": "resource",
+              "value": "maintenanceFlowmeter_title"
+            },
+            "descriptionLabel": {
+              "type": "resource",
+              "value": "maintenanceFlowmeter_description"
+            },
+            "positiveButton": {
+              "type": "resource",
+              "value": "maintenanceFlowmeter_positive_button"
+            },
+            "style": "WHITE"
+          }
+        }
+      ]
+    }
+  }

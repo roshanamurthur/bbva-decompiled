@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.bbva.cellswidgets.CellsCircleInitialsView
+        android:id="@+id/userImageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:cellsCircleInitialView_bottomColor="@color/blue_40"
+        app:cellsCircleInitialView_font="@font/benton_sans_bbva_book"
+        app:cellsCircleInitialView_initials="AB"
+        app:cellsCircleInitialView_textColor="@color/BBVA_WHITE"
+        app:cellsCircleInitialView_topColor="@color/blue_40"/>
+    <com.bbva.cellswidgets.CellsImageView
+        android:id="@+id/iconImage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        style="@style/ListOption.Item.Icon"/>
+</merge>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/Theme.BBVA.Primary"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:id="@+id/timerProgressLayout"
+    android:visibility="gone"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="16dp">
+    <com.bbva.ui.components.timer.TimerProgressView
+        android:id="@+id/timerProgressView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        app:timerProgressViewText="00:00"/>
+    <com.bbva.ui.widget.BbvaTextView
+        android:textColor="@color/BBVA_600"
+        android:id="@+id/timerProgressDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/timer_progress_description"
+        android:paddingStart="10dp"
+        app:customFontStyle="italic"/>
+</LinearLayout>

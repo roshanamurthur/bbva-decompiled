@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-credit-card-payment-own-cards/bbva-feature-credit-card-payment-own-cards.js";

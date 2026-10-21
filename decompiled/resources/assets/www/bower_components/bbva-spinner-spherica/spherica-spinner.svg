@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="vcv35o4s6byd2t2qrhecn76s" viewBox="0 0 240 240">
+    <style>
+        @keyframes egrnomvjiq8p8awqgpbplq2a_t {
+            0% {
+                transform: translate(120px, 120px) rotate(0deg);
+            }
+
+            4.467% {
+                transform: translate(120px, 120px) rotate(0deg);
+                animation-timing-function: cubic-bezier(.4, .2, .2, .6);
+            }
+
+            100% {
+                transform: translate(120px, 120px) rotate(720deg);
+            }
+        }
+
+        @keyframes egrnomvjiq8p8awqgpbplq2a_v {
+            0% {
+                visibility: hidden;
+                animation-timing-function: steps(1);
+            }
+
+            4.467% {
+                visibility: visible;
+                animation-timing-function: steps(1);
+            }
+
+            88.867% {
+                visibility: hidden;
+                animation-timing-function: steps(1);
+            }
+
+            100% {
+                visibility: hidden;
+                animation-timing-function: steps(1);
+            }
+        }
+
+        @keyframes egrnomvjiq8p8awqgpbplq2a_o {
+            0% {
+                opacity: 1;
+            }
+
+            75.533% {
+                opacity: 1;
+            }
+
+            88.867% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes egrnomvjiq8p8awqgpbplq2a_da {
+            0% {
+                stroke-dasharray: 0px 688px;
+            }
+
+            4.467% {
+                stroke-dasharray: 0px 688px;
+            }
+
+            50% {
+                stroke-dasharray: 340px 688px;
+            }
+
+            88.867% {
+                stroke-dasharray: 0px 688px;
+            }
+
+            100% {
+                stroke-dasharray: 0px 688px;
+            }
+        }
+
+        @keyframes c28jsuzgyaxigny1z5y6a57u_t {
+            0% {
+                transform: translate(120px, 120px) rotate(0deg);
+            }
+
+            4.467% {
+                transform: translate(120px, 120px) rotate(0deg);
+                animation-timing-function: cubic-bezier(.4, .2, .2, .6);
+            }
+
+            100% {
+                transform: translate(120px, 120px) rotate(720deg);
+            }
+        }
+
+        @keyframes c28jsuzgyaxigny1z5y6a57u_v {
+            0% {
+                visibility: visible;
+                animation-timing-function: steps(1);
+            }
+
+            100% {
+                visibility: hidden;
+                animation-timing-function: steps(1);
+            }
+        }
+
+        @keyframes c28jsuzgyaxigny1z5y6a57u_da {
+            0% {
+                stroke-dasharray: 0px 688px;
+            }
+
+            4.467% {
+                stroke-dasharray: 0px 688px;
+            }
+
+            50% {
+                stroke-dasharray: 161px 688px;
+            }
+
+            92.2% {
+                stroke-dasharray: 0px 688px;
+            }
+
+            100% {
+                stroke-dasharray: 0px 688px;
+            }
+        }
+
+        @keyframes n5wrvbuhh4cbbe2avxilznbm_t {
+            0% {
+                transform: translate(120px, 120px) rotate(0deg) translateY(-108px);
+                animation-timing-function: cubic-bezier(.4, .2, .2, .6);
+            }
+
+            100% {
+                transform: translate(120px, 120px) rotate(720deg) translateY(-108px);
+            }
+        }
+    </style>
+    <path fill="none"
+        d="M0-108c-59.6 0-108 48.4-108 108c0 59.6 48.4 108 108 108c59.6 0 108-48.4 108-108c0-59.6-48.4-108-108-108Z"
+        stroke="#b4b4b4" stroke-width="23" stroke-linecap="round" stroke-dasharray="0 688" visibility="hidden"
+        transform="translate(120,120)"
+        style="animation: 1.5s linear infinite both egrnomvjiq8p8awqgpbplq2a_t, 1.5s linear infinite forwards egrnomvjiq8p8awqgpbplq2a_v, 1.5s linear infinite both egrnomvjiq8p8awqgpbplq2a_o, 1.5s linear infinite both egrnomvjiq8p8awqgpbplq2a_da;" />
+    <path fill="none"
+        d="M0-108c-59.6 0-108 48.4-108 108c0 59.6 48.4 108 108 108c59.6 0 108-48.4 108-108c0-59.6-48.4-108-108-108Z"
+        stroke="#000" stroke-width="24" stroke-linecap="round" stroke-dasharray="0 688" visibility="visible"
+        transform="translate(120,120)"
+        style="animation: 1.5s linear infinite both c28jsuzgyaxigny1z5y6a57u_t, 1.5s linear infinite forwards c28jsuzgyaxigny1z5y6a57u_v, 1.5s linear infinite both c28jsuzgyaxigny1z5y6a57u_da;" />
+    <path d="M0-12c6.6 0 12 5.4 12 12c0 6.6-5.4 12-12 12c-6.6 0-12-5.4-12-12c0-6.6 5.4-12 12-12Z"
+        transform="translate(120,120) translate(0,-108)"
+        style="animation: 1.5s linear infinite both n5wrvbuhh4cbbe2avxilznbm_t;" />
+</svg>

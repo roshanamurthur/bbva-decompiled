@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-bill-payments/bbva-manager-bill-payments.js";import"../../../node_modules/@glomo-web-components/bbva-dataprovider-suggested-operations/bbva-dataprovider-suggested-operations.js";

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:state_enabled="false">
+        <layer-list>
+            <item android:gravity="bottom">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_WHITE_t30"/>
+                    <corners
+                        android:topLeftRadius="0dp"
+                        android:topRightRadius="0dp"
+                        android:bottomLeftRadius="1dp"
+                        android:bottomRightRadius="1dp"/>
+                    <size android:height="1dp"/>
+                </shape>
+            </item>
+            <item android:bottom="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_CORE_BLUE_t30"/>
+                    <corners
+                        android:topLeftRadius="1dp"
+                        android:topRightRadius="1dp"
+                        android:bottomLeftRadius="0dp"
+                        android:bottomRightRadius="0dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item
+        android:state_focused="true"
+        app:state_error="true">
+        <layer-list>
+            <item android:gravity="bottom">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_DARK_RED"/>
+                    <corners
+                        android:topLeftRadius="0dp"
+                        android:topRightRadius="0dp"
+                        android:bottomLeftRadius="1dp"
+                        android:bottomRightRadius="1dp"/>
+                    <size android:height="2dp"/>
+                </shape>
+            </item>
+            <item android:bottom="2dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_WHITE_CORAL"/>
+                    <corners
+                        android:topLeftRadius="1dp"
+                        android:topRightRadius="1dp"
+                        android:bottomLeftRadius="0dp"
+                        android:bottomRightRadius="0dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item
+        android:state_focused="false"
+        app:state_error="true">
+        <layer-list>
+            <item android:gravity="bottom">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_DARK_RED"/>
+                    <corners
+                        android:topLeftRadius="0dp"
+                        android:topRightRadius="0dp"
+                        android:bottomLeftRadius="1dp"
+                        android:bottomRightRadius="1dp"/>
+                    <size android:height="1dp"/>
+                </shape>
+            </item>
+            <item android:bottom="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_WHITE_CORAL"/>
+                    <corners
+                        android:topLeftRadius="1dp"
+                        android:topRightRadius="1dp"
+                        android:bottomLeftRadius="0dp"
+                        android:bottomRightRadius="0dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item android:state_focused="true">
+        <layer-list>
+            <item android:gravity="bottom">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_WHITE"/>
+                    <corners
+                        android:topLeftRadius="0dp"
+                        android:topRightRadius="0dp"
+                        android:bottomLeftRadius="1dp"
+                        android:bottomRightRadius="1dp"/>
+                    <size android:height="2dp"/>
+                </shape>
+            </item>
+            <item android:bottom="2dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_DARK_CORE_BLUE"/>
+                    <corners
+                        android:topLeftRadius="1dp"
+                        android:topRightRadius="1dp"
+                        android:bottomLeftRadius="0dp"
+                        android:bottomRightRadius="0dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item android:gravity="bottom">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_WHITE"/>
+                    <corners
+                        android:topLeftRadius="0dp"
+                        android:topRightRadius="0dp"
+                        android:bottomLeftRadius="1dp"
+                        android:bottomRightRadius="1dp"/>
+                    <size android:height="1dp"/>
+                </shape>
+            </item>
+            <item android:bottom="1dp">
+                <shape android:shape="rectangle">
+                    <solid android:color="@color/BBVA_DARK_CORE_BLUE"/>
+                    <corners
+                        android:topLeftRadius="1dp"
+                        android:topRightRadius="1dp"
+                        android:bottomLeftRadius="0dp"
+                        android:bottomRightRadius="0dp"/>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+</selector>

@@ -1,0 +1,32 @@
+{
+  "payload": {
+    "components": [
+      {
+        "tagName": "error-screen",
+        "type": "SCREEN",
+        "properties": {
+          "toolbarTitleLabel": {
+            "type": "resource",
+            "value": "error_root_screen_toolbar_title"
+          },
+          "headerImage": {
+            "type": "resource",
+            "value": "ill_error_rooted"
+          },
+          "titleLabel": {
+            "type": "resource",
+            "value": "error_root_screen_title"
+          },
+          "descriptionLabel": {
+            "type": "resource",
+            "value": "error_root_screen_description"
+          },
+          "positiveButton": {
+            "type": "resource",
+            "value": "error_root_screen_positive_button"
+          }
+        }
+      }
+    ]
+  }
+}

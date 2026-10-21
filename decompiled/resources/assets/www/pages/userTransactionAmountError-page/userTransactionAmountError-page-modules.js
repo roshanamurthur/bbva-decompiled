@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components/bbva-header-main/bbva-header-main.js";import"../../../node_modules/@bbva-web-components/bbva-panel-info/bbva-panel-info.js";import"../../../node_modules/@bbva-web-components/bbva-text/bbva-text.js";import"../../../node_modules/@bbva-web-components/bbva-button-default/bbva-button-default.js";

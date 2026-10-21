@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <Space
+        android:id="@+id/checkmark_top_spacer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"/>
+    <ImageView
+        android:id="@+id/checkmark_tick"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/checkmark_tick_vector"
+        android:layout_weight="160"
+        android:importantForAccessibility="no"/>
+    <Space
+        android:id="@+id/checkmark_space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"/>
+    <TextView
+        android:gravity="center"
+        android:id="@+id/checkmark_text"
+        android:clipChildren="false"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:includeFontPadding="false"
+        android:layout_weight="46"/>
+    <Space
+        android:id="@+id/checkmark_bottom_spacer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"/>
+</merge>

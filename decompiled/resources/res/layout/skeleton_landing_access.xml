@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <com.bbva.ui.widget.skeleton.PlaceholderItem
+        android:id="@+id/imageView"
+        android:layout_width="@dimen/landing_access_default_size_image"
+        android:layout_height="@dimen/landing_access_default_size_image"
+        android:contentDescription="@null"
+        app:isAnimated="true"
+        app:isRoundShape="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <com.bbva.ui.widget.skeleton.PlaceholderItem
+        android:gravity="center_vertical"
+        android:id="@+id/skeletonPlaceHolderView"
+        android:layout_width="208dp"
+        android:layout_height="@dimen/landing_access_skeleton_box_height"
+        android:contentDescription="@null"
+        app:isAnimated="true"
+        app:layout_constraintBottom_toTopOf="@+id/skeletonPlaceHolderView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:sharpOffsetEnd="@dimen/landing_access_skeleton_sharp"/>
+    <com.bbva.ui.widget.skeleton.PlaceholderItem
+        android:gravity="center_vertical"
+        android:id="@+id/skeletonPlaceHolderView2"
+        android:layout_width="136dp"
+        android:layout_height="@dimen/landing_access_skeleton_box_height"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@null"
+        app:isAnimated="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skeletonPlaceHolderView"
+        app:layout_constraintVertical_bias="0.5"
+        app:sharpOffsetEnd="@dimen/landing_access_skeleton_sharp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

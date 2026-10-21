@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="?attr/surface.ambient.default"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/content"
+        android:padding="24dp"
+        android:paddingTop="4dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.bbva.ui.widget.BbvaTextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"/>
+        <com.bbva.ui.widget.BbvaTextView
+            android:id="@+id/message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:customFontStyle="italic"/>
+        <com.bbva.ui.widget.BbvaButton
+            android:id="@+id/primaryButton"
+            android:layout_marginTop="30dp"
+            style="@style/Widget.BBVA.Button.Primary"/>
+    </LinearLayout>
+</FrameLayout>

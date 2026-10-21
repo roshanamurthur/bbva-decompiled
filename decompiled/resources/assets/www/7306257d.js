@@ -1,0 +1,1 @@
+import{z as s}from"./7f3d7ca9.js";class t extends s{constructor(s=null){super(Object.assign({requiresTsec:!0},s||{})),this._setPath(`loans/v${this.version}/loans`)}toString(){return super.toString("BGADPLoansPostV2")}}export{t as B};

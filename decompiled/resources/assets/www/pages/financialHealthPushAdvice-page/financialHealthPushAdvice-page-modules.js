@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components/bbva-form-rating/bbva-form-rating.js";

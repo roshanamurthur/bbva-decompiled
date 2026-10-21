@@ -1,0 +1,1 @@
+import{H as s,I as t}from"./952f98a9.js";const a=s((s=>class extends s{constructor(){super(),this._meta=new t({type:"validator",key:this.is||this.constructor.is,value:this})}validate(s){}}));export{a as B};

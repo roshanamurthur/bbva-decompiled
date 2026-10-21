@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-edit-alias-card/bbva-feature-edit-alias-card.js";

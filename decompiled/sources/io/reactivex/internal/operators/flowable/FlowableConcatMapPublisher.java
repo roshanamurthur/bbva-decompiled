@@ -1,0 +1,40 @@
+package io.reactivex.internal.operators.flowable;
+
+import io.reactivex.Flowable;
+import io.reactivex.functions.Function;
+import io.reactivex.internal.util.ErrorMode;
+import org.reactivestreams.Publisher;
+import org.reactivestreams.Subscriber;
+
+/* JADX INFO: loaded from: classes11.dex */
+public final class FlowableConcatMapPublisher<T, R> extends Flowable<R> {
+
+    /* JADX INFO: renamed from: q0, reason: collision with root package name */
+    public final Publisher<T> f70390q0;
+
+    /* JADX INFO: renamed from: r0, reason: collision with root package name */
+    public final Function<? super T, ? extends Publisher<? extends R>> f70391r0;
+
+    /* JADX INFO: renamed from: s0, reason: collision with root package name */
+    public final int f70392s0;
+
+    /* JADX INFO: renamed from: t0, reason: collision with root package name */
+    public final ErrorMode f70393t0;
+
+    public FlowableConcatMapPublisher(Publisher<T> publisher, Function<? super T, ? extends Publisher<? extends R>> function, int i10, ErrorMode errorMode) {
+        this.f70390q0 = publisher;
+        this.f70391r0 = function;
+        this.f70392s0 = i10;
+        this.f70393t0 = errorMode;
+    }
+
+    @Override // io.reactivex.Flowable
+    public void subscribeActual(Subscriber<? super R> subscriber) {
+        Publisher<T> publisher = this.f70390q0;
+        Function<? super T, ? extends Publisher<? extends R>> function = this.f70391r0;
+        if (FlowableScalarXMap.tryScalarXMapSubscribe(publisher, subscriber, function)) {
+            return;
+        }
+        publisher.subscribe(FlowableConcatMap.subscribe(subscriber, function, this.f70392s0, this.f70393t0));
+    }
+}

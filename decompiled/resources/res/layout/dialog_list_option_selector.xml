@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <FrameLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.bbva.cellswidgets.CellsTextView
+            android:id="@+id/listOptionTitle"
+            android:layout_width="match_parent"
+            style="@style/ListOption.Title"/>
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_gravity="end|center_vertical"
+            android:id="@+id/closeButton"
+            android:background="@android:color/transparent"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close_cross"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            app:tint="@color/catalog_selector_blue_link_light"/>
+    </FrameLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        style="@style/ListOption.List"/>
+    <View
+        android:id="@+id/delimiter"
+        android:layout_width="match_parent"
+        style="@style/ListOption.Delimiter"/>
+    <com.bbva.cellswidgets.CellsButton
+        android:id="@+id/footerButton"
+        android:layout_width="match_parent"
+        style="@style/ListOption.Footer"/>
+</LinearLayout>

@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-controller-branch-appointment-management-mx/bbva-controller-branch-appointment-management-mx.js";import"../../../node_modules/@glomo-web-components/bbva-local-digital-appointments-api-dm/bbva-local-digital-appointments-api-dm.js";

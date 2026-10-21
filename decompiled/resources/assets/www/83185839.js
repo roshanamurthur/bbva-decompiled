@@ -1,0 +1,1 @@
+import{L as t,h as e}from"./952f98a9.js";import{C as s}from"./216055dc.js";class r extends(s(t)){static get is(){return"bbva-manager-upgrade-commun"}_fire(t="",e=null){this.dispatchEvent(new CustomEvent(t,{bubbles:!0,composed:!0,detail:e}))}testFireWithOutDetai(){this._fire()}render(){return e` <slot></slot> `}}export{r as B};

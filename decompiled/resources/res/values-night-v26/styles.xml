@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Modal.Error.Description" parent="@style/Modal.Error">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">?attr/text.01.default</item>
+        <item name="android:gravity">0x800003</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_book</item>
+        <item name="android:fontWeight">350</item>
+    </style>
+    <style name="Modal.Error.Option.Description" parent="@style/Modal.Error.Option">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">?attr/text.01.default</item>
+        <item name="android:gravity">0x800003</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_book</item>
+        <item name="android:fontWeight">350</item>
+    </style>
+    <style name="Modal.Error.Option.Title" parent="@style/Modal.Error.Option">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">?attr/link.main.default</item>
+        <item name="android:gravity">0x800003</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_medium</item>
+        <item name="android:fontWeight">500</item>
+    </style>
+    <style name="Modal.Error.Title" parent="@style/Modal.Error">
+        <item name="android:textSize">28sp</item>
+        <item name="android:textStyle">0x1</item>
+        <item name="android:textColor">?attr/text.01.default</item>
+        <item name="android:gravity">0x800003</item>
+        <item name="android:lineSpacingExtra">32dp</item>
+        <item name="android:fontFamily">@font/benton_sans_bbva_bold</item>
+        <item name="android:fontWeight">700</item>
+        <item name="android:lineHeight">32dp</item>
+        <item name="fontWeight">700</item>
+    </style>
+</resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialog_landscape">45%</dimen>
+    <dimen name="dialog_portrait">72%</dimen>
+    <dimen name="md_dialog_max_width">496dp</dimen>
+</resources>

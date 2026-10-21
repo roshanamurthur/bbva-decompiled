@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components/bbva-header-main/bbva-header-main.js";import"../../../node_modules/@glomo-web-components/bbva-feature-sdk-videos-mortgage-blings/bbva-feature-sdk-videos-mortgage-blings.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-app-info-structure/bbva-analyticmanager-sdk-videos-mortgage-blings.js";

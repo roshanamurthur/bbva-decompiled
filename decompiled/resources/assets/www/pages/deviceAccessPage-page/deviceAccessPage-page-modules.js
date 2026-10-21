@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-controller-device-activation-facial-biometrics-enrollment/bbva-controller-device-activation-facial-biometrics-enrollment.js";import"../../../node_modules/@glomo-web-components/bbva-nativeconnector-bbva-qr/bbva-nativeconnector-bbva-qr.js";

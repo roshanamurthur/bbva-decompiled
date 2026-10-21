@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/user-info-tips-finance/user-info-tips-finance.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-user-info/bbva-analyticmanager-financial-education.js";

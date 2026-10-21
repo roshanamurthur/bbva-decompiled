@@ -1,0 +1,1 @@
+import{a1 as s}from"./952f98a9.js";class r extends s{constructor(s=null){super(Object.assign({requiresTsec:!0},s||{})),this._setPath(`cards/v${this.version}/cards/{card-id}/participants`)}toString(){return super.toString("BGADPCardsCardParticipantsGetV2")}}export{r as B};

@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-unit-linked-mx/bbva-feature-unit-linked-mx.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-technical-core/bbva-analyticmanager-technical-core.js";

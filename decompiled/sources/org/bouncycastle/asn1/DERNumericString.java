@@ -1,0 +1,101 @@
+package org.bouncycastle.asn1;
+
+import java.io.IOException;
+import org.bouncycastle.util.Arrays;
+import org.bouncycastle.util.Strings;
+
+/* JADX INFO: loaded from: classes12.dex */
+public class DERNumericString extends ASN1Primitive implements ASN1String {
+
+    /* JADX INFO: renamed from: p0, reason: collision with root package name */
+    public final byte[] f86571p0;
+
+    public DERNumericString(String str) {
+        this(str, false);
+    }
+
+    public static DERNumericString getInstance(Object obj) {
+        if (obj == null || (obj instanceof DERNumericString)) {
+            return (DERNumericString) obj;
+        }
+        if (!(obj instanceof byte[])) {
+            throw new IllegalArgumentException(androidx.emoji2.text.flatbuffer.a.c(obj, "illegal object in getInstance: "));
+        }
+        try {
+            return (DERNumericString) ASN1Primitive.fromByteArray((byte[]) obj);
+        } catch (Exception e5) {
+            throw new IllegalArgumentException(androidx.appcompat.view.menu.b.c(e5, new StringBuilder("encoding error in getInstance: ")));
+        }
+    }
+
+    public static boolean isNumericString(String str) {
+        for (int length = str.length() - 1; length >= 0; length--) {
+            char cCharAt = str.charAt(length);
+            if (cCharAt > 127) {
+                return false;
+            }
+            if (('0' > cCharAt || cCharAt > '9') && cCharAt != ' ') {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    @Override // org.bouncycastle.asn1.ASN1Primitive
+    public final void a(ASN1OutputStream aSN1OutputStream, boolean z10) throws IOException {
+        aSN1OutputStream.f(z10, 18, this.f86571p0);
+    }
+
+    @Override // org.bouncycastle.asn1.ASN1Primitive
+    public final boolean asn1Equals(ASN1Primitive aSN1Primitive) {
+        if (aSN1Primitive instanceof DERNumericString) {
+            return Arrays.areEqual(this.f86571p0, ((DERNumericString) aSN1Primitive).f86571p0);
+        }
+        return false;
+    }
+
+    @Override // org.bouncycastle.asn1.ASN1Primitive
+    public final int b() {
+        byte[] bArr = this.f86571p0;
+        return j.a(bArr.length) + 1 + bArr.length;
+    }
+
+    public byte[] getOctets() {
+        return Arrays.clone(this.f86571p0);
+    }
+
+    @Override // org.bouncycastle.asn1.ASN1String
+    public String getString() {
+        return Strings.fromByteArray(this.f86571p0);
+    }
+
+    @Override // org.bouncycastle.asn1.ASN1Primitive, org.bouncycastle.asn1.ASN1Object
+    public int hashCode() {
+        return Arrays.hashCode(this.f86571p0);
+    }
+
+    @Override // org.bouncycastle.asn1.ASN1Primitive
+    public final boolean isConstructed() {
+        return false;
+    }
+
+    public String toString() {
+        return getString();
+    }
+
+    public DERNumericString(String str, boolean z10) {
+        if (z10 && !isNumericString(str)) {
+            throw new IllegalArgumentException("string contains illegal characters");
+        }
+        this.f86571p0 = Strings.toByteArray(str);
+    }
+
+    public DERNumericString(byte[] bArr) {
+        this.f86571p0 = bArr;
+    }
+
+    public static DERNumericString getInstance(ASN1TaggedObject aSN1TaggedObject, boolean z10) {
+        ASN1Primitive object = aSN1TaggedObject.getObject();
+        return (z10 || (object instanceof DERNumericString)) ? getInstance(object) : new DERNumericString(ASN1OctetString.getInstance(object).getOctets());
+    }
+}

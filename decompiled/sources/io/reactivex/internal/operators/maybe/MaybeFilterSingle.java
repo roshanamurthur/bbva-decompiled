@@ -1,0 +1,87 @@
+package io.reactivex.internal.operators.maybe;
+
+import io.reactivex.Maybe;
+import io.reactivex.MaybeObserver;
+import io.reactivex.SingleObserver;
+import io.reactivex.SingleSource;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.exceptions.Exceptions;
+import io.reactivex.functions.Predicate;
+import io.reactivex.internal.disposables.DisposableHelper;
+
+/* JADX INFO: loaded from: classes12.dex */
+public final class MaybeFilterSingle<T> extends Maybe<T> {
+
+    /* JADX INFO: renamed from: p0, reason: collision with root package name */
+    public final SingleSource<T> f71615p0;
+
+    /* JADX INFO: renamed from: q0, reason: collision with root package name */
+    public final Predicate<? super T> f71616q0;
+
+    public static final class a<T> implements SingleObserver<T>, Disposable {
+
+        /* JADX INFO: renamed from: p0, reason: collision with root package name */
+        public final MaybeObserver<? super T> f71617p0;
+
+        /* JADX INFO: renamed from: q0, reason: collision with root package name */
+        public final Predicate<? super T> f71618q0;
+
+        /* JADX INFO: renamed from: r0, reason: collision with root package name */
+        public Disposable f71619r0;
+
+        public a(MaybeObserver<? super T> maybeObserver, Predicate<? super T> predicate) {
+            this.f71617p0 = maybeObserver;
+            this.f71618q0 = predicate;
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public final void dispose() {
+            Disposable disposable = this.f71619r0;
+            this.f71619r0 = DisposableHelper.DISPOSED;
+            disposable.dispose();
+        }
+
+        @Override // io.reactivex.disposables.Disposable
+        public final boolean isDisposed() {
+            return this.f71619r0.isDisposed();
+        }
+
+        @Override // io.reactivex.SingleObserver
+        public final void onError(Throwable th2) {
+            this.f71617p0.onError(th2);
+        }
+
+        @Override // io.reactivex.SingleObserver
+        public final void onSubscribe(Disposable disposable) {
+            if (DisposableHelper.validate(this.f71619r0, disposable)) {
+                this.f71619r0 = disposable;
+                this.f71617p0.onSubscribe(this);
+            }
+        }
+
+        @Override // io.reactivex.SingleObserver
+        public final void onSuccess(T t10) {
+            MaybeObserver<? super T> maybeObserver = this.f71617p0;
+            try {
+                if (this.f71618q0.test(t10)) {
+                    maybeObserver.onSuccess(t10);
+                } else {
+                    maybeObserver.onComplete();
+                }
+            } catch (Throwable th2) {
+                Exceptions.throwIfFatal(th2);
+                maybeObserver.onError(th2);
+            }
+        }
+    }
+
+    public MaybeFilterSingle(SingleSource<T> singleSource, Predicate<? super T> predicate) {
+        this.f71615p0 = singleSource;
+        this.f71616q0 = predicate;
+    }
+
+    @Override // io.reactivex.Maybe
+    public void subscribeActual(MaybeObserver<? super T> maybeObserver) {
+        this.f71615p0.subscribe(new a(maybeObserver, this.f71616q0));
+    }
+}

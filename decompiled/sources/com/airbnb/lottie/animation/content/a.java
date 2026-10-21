@@ -1,0 +1,9 @@
+package com.airbnb.lottie.animation.content;
+
+import java.util.ListIterator;
+
+/* JADX INFO: compiled from: GreedyContent.java */
+/* JADX INFO: loaded from: classes2.dex */
+public interface a {
+    void absorbContent(ListIterator<Content> listIterator);
+}

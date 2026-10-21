@@ -1,0 +1,85 @@
+package com.vasco.digipass.sdk;
+
+/* JADX INFO: loaded from: classes9.dex */
+public final class DigipassSDKReturnCodes {
+    public static final int ACTIVATION_CODE_INCORRECT_FORMAT = -4013;
+    public static final int ACTIVATION_CODE_INCORRECT_LENGTH = -4012;
+    public static final int ACTIVATION_CODE_INVALID = -4023;
+    public static final int ACTIVATION_CODE_NULL = -4011;
+    public static final int APPLICATION_DISABLED = -4033;
+    public static final int CHALLENGE_CHARACTER_INVALID = -4044;
+    public static final int CHALLENGE_INCORRECT_LENGTH = -4035;
+    public static final int CHALLENGE_NULL = -4034;
+    public static final int CLIENT_SCORE_DISABLED = -4080;
+    public static final int CRYPTO_APPLICATION_INDEX_INVALID = -4032;
+    public static final int CRYPTO_MECANISM_INVALID = -4051;
+    public static final int CRYPTO_MODE_INVALID = -4052;
+    public static final int DATA_FIELDS_ARRAY_NULL = -4036;
+    public static final int DATA_FIELDS_NOT_CONTIGUOUS = -4065;
+    public static final int DATA_FIELDS_NUMBER_INVALID = -4037;
+    public static final int DATA_FIELD_INCORRECT_LENGTH = -4039;
+    public static final int DATA_FIELD_NULL = -4038;
+    public static final int DYNAMIC_VECTOR_INCORRECT_FORMAT = -4006;
+    public static final int DYNAMIC_VECTOR_INCORRECT_LENGTH = -4005;
+    public static final int DYNAMIC_VECTOR_NULL = -4004;
+    public static final int ENCRYPTION_KEY_INCORRECT_LENGTH = -4008;
+    public static final int ENCRYPTION_KEY_NULL = -4007;
+    public static final int ERC_INCORRECT_FORMAT = -4015;
+    public static final int ERC_INCORRECT_LENGTH = -4014;
+    public static final int ERC_INVALID = -4016;
+    public static final int INITIAL_VECTOR_INCORRECT_LENGTH = -4059;
+    public static final int INPUT_DATA_INCORRECT_LENGTH = -4056;
+    public static final int INPUT_DATA_NULL = -4055;
+    public static final int JAILBREAK_STATUS_INVALID = -4072;
+    public static final int KEY_INCORRECT_LENGTH = -4054;
+    public static final int KEY_NULL = -4053;
+    public static final int LICENSE_INCORRECT = -4076;
+    public static final int MULTI_DEVICE_ACTIVATION_DISABLED = -4075;
+    public static final int MULTI_DEVICE_ACTIVATION_ENABLED = -4078;
+    public static final int NOT_PASSWORD_PROTECTED = -4066;
+    public static final int PASSWORD_LENGTH_TOO_LONG = -4027;
+    public static final int PASSWORD_LENGTH_TOO_SHORT = -4026;
+    public static final int PASSWORD_LOCK = -4030;
+    public static final int PASSWORD_NULL = -4025;
+    public static final int PASSWORD_WEAK = -4028;
+    public static final int PASSWORD_WRONG = -4029;
+    public static final int PLATFORM_ACTIVATION_KEY_INVALID = -4074;
+    public static final int PLATFORM_FINGERPRINT_NOT_DEFINED = -4064;
+    public static final int PROTECTION_TYPE_NOT_SUPPORTED = -4085;
+    public static final int PROVIDED_PASSWORD_AS_STRING_LENGTH_TOO_LONG = -4087;
+    public static final int PROVIDED_PASSWORD_AS_STRING_LENGTH_TOO_SHORT = -4086;
+    public static final int REACTIVATION_LOCK = -4024;
+    public static final int SCORE_INVALID = -4081;
+    public static final int SECURE_CHANNEL_DISABLED = -4079;
+    public static final int SECURE_CHANNEL_MESSAGE_BODY_INCORRECT_FORMAT = -4084;
+    public static final int SECURE_CHANNEL_MESSAGE_BODY_INCORRECT_LENGTH = -4083;
+    public static final int SECURE_CHANNEL_MESSAGE_BODY_NULL_OR_EMPTY = -4082;
+    public static final int SECURE_CHANNEL_MESSAGE_INCORRECT_FORMAT = -4068;
+    public static final int SECURE_CHANNEL_MESSAGE_INCORRECT_LENGTH = -4069;
+    public static final int SECURE_CHANNEL_MESSAGE_INCORRECT_TARGET = -4077;
+    public static final int SECURE_CHANNEL_MESSAGE_INCORRECT_TYPE = -4070;
+    public static final int SECURE_CHANNEL_MESSAGE_NULL = -4067;
+    public static final int SECURE_CHANNEL_MESSAGE_SIGNATURE_INVALID = -4071;
+    public static final int SECURE_CHANNEL_MESSAGE_STATIC_VECTOR_INCONSISTENT = -4073;
+    public static final int SERIAL_NUMBER_INCORRECT_LENGTH = -4010;
+    public static final int SERIAL_NUMBER_NULL = -4009;
+    public static final int SERIAL_NUMBER_SUFFIX_INCORRECT_LENGTH = -4010;
+    public static final int SERIAL_NUMBER_SUFFIX_NULL = -4009;
+    public static final int SERVER_PUBLIC_KEY_INCORRECT_LENGTH = -4045;
+    public static final int SHARED_SECRET_TOO_LONG = -4022;
+    public static final int STATIC_VECTOR_INCORRECT_FORMAT = -4003;
+    public static final int STATIC_VECTOR_INCORRECT_LENGTH = -4002;
+    public static final int STATIC_VECTOR_NULL = -4001;
+    public static final int STATUS_INVALID = -4031;
+    public static final int SUCCESS = 0;
+    public static final int TOKEN_DERIVATION_NOT_SUPPORTED = -4063;
+    public static final int UNKNOWN_ERROR = -4999;
+    public static final int XERC_INCORRECT_FORMAT = -4021;
+    public static final int XERC_INCORRECT_LENGTH = -4020;
+    public static final int XFAD_INCORRECT_FORMAT = -4019;
+    public static final int XFAD_INCORRECT_LENGTH = -4018;
+    public static final int XFAD_NULL = -4017;
+
+    private DigipassSDKReturnCodes() {
+    }
+}

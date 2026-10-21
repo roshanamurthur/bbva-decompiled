@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="true">
+        <shape android:shape="oval">
+            <size
+                android:height="8dp"
+                android:width="8dp"/>
+            <solid android:color="@color/BBVA_WHITE"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <size
+                android:height="8dp"
+                android:width="8dp"/>
+            <solid android:color="@color/BBVA_WHITE_t30"/>
+        </shape>
+    </item>
+</selector>

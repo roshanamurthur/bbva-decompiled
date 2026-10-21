@@ -1,0 +1,26 @@
+package com.google.android.gms.internal.mlkit_common;
+
+import androidx.annotation.Nullable;
+
+/* JADX INFO: compiled from: com.google.mlkit:common@@18.11.0 */
+/* JADX INFO: loaded from: classes9.dex */
+public final class zzss {
+
+    @Nullable
+    private static zzsr zza;
+
+    public static synchronized zzsh zza(zzsb zzsbVar) {
+        try {
+            if (zza == null) {
+                zza = new zzsr(null);
+            }
+        } catch (Throwable th2) {
+            throw th2;
+        }
+        return (zzsh) zza.get(zzsbVar);
+    }
+
+    public static synchronized zzsh zzb(String str) {
+        return zza(zzsb.zzd("common").zzd());
+    }
+}

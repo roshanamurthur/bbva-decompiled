@@ -1,0 +1,33 @@
+package le;
+
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import androidx.vectordrawable.graphics.drawable.Animatable2Compat;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+/* JADX INFO: compiled from: DrawableWithAnimatedVisibilityChange.java */
+/* JADX INFO: loaded from: classes10.dex */
+public final class c extends AnimatorListenerAdapter {
+
+    /* JADX INFO: renamed from: a, reason: collision with root package name */
+    public final /* synthetic */ com.google.android.material.progressindicator.c f83188a;
+
+    public c(com.google.android.material.progressindicator.c cVar) {
+        this.f83188a = cVar;
+    }
+
+    @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+    public final void onAnimationStart(Animator animator) {
+        super.onAnimationStart(animator);
+        com.google.android.material.progressindicator.c cVar = this.f83188a;
+        ArrayList arrayList = cVar.f45062u0;
+        if (arrayList == null || cVar.v0) {
+            return;
+        }
+        Iterator it = arrayList.iterator();
+        while (it.hasNext()) {
+            ((Animatable2Compat.AnimationCallback) it.next()).onAnimationStart(cVar);
+        }
+    }
+}

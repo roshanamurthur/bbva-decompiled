@@ -1,0 +1,12 @@
+{
+  "name": "bbva-decompiled",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "inventory": "python3 scripts/extract_endpoints.py decompiled -o endpoint-inventory.json",
+    "test": "python3 -m unittest discover -s tests -v"
+  },
+  "devDependencies": {
+    "rea-agents": "6.7.0"
+  }
+}

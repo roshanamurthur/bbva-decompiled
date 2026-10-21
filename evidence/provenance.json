@@ -1,0 +1,447 @@
+{
+  "target": {
+    "apkm_version": 5,
+    "apk_title": "BBVA M\u00e9xico 25.50.19 (arm64-v8a + arm-v7a) (120-640dpi)",
+    "app_name": "BBVA M\u00e9xico",
+    "release_version": "25.50.19",
+    "variant": "(arm64-v8a + arm-v7a) (120-640dpi) (Android 6.0+)",
+    "release_title": "BBVA M\u00e9xico 25.50.19 (arm64-v8a + arm-v7a) (120-640dpi)",
+    "versioncode": "374943640",
+    "pname": "com.bancomer.mbanking",
+    "post_date": "2025-06-17 17:11:55",
+    "capabilities": [],
+    "languages": [
+      "es"
+    ],
+    "arches": [
+      "arm64-v8a",
+      "armeabi-v7a"
+    ],
+    "dpis": [
+      "120",
+      "160",
+      "213",
+      "240",
+      "320",
+      "480",
+      "640"
+    ],
+    "min_api": "23",
+    "accent_color": "30809c",
+    "apk_id": 9696616,
+    "release_id": 9696619
+  },
+  "download": {
+    "url": "https://download.apk.now/apks/bbva-mexico/374943640/bbva-mexico-25-50-19-android-apk-download.apk",
+    "landing_page": "https://apk.now/apk/bbva/bbva-mexico/bbva-mexico-25-50-19-release/bbva-mexico-25-50-19-android-apk-download/",
+    "retrieved_date": "2026-10-20",
+    "file_format": "APKM ZIP bundle, served with .apk filename",
+    "bytes": 155782418,
+    "sha256": "0b6a9f632da459adbf6257d1e9c7f0c99165c020f0f6fb84b8a339b32f9d0143"
+  },
+  "apk_signer_sha256": "0cf408f2b3893419b8f57fb78ed5f2338a91b58227e3f80685a5a6cbd1b9c0a0",
+  "tools": {
+    "rea": "6.7.0",
+    "jadx": "1.5.6",
+    "jadx_headless_mcp": "0.7.1",
+    "jdk": "Temurin21.0.12.1+1",
+    "apksigner": "Android build-tools36.0.0"
+  },
+  "decompilation": {
+    "input": "base.apk",
+    "jadx_exit_code": 3,
+    "jadx_reported_errors": 1038,
+    "source_files": 37967,
+    "scope": "Recovered Java and base resources. Native library bodies, dynamically downloaded code, and runtime traffic are not decompiled or observed."
+  },
+  "splits": [
+    {
+      "file": "base.apk",
+      "bytes": 175133264,
+      "sha256": "384e082c157bc94c3667f219805adfd81e6303f43a05b360cd3c36e6c716e373",
+      "native_libraries": []
+    },
+    {
+      "file": "split_config.arm64_v8a.apk",
+      "bytes": 41622386,
+      "sha256": "d4917d9b179b7d67a371f001ab82c97a2a16fbd1da6328132c4b0731cd0b213c",
+      "native_libraries": [
+        {
+          "path": "lib/arm64-v8a/libCascadeDetector.so",
+          "bytes": 34120,
+          "sha256": "7b248d34c8f77a93066888d1adbccc1b99288c5610493fce6bdafc4a57326264"
+        },
+        {
+          "path": "lib/arm64-v8a/libCascadeDetectorBridge.so",
+          "bytes": 46088,
+          "sha256": "fb054764bebfabe7deada43ac64114223424c978b1c8ff7f44908852f064fb16"
+        },
+        {
+          "path": "lib/arm64-v8a/libDetectionResult.so",
+          "bytes": 4592,
+          "sha256": "878579ded450bb983cee443bb7dee32ac3a008adb91147cf5b8082db26412479"
+        },
+        {
+          "path": "lib/arm64-v8a/libDocumentQuadrilateral.so",
+          "bytes": 37368,
+          "sha256": "d27c370755a7376e8648a56eeb169ecb5c78f4e56f1f34d6f185575f1ea4f94c"
+        },
+        {
+          "path": "lib/arm64-v8a/libEdgeLine.so",
+          "bytes": 6072,
+          "sha256": "88ffcfb977e8af116323102ef50417a3d092e54ee1659066bd2e94a29557a5e1"
+        },
+        {
+          "path": "lib/arm64-v8a/libImageAnalyzer.so",
+          "bytes": 36672,
+          "sha256": "bfd26c5726d40bf2381fc1ce808e6267a007aa80e731bc540bf83cd3e15329ef"
+        },
+        {
+          "path": "lib/arm64-v8a/libImageUtilsBridge.so",
+          "bytes": 48952,
+          "sha256": "795efc92255ecd462a3e2eaf07fd763ec3501dd4e29b93c1c6e8d5bb2d04590a"
+        },
+        {
+          "path": "lib/arm64-v8a/libJniBridge.so",
+          "bytes": 72968,
+          "sha256": "864b8491e6b9591744f40e2a30d3bda7d1f2081ce7425aeabfe163c5bf9fde3f"
+        },
+        {
+          "path": "lib/arm64-v8a/libPassportDetector.so",
+          "bytes": 67528,
+          "sha256": "7f0f5cfd9b301058575420381e82e8d9c0c22294e77b9fed09e4b5eef5254060"
+        },
+        {
+          "path": "lib/arm64-v8a/libPassportDetectorBridge.so",
+          "bytes": 45152,
+          "sha256": "71fdb1a16e8ec25ec445661f16e7353607ac909d6f4160acd2f7e80dee974648"
+        },
+        {
+          "path": "lib/arm64-v8a/libPhoenixAndroid.so",
+          "bytes": 3460488,
+          "sha256": "b8f0f810adac361f0c08f13ddd748e7fc9830e458e8e5b7d999807c287b14ed8"
+        },
+        {
+          "path": "lib/arm64-v8a/libQRCronto.so",
+          "bytes": 1346240,
+          "sha256": "6761f002928edfb32347cde40ca54cf615687e63fc99edb7d98388f5b8e2322a"
+        },
+        {
+          "path": "lib/arm64-v8a/libRectangleDetector.so",
+          "bytes": 87088,
+          "sha256": "0c8a0b66f4ab5ac77a98043dbd40385bbbec5aaf47786a5844407e8487d3918c"
+        },
+        {
+          "path": "lib/arm64-v8a/libRectangleDetectorBridge.so",
+          "bytes": 45632,
+          "sha256": "5c6d24e09be8c9d40286a10fbd0e0e839915045f8bb6b067148331050fdbd77c"
+        },
+        {
+          "path": "lib/arm64-v8a/libTemplateDetector.so",
+          "bytes": 41296,
+          "sha256": "08691e5735fb735ca48ba90ae3177cbc12609ee3f8f1ef024341673769ad1d77"
+        },
+        {
+          "path": "lib/arm64-v8a/libTemplateDetectorBridge.so",
+          "bytes": 46784,
+          "sha256": "bd3b284edb7796cecc0e1dd7ed1e760a13cf831a34601e9710c5b2f79d3b2338"
+        },
+        {
+          "path": "lib/arm64-v8a/libTemplateDetectorResult.so",
+          "bytes": 4680,
+          "sha256": "d95123def0cc882522678130f5007e1724a283b6f82af87526b9b2bf222d0150"
+        },
+        {
+          "path": "lib/arm64-v8a/libUtils.so",
+          "bytes": 36064,
+          "sha256": "2800c131063889c9dc145ee788cc85e1d93f22ff9c2730e2c7717b502fe26d4b"
+        },
+        {
+          "path": "lib/arm64-v8a/liba2ad.so",
+          "bytes": 1192952,
+          "sha256": "ebc3b47f9ceff1e0286545e1c07a1277ca23f6bfd935bdc3daef083c70f76ad7"
+        },
+        {
+          "path": "lib/arm64-v8a/libakamaibmp.so",
+          "bytes": 2514560,
+          "sha256": "97257d4ec1e4fef90d7f966ecf4f53fbbf743043e68a9dddc0be5b95ca119e53"
+        },
+        {
+          "path": "lib/arm64-v8a/libbarhopper_v3.so",
+          "bytes": 3805328,
+          "sha256": "17586e777919ef9d92e813f35e6aaedb81bdb49c90ff80d179812b50fbc27d66"
+        },
+        {
+          "path": "lib/arm64-v8a/libc++_shared.so",
+          "bytes": 1292904,
+          "sha256": "3e852764502d06e0cf1080d532ae7c608b7649d946a3a9d7e84e3d4b7d683214"
+        },
+        {
+          "path": "lib/arm64-v8a/libcardioDecider.so",
+          "bytes": 9904,
+          "sha256": "75b098c991d3bad77e8ba9d6b02fb14d17f3257a5ece70063a4cac9133e2ccb3"
+        },
+        {
+          "path": "lib/arm64-v8a/libcardioRecognizer.so",
+          "bytes": 1284840,
+          "sha256": "d87c9740a6aa52ac24738cb16bbc32ed2c96a0d5091d6d74e2b435cfe10ad6ae"
+        },
+        {
+          "path": "lib/arm64-v8a/libcardioRecognizer_tegra2.so",
+          "bytes": 864360,
+          "sha256": "d3cc378ac91fe4efa6ca2cca8c3f508cfdf43143186212d2aca96e24beae0c64"
+        },
+        {
+          "path": "lib/arm64-v8a/libcf1f.so",
+          "bytes": 1189592,
+          "sha256": "856901f4d6b2e1b86f6e4fafa2c2173d20898f326a00b9614a90b244b7ebfa14"
+        },
+        {
+          "path": "lib/arm64-v8a/libdevicechecker.so",
+          "bytes": 9336,
+          "sha256": "637daaead3f6c4f028b9bd77b5c4b8f6c7d57909ece9933919f87d88c5dae376"
+        },
+        {
+          "path": "lib/arm64-v8a/libface_detector_v2_jni.so",
+          "bytes": 8520960,
+          "sha256": "d2d105239f5c723838a6bea81ee9cf828b8a56b4de4bc1f4a2556b320d758851"
+        },
+        {
+          "path": "lib/arm64-v8a/libimage_processing_util_jni.so",
+          "bytes": 27856,
+          "sha256": "5d7dcbf8ed5ad795dbb883f5bcd14835e00de861f9a448d38b0d8dba134b2dfe"
+        },
+        {
+          "path": "lib/arm64-v8a/libopencv_core.so",
+          "bytes": 3073088,
+          "sha256": "5a2ed3e86ecc7dc63a4bc7c5474312a36793dd20e611f18615b707d6a9c412a6"
+        },
+        {
+          "path": "lib/arm64-v8a/libopencv_imgproc.so",
+          "bytes": 2402408,
+          "sha256": "ff7f64c38493121af25069bca89096658b2c8ea08d5237bd81862bf827e95287"
+        },
+        {
+          "path": "lib/arm64-v8a/libopencv_world.so",
+          "bytes": 9875608,
+          "sha256": "a6fee4eb5c57fff9dcacb9f6bc73445b1b4989bf4b061ef088191cbcbbf57002"
+        }
+      ]
+    },
+    {
+      "file": "split_config.armeabi_v7a.apk",
+      "bytes": 28502962,
+      "sha256": "c5f78d5e15d86980a4e93b2c5c7124de9016cde98ef4130312f1ef3eed1ddad9",
+      "native_libraries": [
+        {
+          "path": "lib/armeabi-v7a/libCascadeDetector.so",
+          "bytes": 7836,
+          "sha256": "006fc81612f5af0258bf45337f0b2e0b75bd3592fe577ea1f034051f74cfd9d2"
+        },
+        {
+          "path": "lib/armeabi-v7a/libCascadeDetectorBridge.so",
+          "bytes": 15748,
+          "sha256": "8f36eddb378f1b980f9b1e1703cab0e73462f616e19525587e92bb0ccee6059f"
+        },
+        {
+          "path": "lib/armeabi-v7a/libDetectionResult.so",
+          "bytes": 3200,
+          "sha256": "70ebbcb256d842a67d64f7b1e67b570415ef137c3e8b432f204baa75055347d8"
+        },
+        {
+          "path": "lib/armeabi-v7a/libDocumentQuadrilateral.so",
+          "bytes": 10176,
+          "sha256": "136d0e78177cbdbe2307bd81a332e7f07ccb677ce73065d469b08e6320f5d886"
+        },
+        {
+          "path": "lib/armeabi-v7a/libEdgeLine.so",
+          "bytes": 5088,
+          "sha256": "e1f9ba2a16f97e591963224f67a1ae78e80af8f3cff3b03b18c3052163b05b6d"
+        },
+        {
+          "path": "lib/armeabi-v7a/libImageAnalyzer.so",
+          "bytes": 7712,
+          "sha256": "b21ccffabf4b89e4030fd4bcb9538ae4d0a61c0a30246cc1c5a7ad8397a1c377"
+        },
+        {
+          "path": "lib/armeabi-v7a/libImageUtilsBridge.so",
+          "bytes": 17288,
+          "sha256": "10552d38c1837a03a98e5aad38c047d901e80d3578d2c50e7e3fc1c67a74ed8c"
+        },
+        {
+          "path": "lib/armeabi-v7a/libJniBridge.so",
+          "bytes": 34704,
+          "sha256": "5cf69ca3977e5fb93cc7d78c1b3b02e86ec5aa7f44cbee808ca7fb3f161a02de"
+        },
+        {
+          "path": "lib/armeabi-v7a/libPassportDetector.so",
+          "bytes": 29900,
+          "sha256": "2f565341b8d966541c4820a04a5b6a03854be85896cbe7247c51ed4ddb9c14e2"
+        },
+        {
+          "path": "lib/armeabi-v7a/libPassportDetectorBridge.so",
+          "bytes": 15040,
+          "sha256": "68b02fe6ae9d5f5c801d4ae4c0cda4ccf6e5a5e8699981c10dfb8fc1ffb73224"
+        },
+        {
+          "path": "lib/armeabi-v7a/libPhoenixAndroid.so",
+          "bytes": 2458604,
+          "sha256": "a9a263e0c1217b4dc3821fa7ca4b2f3595ac91069f6fef0813692e35ddc94064"
+        },
+        {
+          "path": "lib/armeabi-v7a/libQRCronto.so",
+          "bytes": 831600,
+          "sha256": "8c1951524c851874524846ca2b1bf29895c5704bed35713013b325629060537f"
+        },
+        {
+          "path": "lib/armeabi-v7a/libRectangleDetector.so",
+          "bytes": 45552,
+          "sha256": "fba8d07c8f64cf6fa8a81f2d52268a20aa261c4b5c3e255d9c552e4370fdb7f4"
+        },
+        {
+          "path": "lib/armeabi-v7a/libRectangleDetectorBridge.so",
+          "bytes": 15368,
+          "sha256": "c89d3bf165926393dc703a17d984677ecd99c6d9214a0872b69bca8d86da86e0"
+        },
+        {
+          "path": "lib/armeabi-v7a/libTemplateDetector.so",
+          "bytes": 14188,
+          "sha256": "42ab2e8ac8915f14bd1a250ff7081ab31a28ecad3c4b64a5e79ebef0cf5ee927"
+        },
+        {
+          "path": "lib/armeabi-v7a/libTemplateDetectorBridge.so",
+          "bytes": 16256,
+          "sha256": "31a85e78d89a95d998ec664ac986c2fc3c2ee20968aa169fdcf2dc3abeddf2b7"
+        },
+        {
+          "path": "lib/armeabi-v7a/libTemplateDetectorResult.so",
+          "bytes": 3316,
+          "sha256": "8d46696c0ce275198283c293b36dff2dbadddf702815ca995099d3afb3d851dd"
+        },
+        {
+          "path": "lib/armeabi-v7a/libUtils.so",
+          "bytes": 8712,
+          "sha256": "8e2bc22ac292df5678f807821a7234a041b8e288d5c223539d3489b65fef8719"
+        },
+        {
+          "path": "lib/armeabi-v7a/liba2ad.so",
+          "bytes": 1016404,
+          "sha256": "cccb684742ae1d9e76722fa50940041c01397f7b34189b69c2863fd581891efc"
+        },
+        {
+          "path": "lib/armeabi-v7a/libakamaibmp.so",
+          "bytes": 2200172,
+          "sha256": "fc1abda6e794d1128540f6680d4936600573d5cf5b357944bb12f723ca211ba9"
+        },
+        {
+          "path": "lib/armeabi-v7a/libbarhopper_v3.so",
+          "bytes": 2504444,
+          "sha256": "e17a8ab50245d0c165912ee434deae1f6fd5e1f2a72ecc690224ff140956fd53"
+        },
+        {
+          "path": "lib/armeabi-v7a/libc++_shared.so",
+          "bytes": 872872,
+          "sha256": "84e7d99b7b6df960b37c28e43808cc5c2c62d1bb9449e27683fc53309dea5b6c"
+        },
+        {
+          "path": "lib/armeabi-v7a/libcardioDecider.so",
+          "bytes": 17924,
+          "sha256": "c554aec1e6065836011d19a84e7a87d12f60d01a2122e37ecf3067767363e813"
+        },
+        {
+          "path": "lib/armeabi-v7a/libcardioRecognizer.so",
+          "bytes": 1034532,
+          "sha256": "69ad44eb185e1f8ed06b8b0241c624198104c56800b37a0e2572b1d25357526c"
+        },
+        {
+          "path": "lib/armeabi-v7a/libcardioRecognizer_tegra2.so",
+          "bytes": 577184,
+          "sha256": "e4aa1b0eecacf083cb95fe947d52c6faa4bc6291ae57e9611fb01d4229178c14"
+        },
+        {
+          "path": "lib/armeabi-v7a/libcf1f.so",
+          "bytes": 1027716,
+          "sha256": "3ccedbb9014fcd57103a09aa83e32f7903b4493d947a71a73f0de4569ff64504"
+        },
+        {
+          "path": "lib/armeabi-v7a/libdevicechecker.so",
+          "bytes": 6988,
+          "sha256": "9b92fe02429640404c0878470f9d7e6364efd7b30180af0e7dfcce0c3bb54435"
+        },
+        {
+          "path": "lib/armeabi-v7a/libface_detector_v2_jni.so",
+          "bytes": 5388224,
+          "sha256": "21e48bd253e1c87edee42bce9a51048ac3082d681446d0d05a79c4ad0f5e187b"
+        },
+        {
+          "path": "lib/armeabi-v7a/libimage_processing_util_jni.so",
+          "bytes": 20764,
+          "sha256": "3334455aeb87ee927bcb530cf00bf46c5a6ad3ba2df9576371e8047d7669a080"
+        },
+        {
+          "path": "lib/armeabi-v7a/libopencv_core.so",
+          "bytes": 1801308,
+          "sha256": "7770cac50fa7f7bf7901592593d981e41fcd37e67e2a36d5b1435bca9af3ad51"
+        },
+        {
+          "path": "lib/armeabi-v7a/libopencv_imgproc.so",
+          "bytes": 1558220,
+          "sha256": "5cc916bfb7cd61a551b38e995205f85544bf3f90ef1b795e5de84bac5abbcefe"
+        },
+        {
+          "path": "lib/armeabi-v7a/libopencv_world.so",
+          "bytes": 6851852,
+          "sha256": "8ec263b33c568e2626d3b45cca28200f243b0f40c838a6491dfeb389c808fb9f"
+        }
+      ]
+    },
+    {
+      "file": "split_config.es.apk",
+      "bytes": 65945,
+      "sha256": "5a898ba5d0e158ac7d755cfc627221a9affa5b612b38ef495ef9f471b5cce541",
+      "native_libraries": []
+    },
+    {
+      "file": "split_config.hdpi.apk",
+      "bytes": 1107482,
+      "sha256": "cc4d3e7c327b80b5937871df3c38b47dbffd3ae2379b23481158e486e203a4bc",
+      "native_libraries": []
+    },
+    {
+      "file": "split_config.ldpi.apk",
+      "bytes": 933578,
+      "sha256": "48ab98967e82168a969803f02f9af409871694aad43e1b651882ed15cef5215b",
+      "native_libraries": []
+    },
+    {
+      "file": "split_config.mdpi.apk",
+      "bytes": 636433,
+      "sha256": "a4027f4747e4231890cb7611c80819cd2dbca5a03745923bb647fc5e13d9f904",
+      "native_libraries": []
+    },
+    {
+      "file": "split_config.tvdpi.apk",
+      "bytes": 1678895,
+      "sha256": "3b1102bc201bc8d3b2cd8379c882e0585cc367051b8482045ed6b2df80835e6f",
+      "native_libraries": []
+    },
+    {
+      "file": "split_config.xhdpi.apk",
+      "bytes": 1058528,
+      "sha256": "9d057874724272f9a87d779e267c56aae77526bdb19cff951c08e5c83fed5772",
+      "native_libraries": []
+    },
+    {
+      "file": "split_config.xxhdpi.apk",
+      "bytes": 1607581,
+      "sha256": "cee566fc94b5f793cf7c9b8f0cf479a16b3f558c85d0c21f25439fe7666c384c",
+      "native_libraries": []
+    },
+    {
+      "file": "split_config.xxxhdpi.apk",
+      "bytes": 2254908,
+      "sha256": "e77958e25f9060a0e4c0a1910792a976115510bbec4f9d0f008759415c580a8a",
+      "native_libraries": []
+    }
+  ]
+}

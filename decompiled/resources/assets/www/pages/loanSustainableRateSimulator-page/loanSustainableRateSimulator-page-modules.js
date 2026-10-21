@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-widget-loan-sustainable-rate-simulator/bbva-widget-loan-sustainable-rate-simulator.js";

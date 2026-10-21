@@ -1,0 +1,24 @@
+package bc.org.bouncycastle.math.ec;
+
+import java.math.BigInteger;
+
+/* JADX INFO: loaded from: classes2.dex */
+public class MontgomeryLadderMultiplier extends AbstractECMultiplier {
+    @Override // bc.org.bouncycastle.math.ec.AbstractECMultiplier
+    public ECPoint a(ECPoint eCPoint, BigInteger bigInteger) {
+        ECPoint[] eCPointArr = new ECPoint[2];
+        eCPointArr[0] = eCPoint.getCurve().getInfinity();
+        eCPointArr[1] = eCPoint;
+        int iBitLength = bigInteger.bitLength();
+        while (true) {
+            iBitLength--;
+            if (iBitLength < 0) {
+                return eCPointArr[0];
+            }
+            boolean zTestBit = bigInteger.testBit(iBitLength);
+            int i10 = 1 - (zTestBit ? 1 : 0);
+            eCPointArr[i10] = eCPointArr[i10].add(eCPointArr[zTestBit ? 1 : 0]);
+            eCPointArr[zTestBit ? 1 : 0] = eCPointArr[zTestBit ? 1 : 0].twice();
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/pay_plans_background_radio"/>
+            <size
+                android:height="@dimen/pay_plans_radio_button_size"
+                android:width="@dimen/pay_plans_radio_button_size"/>
+            <stroke
+                android:width="@dimen/pay_plans_radio_button_stroke_width"
+                android:color="@color/pay_plans_border_radio"/>
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="oval">
+            <stroke
+                android:width="@dimen/pay_plans_radio_button_stroke_size"
+                android:color="@android:color/transparent"/>
+            <solid android:color="@color/pay_plans_center_radio"/>
+            <size
+                android:height="@dimen/pay_plans_radio_button_center_size"
+                android:width="@dimen/pay_plans_radio_button_center_size"/>
+        </shape>
+    </item>
+</layer-list>

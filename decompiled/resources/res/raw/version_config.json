@@ -1,0 +1,18 @@
+[
+    {
+        "analytics": {
+            "enable": true,
+            "frequency": "M",
+            "url": "https://api.mixpanel.com/track?verbose=1"
+        },
+        "cues": {
+            "checkout": {
+                "filepath": "cues/checkout/1.0.1",
+                "version": "1.0.1"
+            }
+        },
+        "sdk_versions": [
+            "1.5.0"
+        ]
+    }
+]

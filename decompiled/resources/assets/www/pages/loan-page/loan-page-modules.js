@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-widget-product-detail-sustainable-loans/bbva-widget-product-detail-sustainable-loans.js";import"../../../node_modules/@bbva-experience-components/bbva-progress-step/bbva-progress-step.js";import"../../../node_modules/@bbva-web-components/bbva-notification-message/bbva-notification-message.js";

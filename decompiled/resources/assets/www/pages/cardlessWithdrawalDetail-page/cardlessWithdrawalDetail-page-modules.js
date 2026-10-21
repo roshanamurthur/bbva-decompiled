@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-qr-scanner/bbva-manager-qr-scanner.js";import"../../../node_modules/@glomo-web-components/bbva-nativeconnector-bbva-qr/bbva-nativeconnector-bbva-qr.js";

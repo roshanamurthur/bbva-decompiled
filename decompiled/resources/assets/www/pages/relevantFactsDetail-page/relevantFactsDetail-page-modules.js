@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components-widgets/proactivity-ticket/proactivity-ticket.js";import"../../../node_modules/@glomo-web-components/bbva-manager-relevant-facts/bbva-manager-relevant-facts.js";import"../../../node_modules/@glomo-web-components/bbva-analyticmanager-personalization/bbva-analyticmanager-personalization.js";

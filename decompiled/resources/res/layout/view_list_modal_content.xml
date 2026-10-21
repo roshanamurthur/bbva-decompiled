@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/listDialogContainer"
+    android:background="?attr/listModal_dialogBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_gravity="center"
+        android:id="@+id/recyclerList"
+        android:background="?attr/listModal_background"
+        android:paddingTop="?attr/listModal_contentPaddingTop"
+        android:paddingBottom="?attr/listModal_contentPaddingBottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="?attr/listModal_horizontalMargins"
+        android:layout_marginEnd="?attr/listModal_horizontalMargins"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        style="?attr/listModalStyle"/>
+</FrameLayout>

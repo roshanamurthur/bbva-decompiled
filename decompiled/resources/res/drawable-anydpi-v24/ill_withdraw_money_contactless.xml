@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:height="144dp"
+    android:width="144dp"
+    android:viewportWidth="600"
+    android:viewportHeight="600">
+    <path
+        android:fillColor="@drawable/_ill_withdraw_money_contactless__0_res_0x7f080035"
+        android:pathData="M500.72,227.68h-0.08V203.36A18.65,18.65 0,0 0,482 184.68H361.49v-53.3a10.07,10.07 0,0 0,-9.72 -10H324.3l-0.11,0.2H169.27a10.12,10.12 0,0 0,-10.12 10.12V355.94a10.12,10.12 0,0 0,10.12 10.12h22l116.17,0.26V508.6a18.64,18.64 0,0 0,18.63 18.63H482a18.64,18.64 0,0 0,18.64 -18.63V484.23h0.08Z"/>
+    <path
+        android:fillColor="#1464a5"
+        android:pathData="M118.79,89.9L300.89,89.9A10.12,10.12 0,0 1,311.01 100.02L311.01,324.28A10.12,10.12 0,0 1,300.89 334.4L118.79,334.4A10.12,10.12 0,0 1,108.67 324.28L108.67,100.02A10.12,10.12 0,0 1,118.79 89.9z"/>
+    <path
+        android:fillColor="@drawable/_ill_withdraw_money_contactless__1_res_0x7f080036"
+        android:pathData="M311,321.38V100.1a10.07,10.07 0,0 0,-9.72 -10.4H273.83l-133.14,245h157A13.29,13.29 0,0 0,311 321.45Z"/>
+    <path
+        android:fillColor="#004481"
+        android:pathData="M188.77,127.84m-12.65,0a12.65,12.65 0,1 1,25.3 0a12.65,12.65 0,1 1,-25.3 0"/>
+    <path
+        android:fillColor="@drawable/_ill_withdraw_money_contactless__2_res_0x7f080037"
+        android:pathData="M194.68,116.72 L182.87,139a12.59,12.59 0,0 0,11.81 -22.23Z"/>
+    <path
+        android:fillColor="#004481"
+        android:pathData="M230.92,127.84m-12.65,0a12.65,12.65 0,1 1,25.3 0a12.65,12.65 0,1 1,-25.3 0"/>
+    <path
+        android:fillColor="@drawable/_ill_withdraw_money_contactless__3_res_0x7f080038"
+        android:pathData="M236.83,116.72 L225,139a12.58,12.58 0,0 0,11.8 -22.23Z"/>
+    <path
+        android:fillColor="#2dcccd"
+        android:pathData="M146.61,127.84m-12.65,0a12.65,12.65 0,1 1,25.3 0a12.65,12.65 0,1 1,-25.3 0"/>
+    <path
+        android:fillColor="@drawable/_ill_withdraw_money_contactless__4_res_0x7f080039"
+        android:pathData="M152.52,116.72 L140.72,139a12.58,12.58 0,1 0,11.8 -22.23Z"/>
+    <path
+        android:fillColor="#d4edfc"
+        android:pathData="M235.68,273.42l-5.9,-3.22a0.85,0.85 0,0 1,-0.34 -1.13,90.77 90.77,0 0,0 0,-84.84 0.85,0.85 0,0 1,0.34 -1.13l5.9,-3.22a0.85,0.85 0,0 1,1.14 0.33h0a99.23,99.23 0,0 1,0 92.84,0.86 0.86,0 0,1 -1.14,0.36Z"/>
+    <path
+        android:fillColor="#d4edfc"
+        android:pathData="M216.64,264.33l-5.9,-3.31a0.83,0.83 0,0 1,-0.32 -1.13h0a69.64,69.64 0,0 0,0 -66.48,0.85 0.85,0 0,1 0.32,-1.14l5.9,-3.3a0.85,0.85 0,0 1,1.15 0.31h0a78.1,78.1 0,0 1,0 74.7,0.84 0.84,0 0,1 -1.14,0.34h0Z"/>
+    <path
+        android:fillColor="#d4edfc"
+        android:pathData="M197.53,255.26l-5.8,-3.45a0.85,0.85 0,0 1,-0.3 -1.14,48.43 48.43,0 0,0 0,-48.06 0.84,0.84 0,0 1,0.3 -1.13l5.8,-3.45a0.84,0.84 0,0 1,1.16 0.27h0a56.93,56.93 0,0 1,0 56.62,0.84 0.84,0 0,1 -1.14,0.33Z"/>
+    <path
+        android:fillColor="#d4edfc"
+        android:pathData="M178.29,246.25l-5.58,-3.78a0.85,0.85 0,0 1,-0.23 -1.16,27.42 27.42,0 0,0 0,-29.36 0.84,0.84 0,0 1,0.22 -1.15l5.58,-3.79a0.86,0.86 0,0 1,1.18 0.21h0a35.83,35.83 0,0 1,0 38.78,0.84 0.84,0 0,1 -1.16,0.26Z"/>
+    <path
+        android:fillColor="#004481"
+        android:pathData="M273.09,127.84m-12.65,0a12.65,12.65 0,1 1,25.3 0a12.65,12.65 0,1 1,-25.3 0"/>
+    <path
+        android:fillColor="@drawable/_ill_withdraw_money_contactless__5_res_0x7f08003a"
+        android:pathData="M279,116.72 L267.18,139A12.61,12.61 0,1 0,279 116.72Z"/>
+    <path
+        android:fillColor="#1464a5"
+        android:pathData="M275.64,153H431.53a18.65,18.65 0,0 1,18.63 18.67h0V476.94a18.64,18.64 0,0 1,-18.63 18.63H275.64A18.64,18.64 0,0 1,257 476.94V171.73A18.65,18.65 0,0 1,275.57 153h0.07Z"/>
+    <path
+        android:fillColor="#49a5e6"
+        android:pathData="M257.01,196.02h193.24v256.56h-193.24z"/>
+    <path
+        android:fillColor="@drawable/_ill_withdraw_money_contactless__6_res_0x7f08003b"
+        android:pathData="M257.01,196.19l0,257.05l98.79,0.17l94.74,-175.09l0,-82.3l-193.53,0.17z"
+        android:strokeAlpha="0.5"
+        android:fillAlpha="0.5"/>
+</vector>

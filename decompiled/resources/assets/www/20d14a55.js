@@ -1,0 +1,1 @@
+import{a6 as e}from"./952f98a9.js";class s extends e{static get is(){return"bbva-card-offer-option-redeems-es-api-dm"}async _responseMapping(e){return await this.updateComplete,e}}customElements.define(s.is,s);export{s as BbvaCardOfferOptionRedeemsEsApiDm};

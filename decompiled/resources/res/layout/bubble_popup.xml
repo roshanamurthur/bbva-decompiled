@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="@dimen/vd_document_document_face_text_size"
+        android:textStyle="normal"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:id="@+id/vd_document_bubble_text"
+        android:background="@drawable/vd_document_popup_rectangle"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <ImageView
+        android:layout_gravity="end"
+        android:id="@+id/vd_document_bubble_arrow"
+        android:background="@drawable/vd_document_popup_arrow"
+        android:layout_width="50dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginEnd="35dp"/>
+</LinearLayout>

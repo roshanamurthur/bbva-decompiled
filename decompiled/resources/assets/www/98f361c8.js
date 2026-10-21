@@ -1,0 +1,1 @@
+import{L as t}from"./952f98a9.js";import{B as e}from"./7f3d7ca9.js";class i extends(e(t)){static get is(){return"bbva-nativeconnector-native-settings"}static get properties(){return{pluginName:{type:String}}}constructor(){super(),this.pluginName="NativeSettings"}openSetting(t){return this._genericCall(this.pluginName,"opensetting","setting-opened",t)}}export{i as B};

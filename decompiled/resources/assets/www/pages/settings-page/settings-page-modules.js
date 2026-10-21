@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components/bbva-notification-toast/bbva-notification-toast.js";

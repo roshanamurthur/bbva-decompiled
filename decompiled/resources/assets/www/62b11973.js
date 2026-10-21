@@ -1,0 +1,1 @@
+import{s}from"./952f98a9.js";class t extends s{constructor(s=null){super(Object.assign({requiresTsec:!0},s||{})),this._setPath(`accounts/v${this.version}/child-accounts/{child-account-id}/money-requests`)}toString(){return super.toString("BGADPChildAccountsChildAccountMoneyRequestsPostV1")}}export{t as B};

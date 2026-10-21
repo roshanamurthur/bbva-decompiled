@@ -1,0 +1,7 @@
+package com.appsflyer.internal;
+
+/* JADX INFO: loaded from: classes2.dex */
+public final class AFg1kSDK {
+    public static int AFInAppEventType;
+    public static final Object AFKeystoreWrapper = new Object();
+}

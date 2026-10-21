@@ -1,0 +1,1 @@
+import{B as t}from"./4966a83d.js";import"./952f98a9.js";import"./216055dc.js";class e extends t{static get is(){return"bbva-acquisition-incomes-es-api-dm"}async _responseMapping(t){return await this.updateComplete,t}async _paginationMapping(t){return await this.updateComplete,t}}customElements.define(e.is,e);export{e as BbvaAcquisitionIncomesEsApiDm};

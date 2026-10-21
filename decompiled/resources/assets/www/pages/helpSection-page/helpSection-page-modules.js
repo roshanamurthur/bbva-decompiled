@@ -1,0 +1,1 @@
+import"../../../node_modules/@bbva-web-components/bbva-form-predictive/bbva-form-predictive.js";import"../../../node_modules/@bbva-web-components/bbva-panel-info/bbva-panel-info.js";import"../../../node_modules/@glomo-web-components/bbva-widget-faqs-list/bbva-widget-faqs-list.js";import"../../../node_modules/@bbva-global-apis-dm/bbva-global-generic-dm/bbva-global-generic-dm.js";

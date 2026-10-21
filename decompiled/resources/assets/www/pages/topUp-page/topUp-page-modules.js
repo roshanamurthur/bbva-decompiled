@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-parking-enrollment/bbva-manager-parking-enrollment.js";

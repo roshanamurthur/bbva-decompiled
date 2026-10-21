@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-codi/bbva-manager-codi-mobile-request.js";import"../../../node_modules/@glomo-web-components/bbva-multistep-codi-p2p-mobile-transfer-request/bbva-multistep-codi-p2p-mobile-transfer-request.js";import"../../../node_modules/@glomo-web-components/bbva-manager-codi/bbva-analytic-manager-codi.js";

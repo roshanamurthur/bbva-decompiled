@@ -1,0 +1,50 @@
+{
+  "payload": {
+    "components": [
+      {
+        "tagName": "biometry-friendly-fraud-fingerprint",
+        "type": "SCREEN",
+        "properties": {
+          "toolbarTitleLabel": {
+            "type": "resource",
+            "value": "friendly_fraud_toolbar_title"
+          },
+          "headerImage": {
+            "type": "resource",
+            "value": "ic_friendly_fraud_illus"
+          },
+          "titleLabel": {
+            "type": "resource",
+            "value": "friendly_fraud_title"
+          },
+          "descriptionLabel": {
+            "type": "resource",
+            "value": "friendly_fraud_description"
+          }
+        }
+      },
+      {
+        "tagName": "biometry-friendly-fraud-face",
+        "type": "SCREEN",
+        "properties": {
+          "toolbarTitleLabel": {
+            "type": "resource",
+            "value": "friendly_fraud_toolbar_title"
+          },
+          "headerImage": {
+            "type": "resource",
+            "value": "ic_friendly_fraud_illus"
+          },
+          "titleLabel": {
+            "type": "resource",
+            "value": "friendly_fraud_title"
+          },
+          "descriptionLabel": {
+            "type": "resource",
+            "value": "friendly_fraud_description"
+          }
+        }
+      }
+    ]
+  }
+}

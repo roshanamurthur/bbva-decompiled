@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-feature-product-detail-invest-mx/bbva-feature-product-detail-invest-mx.js";

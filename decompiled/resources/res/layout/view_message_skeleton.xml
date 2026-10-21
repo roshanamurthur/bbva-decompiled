@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.bbva.cellswidgets.skeleton.CellsSkeletonView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/skeleton_message_view"
+    android:layout_width="match_parent"
+    android:layout_height="344dp"
+    app:cellsSkeletonView_fadeTransitionDuration="800"
+    app:cellsSkeletonView_highlightColor="?attr/messageCardView_messageSkeletonMask"
+    app:cellsSkeletonView_layout="@layout/view_message_skeleton_placeholder"
+    app:cellsSkeletonView_moveTransitionDuration="800"
+    app:cellsSkeletonView_sharpOffsetStart="136dp"/>

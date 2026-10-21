@@ -1,0 +1,1 @@
+import"../../../node_modules/@glomo-web-components/bbva-manager-sustainability/bbva-manager-sustainability.js";
